@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>속초 가족여행 🏔️🌊</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Noto Sans KR',sans-serif;background:#0a0a1a;color:#e0e0e0;overflow-x:hidden}
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;background:linear-gradient(135deg,#0c1445 0%,#1a237e 30%,#0d47a1 60%,#01579b 100%)}
+.hero::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%23ffffff10' d='M0,160L48,170.7C96,181,192,203,288,186.7C384,171,480,117,576,122.7C672,128,768,192,864,202.7C960,213,1056,171,1152,144C1248,117,1344,107,1392,101.3L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'/%3E%3C/svg%3E") no-repeat bottom;background-size:cover;opacity:.3}
+.hero-content{position:relative;z-index:2}
+.hero h1{font-size:clamp(2.5rem,6vw,4.5rem);font-weight:900;background:linear-gradient(135deg,#e3f2fd,#90caf9,#fff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:.5rem;letter-spacing:-2px}
+.hero .sub{font-size:clamp(1rem,2.5vw,1.5rem);color:#90caf9;font-weight:300;margin-bottom:1rem}
+.hero .baby-badge{display:inline-block;background:linear-gradient(135deg,rgba(244,143,177,.3),rgba(206,147,216,.2));border:1px solid rgba(244,143,177,.4);padding:8px 20px;border-radius:30px;font-size:.9rem;color:#f48fb1;margin-bottom:1rem}
+.hero .dates{display:inline-flex;gap:8px;align-items:center;background:rgba(255,255,255,.08);backdrop-filter:blur(10px);padding:12px 28px;border-radius:50px;border:1px solid rgba(255,255,255,.15);font-size:1rem;color:#bbdefb}
+.hero .dates span{font-weight:700;color:#e3f2fd}
+.snow{position:absolute;width:100%;height:100%;top:0;left:0;pointer-events:none;overflow:hidden}
+.snow i{position:absolute;width:3px;height:3px;background:#fff;border-radius:50%;opacity:.7;animation:fall linear infinite}
+@keyframes fall{0%{transform:translateY(-10vh) translateX(0);opacity:0}10%{opacity:.7}100%{transform:translateY(110vh) translateX(30px);opacity:0}}
+.container{max-width:1100px;margin:0 auto;padding:0 20px}
+section{padding:80px 0}
+.section-title{text-align:center;margin-bottom:50px}
+.section-title h2{font-size:2.2rem;font-weight:900;margin-bottom:8px;position:relative;display:inline-block}
+.section-title h2::after{content:'';position:absolute;bottom:-8px;left:50%;transform:translateX(-50%);width:60px;height:4px;border-radius:2px}
+.section-title p{color:#90a4ae;font-size:.95rem;margin-top:16px}
+.blue h2::after{background:linear-gradient(90deg,#42a5f5,#1565c0)}
+.orange h2::after{background:linear-gradient(90deg,#ff8a65,#e64a19)}
+.green h2::after{background:linear-gradient(90deg,#66bb6a,#2e7d32)}
+.pink h2::after{background:linear-gradient(90deg,#f48fb1,#c2185b)}
+.purple h2::after{background:linear-gradient(90deg,#ce93d8,#7b1fa2)}
+.cyan h2::after{background:linear-gradient(90deg,#4dd0e1,#00838f)}
+/* Alert */
+.alert-box{background:linear-gradient(135deg,rgba(255,183,77,.1),rgba(255,138,101,.08));border:1px solid rgba(255,183,77,.3);border-radius:14px;padding:18px 24px;margin-bottom:30px;display:flex;align-items:flex-start;gap:12px;font-size:.9rem;color:#ffe0b2;line-height:1.6}
+.alert-box .icon{font-size:1.3rem;flex-shrink:0;margin-top:2px}
+/* Accommodation */
+.accom-section{background:linear-gradient(180deg,#0a0a1a 0%,#0d1b2a 100%)}
+.accom-card{background:linear-gradient(135deg,rgba(26,35,126,.4),rgba(13,71,161,.3));border:1px solid rgba(100,181,246,.2);border-radius:20px;padding:40px;backdrop-filter:blur(10px);display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.accom-info h3{font-size:1.8rem;font-weight:700;color:#e3f2fd;margin-bottom:12px}
+.accom-info .addr{color:#90caf9;font-size:.9rem;margin-bottom:20px}
+.accom-features{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:20px}
+.accom-features span{background:rgba(100,181,246,.15);color:#90caf9;padding:6px 14px;border-radius:20px;font-size:.82rem;border:1px solid rgba(100,181,246,.2)}
+.accom-links a{display:inline-block;margin-right:12px;margin-bottom:8px;padding:10px 22px;border-radius:12px;text-decoration:none;font-size:.88rem;font-weight:500;transition:all .3s}
+.accom-links a:first-child{background:linear-gradient(135deg,#1565c0,#0d47a1);color:#fff}
+.accom-links a:nth-child(2){background:rgba(255,255,255,.08);color:#bbdefb;border:1px solid rgba(255,255,255,.15)}
+.accom-links a:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(21,101,192,.4)}
+.accom-visual{background:linear-gradient(135deg,#1a237e,#0d47a1);border-radius:16px;height:280px;display:flex;align-items:center;justify-content:center;font-size:5rem;position:relative;overflow:hidden}
+.accom-visual::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,transparent 40%,rgba(100,181,246,.1));border-radius:16px}
+/* Pool Info */
+.pool-section{background:linear-gradient(180deg,#0d1b2a,#061224)}
+.pool-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;margin-bottom:30px}
+.pool-card{background:rgba(77,208,225,.06);border:1px solid rgba(77,208,225,.15);border-radius:16px;padding:24px;position:relative;overflow:hidden}
+.pool-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#4dd0e1,#00838f)}
+.pool-card h4{font-size:1.1rem;font-weight:700;color:#4dd0e1;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.pool-card p{font-size:.88rem;color:#b0bec5;line-height:1.6;margin-bottom:8px}
+.pool-card .detail{font-size:.82rem;color:#78909c;line-height:1.6}
+.pool-card .status{display:inline-block;padding:4px 12px;border-radius:8px;font-size:.78rem;font-weight:600;margin-bottom:12px}
+.status-open{background:rgba(102,187,106,.15);color:#66bb6a;border:1px solid rgba(102,187,106,.3)}
+.status-closed{background:rgba(239,83,80,.12);color:#ef5350;border:1px solid rgba(239,83,80,.25)}
+.pool-note{background:rgba(255,183,77,.08);border:1px solid rgba(255,183,77,.2);border-radius:12px;padding:16px 20px;font-size:.85rem;color:#ffe0b2;line-height:1.6}
+/* Schedule */
+.schedule-section{background:linear-gradient(180deg,#061224 0%,#0a0a1a 100%)}
+.timeline{position:relative;padding-left:40px}
+.timeline::before{content:'';position:absolute;left:16px;top:0;bottom:0;width:2px;background:linear-gradient(180deg,#42a5f5,#1565c0,#0d47a1)}
+.day-block{margin-bottom:50px;position:relative}
+.day-block::before{content:'';position:absolute;left:-28px;top:6px;width:14px;height:14px;border-radius:50%;border:3px solid #42a5f5;background:#0a0a1a;z-index:1}
+.day-header{display:inline-flex;align-items:center;gap:12px;background:linear-gradient(135deg,rgba(66,165,245,.2),rgba(21,101,192,.15));padding:8px 20px;border-radius:30px;margin-bottom:20px;border:1px solid rgba(66,165,245,.25)}
+.day-header h3{font-size:1.1rem;color:#90caf9;font-weight:700}
+.day-header span{font-size:.85rem;color:#64b5f6}
+.events{display:flex;flex-direction:column;gap:14px}
+.event{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:18px 22px;display:flex;gap:16px;align-items:flex-start;transition:all .3s}
+.event:hover{background:rgba(255,255,255,.07);transform:translateX(4px);border-color:rgba(100,181,246,.2)}
+.event-time{min-width:55px;font-size:.8rem;color:#64b5f6;font-weight:500;padding-top:2px}
+.event-content h4{font-size:1rem;font-weight:600;color:#e3f2fd;margin-bottom:4px}
+.event-content p{font-size:.85rem;color:#90a4ae;line-height:1.5}
+.event-tag{display:inline-block;padding:2px 10px;border-radius:10px;font-size:.72rem;font-weight:500;margin-top:6px}
+.tag-food{background:rgba(255,138,101,.15);color:#ff8a65}
+.tag-spot{background:rgba(100,181,246,.15);color:#64b5f6}
+.tag-rest{background:rgba(206,147,216,.15);color:#ce93d8}
+.tag-baby{background:rgba(244,143,177,.15);color:#f48fb1}
+.tag-sleep{background:rgba(255,183,77,.12);color:#ffb74d}
+.bedtime-event{border:1px solid rgba(255,183,77,.2)!important;background:rgba(255,183,77,.05)!important}
+/* Cards Grid */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:20px}
+.card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:18px;padding:28px;transition:all .4s;position:relative;overflow:hidden}
+.card:hover{transform:translateY(-4px);border-color:rgba(100,181,246,.25);box-shadow:0 12px 40px rgba(0,0,0,.3)}
+.card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;border-radius:18px 18px 0 0}
+.card.food::before{background:linear-gradient(90deg,#ff8a65,#e64a19)}
+.card.spot::before{background:linear-gradient(90deg,#42a5f5,#1565c0)}
+.card.baby::before{background:linear-gradient(90deg,#f48fb1,#c2185b)}
+.card-emoji{font-size:2.5rem;margin-bottom:12px}
+.card h3{font-size:1.15rem;font-weight:700;margin-bottom:6px}
+.card h3 a{color:#e3f2fd;text-decoration:none;transition:color .2s;border-bottom:1px dashed rgba(255,255,255,.2)}
+.card h3 a:hover{color:#90caf9;border-bottom-color:#90caf9}
+.card .card-sub{font-size:.82rem;color:#64b5f6;margin-bottom:12px}
+.card p{font-size:.88rem;color:#b0bec5;line-height:1.65}
+.card .reason{margin-top:12px;padding:12px;background:rgba(255,255,255,.04);border-radius:10px;border-left:3px solid}
+.card.food .reason{border-color:#ff8a65}
+.card.spot .reason{border-color:#42a5f5}
+.card.baby .reason{border-color:#f48fb1}
+.card .reason strong{font-size:.82rem;color:#90caf9;display:block;margin-bottom:4px}
+.card .reason span{font-size:.82rem;color:#90a4ae;line-height:1.5}
+.card .baby-tip{margin-top:10px;padding:10px 12px;background:rgba(244,143,177,.08);border-radius:8px;font-size:.8rem;color:#f48fb1;line-height:1.5}
+/* Checklist */
+.checklist-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.check-category{background:rgba(244,143,177,.05);border:1px solid rgba(244,143,177,.15);border-radius:16px;padding:22px}
+.check-category h4{font-size:1rem;font-weight:700;color:#f48fb1;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.check-item{display:flex;align-items:center;gap:10px;padding:6px 0;font-size:.88rem;color:#cfd8dc;border-bottom:1px solid rgba(255,255,255,.04)}
+.check-item:last-child{border-bottom:none}
+.check-item::before{content:'○';color:#f48fb1;font-size:.7rem}
+/* Baby section */
+.baby-section{background:linear-gradient(180deg,#1a0a2e 0%,#0a0a1a 100%)}
+.baby-banner{background:linear-gradient(135deg,rgba(244,143,177,.1),rgba(206,147,216,.1));border:1px solid rgba(244,143,177,.2);border-radius:20px;padding:30px;text-align:center;margin-bottom:40px}
+.baby-banner h3{font-size:1.4rem;color:#f48fb1;margin-bottom:8px}
+.baby-banner p{color:#ce93d8;font-size:.9rem;line-height:1.6}
+/* Footer */
+footer{text-align:center;padding:40px 20px;color:#455a64;font-size:.82rem;border-top:1px solid rgba(255,255,255,.05)}
+@media(max-width:768px){
+.accom-card{grid-template-columns:1fr;gap:20px}
+.accom-visual{height:180px;font-size:3.5rem}
+.timeline{padding-left:30px}
+.day-block::before{left:-18px}
+.cards{grid-template-columns:1fr}
+.pool-grid{grid-template-columns:1fr}
+}
+.fade-in{opacity:0;transform:translateY(20px);transition:all .6s ease}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+<div class="snow" id="snow"></div>
+<div class="hero-content">
+<h1>속초 가족여행 🏔️</h1>
+<p class="sub">겨울 바다와 설악산이 함께하는 힐링 여행</p>
+<div class="baby-badge">👶 생후 9개월 아기와 함께하는 여행</div><br>
+<div class="dates">📅 <span>2025. 2. 11 (화)</span> ~ <span>2. 13 (목)</span>&nbsp;&nbsp;|&nbsp;&nbsp;2박 3일</div>
+</div>
+</section>
+
+<!-- ACCOMMODATION -->
+<section class="accom-section">
+<div class="container">
+<div class="section-title blue"><h2>🏨 숙소</h2></div>
+<div class="accom-card fade-in">
+<div class="accom-info">
+<h3>체스터톤스 속초</h3>
+<p class="addr">📍 강원도 속초시 엑스포로 109 · ☎ 033-632-0001</p>
+<div class="accom-features">
+<span>🅿️ 무료 주차</span>
+<span>♨️ 온천사우나 (연중)</span>
+<span>🍳 공유주방 (B동 1층)</span>
+<span>🧒 키즈락 (A동 1층)</span>
+<span>📶 무료 WiFi</span>
+<span>👗 세탁기 구비</span>
+<span>🏔️ 루프탑 뷰</span>
+<span>👶 36개월 미만 무료</span>
+</div>
+<div class="accom-links">
+<a href="https://allthatstay.com/hotel/101" target="_blank">올댓스테이 예약</a>
+<a href="https://map.naver.com/v5/search/체스터톤스 속초" target="_blank">📍 네이버 지도</a>
+</div>
+</div>
+<div class="accom-visual">🏔️🌊</div>
+</div>
+</div>
+</section>
+
+<!-- POOL INFO -->
+<section class="pool-section">
+<div class="container">
+<div class="section-title cyan"><h2>🏊 수영장 & 부대시설 상세 정보</h2><p>생후 9개월 아기 동반 시 꼭 확인하세요</p></div>
+<div class="pool-grid fade-in">
+<div class="pool-card">
+<h4>🏊 온천 수영장 & 노천탕 (야외)</h4>
+<div class="status status-closed">❄️ 동절기 휴장 (11월~3월)</div>
+<p>온천수가 공급되는 야외 수영장과 노천탕. 유아풀(얕은 수심)과 성인풀이 분리되어 있으며, 안전요원 상시 배치.</p>
+<div class="detail">
+⚠️ <strong>2월 방문 시 이용 불가</strong> — 매년 4~10월만 운영됩니다.<br>
+📍 위치: 중앙 광장 1층 야외<br>
+💰 투숙객 무료 / 횟수 제한 없음<br>
+👶 유아풀: 수심 얕은 별도 구역 운영 (여름 시즌)<br>
+🩱 수영복 필수 착용 / 이유식 반입 가능
+</div>
+</div>
+<div class="pool-card">
+<h4>♨️ 치유인 온천사우나 (실내)</h4>
+<div class="status status-open">✅ 연중 운영</div>
+<p>중앙 광장 지하 1층에 위치한 온천 사우나. 넓고 깨끗하며, 겨울에도 이용 가능!</p>
+<div class="detail">
+📍 위치: 중앙 광장 지하 1층<br>
+⏰ 운영 시간: 07:00 ~ 21:00<br>
+💰 성인 12,000원 / 소인(36개월~13세) 8,000원 / <strong>36개월 미만 무료</strong><br>
+📅 매월 첫째 화요일 휴장 (대청소) → <strong>2/11(화) 첫째 화요일 아닌지 확인 필요!</strong><br>
+⚠️ 36개월 이상은 성별에 맞춰 입장 필수
+</div>
+</div>
+<div class="pool-card">
+<h4>🧒 키즈락 (실내 놀이공간)</h4>
+<div class="status status-open">✅ 연중 운영</div>
+<p>A동 1층에 위치한 어린이 체험형 놀이터. 실내라 겨울에도 이용 가능.</p>
+<div class="detail">
+📍 위치: A동 1층<br>
+👶 9개월 아기: 기어다니기/앉아놀기 가능한 공간<br>
+🧸 부모 동반 필수
+</div>
+</div>
+<div class="pool-card">
+<h4>🍳 요리공작소 (공유주방)</h4>
+<div class="status status-open">✅ 연중 운영</div>
+<p>B동 1층. 밀키트 판매, 고기 구워먹기 가능. 전자레인지 등 조리시설 완비.</p>
+<div class="detail">
+📍 위치: B동 1층<br>
+👶 이유식 데우기, 분유 타기에 활용 가능<br>
+🍖 밀키트 현장 판매 / 공동 조리 공간
+</div>
+</div>
+</div>
+<div class="pool-note fade-in">
+⚠️ <strong>9개월 아기 참고사항:</strong> 야외 수영장은 2월 휴장이라 이용 불가합니다. 대신 치유인 온천사우나(지하1층)는 36개월 미만 무료 입장 가능하며, 객실 내 욕조에서 아기 목욕도 가능합니다. 화장실이 넓어 아기 씻기기 편하다는 후기가 많습니다. 아기 침대(크립)는 제공되지 않으니 이불을 꼭 챙겨주세요!
+</div>
+</div>
+</section>
+
+<!-- SCHEDULE -->
+<section class="schedule-section">
+<div class="container">
+<div class="section-title blue"><h2>📋 일정표</h2><p>⏰ 아기 취침시간 19:30 기준 — 저녁 일정은 숙소 중심으로 구성했어요</p></div>
+
+<div class="timeline fade-in">
+<!-- Day 1 -->
+<div class="day-block">
+<div class="day-header"><h3>DAY 1</h3><span>2월 11일 (화)</span></div>
+<div class="events">
+<div class="event"><div class="event-time">오전</div><div class="event-content"><h4>🚗 출발 & 이동</h4><p>서울/수도권 출발 → 속초 도착 (약 2.5~3시간). 중간에 휴게소에서 수유/이유식 타임</p><span class="event-tag tag-rest">이동</span></div></div>
+<div class="event"><div class="event-time">12:00</div><div class="event-content"><h4>🍜 점심 — <a href="https://map.naver.com/v5/search/속초 진미막국수" target="_blank">진미막국수</a></h4><p>속초 대표 막국수 맛집. 들기름 메밀막국수 + 감자전. 넓은 매장 & 주차장 완비. 아기 이유식은 지참해서 함께 먹이기</p><span class="event-tag tag-food">맛집</span></div></div>
+<div class="event"><div class="event-time">14:00</div><div class="event-content"><h4>🏨 체스터톤스 체크인 & 세팅</h4><p>아기 잠자리 세팅(이불/무드등), 이유식 준비. 숙소 앞 하나로마트에서 필요 물품 구매</p><span class="event-tag tag-rest">숙소</span><span class="event-tag tag-baby" style="margin-left:4px">아기 세팅</span></div></div>
+<div class="event"><div class="event-time">15:30</div><div class="event-content"><h4>🏞️ <a href="https://map.naver.com/v5/search/속초 청초호" target="_blank">청초호 산책</a> & <a href="https://map.naver.com/v5/search/속초 엑스포타워" target="_blank">엑스포타워</a></h4><p>숙소에서 도보 4분! 유모차 산책 최적의 평지 코스. 엑스포타워 전망대에서 속초 전경 감상</p><span class="event-tag tag-spot">관광</span></div></div>
+<div class="event"><div class="event-time">17:00</div><div class="event-content"><h4>🦀 이른 저녁 — <a href="https://map.naver.com/v5/search/속초 청초수물회" target="_blank">청초수물회</a></h4><p>속초 대표 물회 맛집. 겨울엔 따끈한 섭국도 추천. 아기 전복죽 메뉴 있음! 숙소 복귀 시간 고려해 일찍 식사</p><span class="event-tag tag-food">맛집</span></div></div>
+<div class="event"><div class="event-time">18:30</div><div class="event-content"><h4>🏨 숙소 복귀 — 아기 목욕 & 수유</h4><p>객실 욕조에서 아기 목욕. 넓은 화장실이라 편리. 이유식/분유 마무리</p><span class="event-tag tag-baby">아기 케어</span></div></div>
+<div class="event bedtime-event"><div class="event-time">19:30</div><div class="event-content"><h4>🌙 아기 취침</h4><p>무드등 켜고 잠자리 준비. 아기 재운 후 부모 자유시간 — 치유인 온천사우나, 루프탑 야경, 체스터책방 등 활용</p><span class="event-tag tag-sleep">💤 취침</span></div></div>
+</div>
+</div>
+
+<!-- Day 2 -->
+<div class="day-block">
+<div class="day-header"><h3>DAY 2</h3><span>2월 12일 (수)</span></div>
+<div class="events">
+<div class="event"><div class="event-time">08:00</div><div class="event-content"><h4>🍳 아침 — 숙소 공유주방 (B동 1층)</h4><p>요리공작소에서 간단 조리 or 밀키트. 아기 이유식도 여기서 데우기. 전자레인지/조리시설 완비</p><span class="event-tag tag-food">식사</span></div></div>
+<div class="event"><div class="event-time">09:30</div><div class="event-content"><h4>🏔️ <a href="https://naver.me/5WvMVuoE" target="_blank">설악산 케이블카</a> (권금성)</h4><p>겨울 설경이 장관! 아기 안고/아기띠로 탑승 가능. 왕복 약 30분. 추위 대비 아기 블랭킷 필수</p><span class="event-tag tag-spot">관광</span></div></div>
+<div class="event"><div class="event-time">11:30</div><div class="event-content"><h4>🍲 점심 — <a href="https://naver.me/G4K8PRMJ" target="_blank">신흥사 인근 순두부촌</a></h4><p>설악산 근처 초당순두부 맛집. 담백한 순두부는 아기 이유식 대용으로도 OK. 감자전도 추천</p><span class="event-tag tag-food">맛집</span></div></div>
+<div class="event"><div class="event-time">13:30</div><div class="event-content"><h4>🧒 숙소 복귀 — 아기 낮잠</h4><p>오전 외출 후 숙소에서 아기 낮잠 재우기. 부모도 잠깐 휴식</p><span class="event-tag tag-baby">아기 낮잠</span></div></div>
+<div class="event"><div class="event-time">15:00</div><div class="event-content"><h4>🏪 <a href="https://map.naver.com/v5/search/속초관광수산시장" target="_blank">속초관광수산시장</a></h4><p>닭강정, 씨앗호떡, 오징어순대 등 먹거리 탐방. 비가림시설 완비라 유모차 이동 가능. 시장 내에서 간식으로 배 채우기</p><span class="event-tag tag-food">맛집</span><span class="event-tag tag-spot" style="margin-left:4px">관광</span></div></div>
+<div class="event"><div class="event-time">17:00</div><div class="event-content"><h4>🐟 이른 저녁 — <a href="https://naver.me/xHSMbMew" target="_blank">88생선구이</a></h4><p>숯불 생선구이 모둠정식(2만원대). 담백한 생선살은 9개월 아기도 으깨서 먹이기 가능</p><span class="event-tag tag-food">맛집</span></div></div>
+<div class="event"><div class="event-time">18:30</div><div class="event-content"><h4>🏨 숙소 복귀 — 아기 목욕 & 수유</h4><p>저녁 루틴 진행. 이유식/분유 마무리</p><span class="event-tag tag-baby">아기 케어</span></div></div>
+<div class="event bedtime-event"><div class="event-time">19:30</div><div class="event-content"><h4>🌙 아기 취침</h4><p>아기 재운 후 → 치유인 온천사우나(21시까지), 루프탑에서 야경 감상, 넷플릭스 등</p><span class="event-tag tag-sleep">💤 취침</span></div></div>
+</div>
+</div>
+
+<!-- Day 3 -->
+<div class="day-block">
+<div class="day-header"><h3>DAY 3</h3><span>2월 13일 (목)</span></div>
+<div class="events">
+<div class="event"><div class="event-time">07:30</div><div class="event-content"><h4>🌅 루프탑 일출 감상</h4><p>체스터톤스 옥상에서 청초호 배경 일출. 울산바위도 보여요! (아기 깨기 전 부모 번갈아)</p><span class="event-tag tag-spot">관광</span></div></div>
+<div class="event"><div class="event-time">09:00</div><div class="event-content"><h4>🍜 아침 — <a href="https://naver.me/FdCqWfSi" target="_blank">또만나식당</a> (황태해장국)</h4><p>구수한 황태국으로 속초 마지막 아침. 부드러운 황태살은 아기도 먹기 좋음</p><span class="event-tag tag-food">맛집</span></div></div>
+<div class="event"><div class="event-time">10:30</div><div class="event-content"><h4>⛵ <a href="https://naver.me/FD5H1vVZ" target="_blank">아바이마을</a> & 갯배 체험</h4><p>갯배 타고 아바이마을로! 왕복 5분. 아기 안고 탑승 가능. 마을 구경 후 오징어순대 간식</p><span class="event-tag tag-spot">관광</span></div></div>
+<div class="event"><div class="event-time">11:30</div><div class="event-content"><h4>🌊 <a href="https://naver.me/x3O8sIDH" target="_blank">영금정</a> & <a href="https://naver.me/FaQFTK3R" target="_blank">속초등대전망대</a></h4><p>겨울 바다 파도 소리 감상. 등대전망대에서 동해 조망 & 기념사진. 유모차 접근 가능 데크길</p><span class="event-tag tag-spot">관광</span></div></div>
+<div class="event"><div class="event-time">13:00</div><div class="event-content"><h4>🚗 복귀</h4><p>속초 출발 → 집으로! 아기 차에서 낮잠. 수고하셨습니다 🎉</p><span class="event-tag tag-rest">이동</span></div></div>
+</div>
+</div>
+</div>
+
+</div>
+</section>
+
+<!-- FOOD RECOMMENDATIONS -->
+<section style="background:linear-gradient(180deg,#0a0a1a,#1a0f00)">
+<div class="container">
+<div class="section-title orange"><h2>🍽️ 맛집 추천</h2><p>숙소 인근 & 속초 대표 맛집 · 9개월 아기 동반 가능 여부 표시</p></div>
+<div class="cards fade-in">
+<div class="card food">
+<div class="card-emoji">🍜</div>
+<h3><a href="https://map.naver.com/v5/search/속초 진미막국수" target="_blank">진미막국수</a></h3>
+<div class="card-sub">📍 속초시 설악금강대교로 46-1 · 매일 11:00-19:00 (수 휴무)</div>
+<p>속초 대표 막국수. 비빔/물 막국수 모두 일품이며, 감자전과 수육도 함께 추천.</p>
+<div class="baby-tip">👶 아기 TIP: 넓은 매장, 주차 편리. 아기 의자 요청 가능. 이유식 지참 필수 (면류는 9개월엔 이른 편)</div>
+<div class="reason"><strong>💡 추천 이유</strong><span>숙소에서 차량 10분. 겨울에도 따끈한 들깨칼국수가 인기. 수요일 휴무 주의!</span></div>
+</div>
+<div class="card food">
+<div class="card-emoji">🐟</div>
+<h3><a href="https://map.naver.com/v5/search/속초 청초수물회" target="_blank">청초수물회</a></h3>
+<div class="card-sub">📍 속초 대표 물회 맛집 · 넓은 매장 & 주차장 완비</div>
+<p>속초 3대 물회 맛집. 겨울엔 따끈한 섭국(자연산 홍합국) 추천. 해산물의 시원한 감칠맛이 일품.</p>
+<div class="baby-tip">👶 아기 TIP: 아기 전복죽 메뉴 있음! 9개월 아기에게 딱. 매장 넓어 유모차도 가능</div>
+<div class="reason"><strong>💡 추천 이유</strong><span>아기 전복죽이 있어 가족 식사에 최적. 속초아이(대관람차) 근처라 동선 연계 편리.</span></div>
+</div>
+<div class="card food">
+<div class="card-emoji">🔥</div>
+<h3><a href="https://map.naver.com/v5/search/속초 88생선구이" target="_blank">88생선구이</a></h3>
+<div class="card-sub">📍 속초시 중앙부두길 71 · 08:30-21:00 연중무휴</div>
+<p>8종 생선을 숯불에 구워주는 모둠정식(2만원대). 담백하고 부드러운 생선살이 일품.</p>
+<div class="baby-tip">👶 아기 TIP: 부드러운 생선살을 으깨서 9개월 아기에게 먹이기 좋음. 아기 식기 지참 추천</div>
+<div class="reason"><strong>💡 추천 이유</strong><span>연중무휴라 안심. 아기에게 생선살을 떼어줄 수 있어 이유식 대용 가능.</span></div>
+</div>
+<div class="card food">
+<div class="card-emoji">🐔</div>
+<h3><a href="https://map.naver.com/v5/search/속초 만석닭강정" target="_blank">만석닭강정</a></h3>
+<div class="card-sub">📍 속초관광수산시장 닭전골목</div>
+<p>속초 닭강정의 전설. 매콤달콤 바삭한 닭강정. 포장해서 숙소에서 먹기에도 좋음.</p>
+<div class="baby-tip">👶 아기 TIP: 양념이 매콤해 아기에겐 부적합. 부모 간식용으로 포장 추천!</div>
+<div class="reason"><strong>💡 추천 이유</strong><span>시장 구경 겸 간식으로 딱. 숙소까지 차로 5분. 아기 재운 후 야식으로도 최고.</span></div>
+</div>
+<div class="card food">
+<div class="card-emoji">🥟</div>
+<h3><a href="https://map.naver.com/v5/search/속초 감나무집 감자옹심이" target="_blank">감나무집 감자옹심이</a></h3>
+<div class="card-sub">📍 속초중앙시장 내 · 11:30-20:00 (수 휴무)</div>
+<p>감자+전분만으로 만든 쫀득한 옹심이. 들깨 국물이 고소하고 따끈해 겨울에 딱.</p>
+<div class="baby-tip">👶 아기 TIP: 옹심이는 쫄깃해서 9개월엔 위험. 부드러운 국물만 조금 떠먹이기 가능. 수요일 휴무!</div>
+<div class="reason"><strong>💡 추천 이유</strong><span>속초 향토 음식 체험. 시장 구경과 함께 즐기기 좋음.</span></div>
+</div>
+<div class="card food">
+<div class="card-emoji">🍲</div>
+<h3><a href="https://map.naver.com/v5/search/속초 또만나식당" target="_blank">또만나식당</a></h3>
+<div class="card-sub">📍 속초시 · 황태 요리 전문</div>
+<p>칼칼한 황개장과 구수한 황태국이 대표 메뉴. 시원하고 뽀얀 국물이 일품.</p>
+<div class="baby-tip">👶 아기 TIP: 황태살을 잘게 찢어주면 9개월 아기도 먹기 좋음. 부드럽고 단백질 풍부!</div>
+<div class="reason"><strong>💡 추천 이유</strong><span>마지막 날 아침으로 추천. 해장에도 좋고, 아기에게도 황태살을 줄 수 있어 일석이조.</span></div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- SPOT RECOMMENDATIONS -->
+<section style="background:linear-gradient(180deg,#1a0f00,#0a0a1a)">
+<div class="container">
+<div class="section-title green"><h2>🗺️ 관광지 추천</h2><p>겨울 속초 · 유모차/아기띠 접근성 표시</p></div>
+<div class="cards fade-in">
+<div class="card spot">
+<div class="card-emoji">🏔️</div>
+<h3><a href="https://map.naver.com/v5/search/설악산 케이블카" target="_blank">설악산 케이블카 (권금성)</a></h3>
+<div class="card-sub">📍 설악산 국립공원 내 · 탑승 약 10분</div>
+<p>겨울 설경을 가장 편하게 즐기는 방법. 케이블카에서 내려다보는 풍경이 장관.</p>
+<div class="baby-tip">👶 아기띠로 탑승 가능. 권금성 위는 바람이 세니 아기 블랭킷/방풍 필수. 유모차는 탑승 불가</div>
+<div class="reason"><strong>💡 추천 이유</strong><span>숙소에서 차량 19분. 평일이라 대기 짧을 가능성 높음. 오전 일찍 방문 추천.</span></div>
+</div>
+<div class="card spot">
+<div class="card-emoji">🌅</div>
+<h3><a href="https://map.naver.com/v5/search/속초 영금정" target="_blank">영금정</a> & <a href="https://map.naver.com/v5/search/속초등대전망대" target="_blank">속초등대전망대</a></h3>
+<div class="card-sub">📍 속초시 영금정로 43 · 연중무휴 · 무료</div>
+<p>속초 8경 중 제1경. 해상 정자에서 동해를 시원하게 조망. 겨울 파도 소리가 인상적.</p>
+<div class="baby-tip">👶 데크길은 유모차 가능. 해상 정자는 바람이 세니 아기띠 추천. 계단 구간 있음 주의</div>
+<div class="reason"><strong>💡 추천 이유</strong><span>무료 입장. 동명항, 등대해수욕장과 동선 연결. 겨울 바다 포토스팟.</span></div>
+</div>
+<div class="card spot">
+<div class="card-emoji">🏞️</div>
+<h3><a href="https://map.naver.com/v5/search/속초 청초호" target="_blank">청초호</a> & <a href="https://map.naver.com/v5/search/속초 엑스포타워" target="_blank">엑스포타워 전망대</a></h3>
+<div class="card-sub">📍 숙소에서 도보 4분! · 24시간 개방 (공원)</div>
+<p>둘레 5km의 자연 석호. 산책로 잘 정비, 야경 조명 아름다움.</p>
+<div class="baby-tip">👶 유모차 산책 완벽한 평지 코스! 숙소 바로 앞이라 아기 컨디션에 따라 유동적으로 방문 가능</div>
+<div class="reason"><strong>💡 추천 이유</strong><span>숙소 코앞이라 부담 없음. 아기 취침 전 가벼운 산책으로 최적.</span></div>
+</div>
+<div class="card spot">
+<div class="card-emoji">⛵</div>
+<h3><a href="https://map.naver.com/v5/search/속초 아바이마을" target="_blank">아바이마을 & 갯배 체험</a></h3>
+<div class="card-sub">📍 속초시 청호동 · 갯배 왕복 500원</div>
+<p>밧줄을 당겨 운항하는 갯배 체험은 속초만의 특별한 경험. 마을에서 오징어순대 간식.</p>
+<div class="baby-tip">👶 갯배 탑승 시 아기 안고 타기. 짧은 거리(약 1분)라 안전. 마을 내 유모차 이동 가능</div>
+<div class="reason"><strong>💡 추천 이유</strong><span>이색 체험. 마을 내 무료주차장 있음. 속초 중앙시장과 동선 연결 편리.</span></div>
+</div>
+<div class="card spot">
+<div class="card-emoji">🏪</div>
+<h3><a href="https://map.naver.com/v5/search/속초관광수산시장" target="_blank">속초관광수산시장</a></h3>
+<div class="card-sub">📍 속초시 중앙로147번길 12 · 비가림시설 완비</div>
+<p>전국 10대 관광시장. 닭강정, 씨앗호떡, 오징어순대 등 속초 명물 먹거리 총집합.</p>
+<div class="baby-tip">👶 비가림 시설로 겨울에도 따뜻. 유모차 이동 가능하나 주말은 혼잡. 평일 방문 추천</div>
+<div class="reason"><strong>💡 추천 이유</strong><span>숙소에서 차량 5분. 평일이라 한산하게 즐기기 좋음. 만석닭강정 포장 가능.</span></div>
+</div>
+<div class="card spot">
+<div class="card-emoji">♨️</div>
+<h3><a href="https://map.naver.com/v5/search/속초 척산온천" target="_blank">척산온천</a></h3>
+<div class="card-sub">📍 속초시 노학동 · 05:30~21:00</div>
+<p>50년 역사의 천연 온천. 50도 내외 온천수. 겨울 설악산과 함께 몸 녹이기 최적.</p>
+<div class="baby-tip">👶 공중목욕탕이라 9개월 아기 데리고 가기엔 다소 불편. 부모 교대로 방문하거나, 숙소 사우나 이용 추천</div>
+<div class="reason"><strong>💡 추천 이유</strong><span>설악산 케이블카와 동선 연결. 체스터톤스 사우나로 대체 가능하므로 여유 있으면 방문.</span></div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- BABY SECTION -->
+<section class="baby-section">
+<div class="container">
+<div class="section-title pink"><h2>👶 아기와 함께</h2><p>생후 9개월 아기와 갈 수 있는 장소 & 체크리스트</p></div>
+
+<div class="baby-banner fade-in">
+<h3>🍼 생후 9개월 아기 여행 포인트</h3>
+<p>기어다니기/배밀이 활발한 시기! 이유식 후기 단계. 낯가림이 있을 수 있어요.<br>
+체스터톤스는 화장실이 넓고, 세탁기가 있어 아기 옷 세탁이 편리합니다.<br>
+객실 내 욕조에서 아기 목욕 가능하고, B동 공유주방에서 이유식 데우기도 OK!<br>
+⏰ <strong>취침 19:30 기준</strong> — 저녁 일정은 숙소 중심으로, 외출은 17시 전 마무리</p>
+</div>
+
+<div class="cards fade-in" style="margin-bottom:50px">
+<div class="card baby">
+<div class="card-emoji">🧒</div>
+<h3><a href="https://map.naver.com/v5/search/체스터톤스 속초" target="_blank">체스터톤스 키즈락</a></h3>
+<div class="card-sub">📍 A동 1층 · 숙소 내 실내 놀이공간</div>
+<p>어린이 체험형 놀이터. 기어다니고 앉아서 놀기 좋은 공간. 날씨/시간에 구애받지 않고 이용 가능.</p>
+<div class="reason"><strong>💡 추천 이유</strong><span>숙소 안이라 이동 부담 제로! 아기 낮잠 전후 가볍게 놀기 좋음. 9개월 기어다니기에 적합한 안전한 공간.</span></div>
+</div>
+<div class="card baby">
+<div class="card-emoji">🎡</div>
+<h3><a href="https://map.naver.com/v5/search/속초아이 대관람차" target="_blank">속초아이 (대관람차)</a></h3>
+<div class="card-sub">📍 속초해변 · 청초호 & 동해 바다 뷰</div>
+<p>회전 중 멈춤 기능이 있어 안전. 청초호와 동해 바다를 높은 곳에서 감상하는 특별한 경험.</p>
+<div class="reason"><strong>💡 추천 이유</strong><span>아기 안고 탑승 가능. 약 15분 소요. 바람 걱정 없는 밀폐형 곤돌라. 아기도 창밖 구경하며 즐거워해요.</span></div>
+</div>
+<div class="card baby">
+<div class="card-emoji">🧸</div>
+<h3><a href="https://map.naver.com/v5/search/속초 테디베어팜" target="_blank">테디베어팜</a></h3>
+<div class="card-sub">📍 속초시 학사평길 · 설악산 근처</div>
+<p>3개 전시관에 다양한 크기의 테디베어. 아기보다 큰 곰인형과 사진 찍기 좋은 공간.</p>
+<div class="reason"><strong>💡 추천 이유</strong><span>실내 관람. 9개월 아기는 큰 곰인형에 반응 좋음! 설악산 케이블카와 동선 연결.</span></div>
+</div>
+<div class="card baby">
+<div class="card-emoji">🏔️</div>
+<h3><a href="https://map.naver.com/v5/search/속초 국립산악박물관" target="_blank">국립산악박물관</a></h3>
+<div class="card-sub">📍 속초시 노학동 · 무료 입장 · 홈페이지 예약</div>
+<p>산악 문화 체험형 전시. 4층 옥상정원에서 설악산 뷰 감상. 북카페도 있어 쉬어가기 좋음.</p>
+<div class="reason"><strong>💡 추천 이유</strong><span>무료! 실내+옥상 뷰. 9개월 아기에겐 전시보다는 넓은 실내 공간에서 기어다니기 + 옥상 풍경 감상용으로 추천.</span></div>
+</div>
+<div class="card baby">
+<div class="card-emoji">🦀</div>
+<h3><a href="https://map.naver.com/v5/search/속초 테라크랩팜" target="_blank">테라크랩팜 (게 생태체험관)</a></h3>
+<div class="card-sub">📍 속초시 · 국내 유일 게 체험관</div>
+<p>토종 도둑게를 직접 보고 만져보는 체험관. 가이드 동반 프로그램 운영.</p>
+<div class="reason"><strong>💡 추천 이유</strong><span>실내 체험. 다만 9개월 아기는 만지기 체험보다는 구경 위주. 돌 지나면 더 즐길 수 있는 곳!</span></div>
+</div>
+<div class="card baby">
+<div class="card-emoji">🎨</div>
+<h3><a href="https://map.naver.com/v5/search/속초 뮤지엄엑스" target="_blank">뮤지엄엑스 속초점</a></h3>
+<div class="card-sub">📍 속초시 영랑동 · AI 체험형 전시관</div>
+<p>빛과 소리가 어우러진 미디어아트 체험 공간. 실내라 날씨 무관하게 즐길 수 있음.</p>
+<div class="reason"><strong>💡 추천 이유</strong><span>빛/소리에 반응하는 9개월 아기에게 시각적 자극이 될 수 있음. 다만 어두운 공간에서 놀랄 수 있으니 아기 반응 살피며 관람.</span></div>
+</div>
+</div>
+
+<!-- CHECKLIST -->
+<div class="section-title pink" style="margin-top:60px"><h2>✅ 아기 체크리스트</h2><p>생후 9개월 아기 여행 준비물</p></div>
+<div class="checklist-grid fade-in">
+<div class="check-category">
+<h4>🍼 수유 & 이유식</h4>
+<div class="check-item">젖꼭지</div>
+<div class="check-item">젖병</div>
+<div class="check-item">분유</div>
+<div class="check-item">보온병</div>
+<div class="check-item">쉐이커</div>
+<div class="check-item">나이아드 물</div>
+<div class="check-item">이유식 (후기 단계)</div>
+<div class="check-item">수저</div>
+<div class="check-item">물병</div>
+<div class="check-item">떡뻥</div>
+</div>
+<div class="check-category">
+<h4>💊 건강 & 위생</h4>
+<div class="check-item">상비약 (해열제 2종 / 배탈약)</div>
+<div class="check-item">약병</div>
+<div class="check-item">칼슘 / 마그네슘</div>
+<div class="check-item">해열시트</div>
+<div class="check-item">카밀리야 (이앓이)</div>
+<div class="check-item">코칙칙</div>
+<div class="check-item">체온계</div>
+<div class="check-item">로션 (엉덩이 / 얼굴)</div>
+<div class="check-item">비판텐</div>
+</div>
+<div class="check-category">
+<h4>🧴 목욕 & 세정</h4>
+<div class="check-item">칫솔 / 치약</div>
+<div class="check-item">젖병솔</div>
+<div class="check-item">주방세제</div>
+<div class="check-item">아기세제</div>
+<div class="check-item">욕조</div>
+<div class="check-item">수건</div>
+<div class="check-item">물티슈</div>
+<div class="check-item">손수건</div>
+</div>
+<div class="check-category">
+<h4>👕 의류 & 침구</h4>
+<div class="check-item">옷 12벌 정도</div>
+<div class="check-item">턱받이 / 일회용 턱받이</div>
+<div class="check-item">기저귀</div>
+<div class="check-item">이불</div>
+<div class="check-item">블랭킷</div>
+</div>
+<div class="check-category">
+<h4>🧸 놀이 & 수면</h4>
+<div class="check-item">쪽쪽이</div>
+<div class="check-item">치발기</div>
+<div class="check-item">튤립</div>
+<div class="check-item">스트랩</div>
+<div class="check-item">무드등</div>
+</div>
+<div class="check-category">
+<h4>🔌 기타</h4>
+<div class="check-item">충전기</div>
+</div>
+</div>
+</div>
+</section>
+
+<footer>
+<p>🏔️ 속초 가족여행 계획표 · 2025. 2. 11 ~ 2. 13 · 👶 생후 9개월 아기와 함께 · 즐거운 여행 되세요! 🌊</p>
+</footer>
+
+<script>
+const snow=document.getElementById('snow');
+for(let i=0;i<50;i++){const s=document.createElement('i');s.style.left=Math.random()*100+'%';s.style.animationDuration=(3+Math.random()*5)+'s';s.style.animationDelay=Math.random()*5+'s';s.style.width=s.style.height=(1+Math.random()*3)+'px';snow.appendChild(s)}
+const obs=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')})},{threshold:.1});
+document.querySelectorAll('.fade-in').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
