@@ -106,14 +106,65 @@ section{padding:80px 0}
 .checklist-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
 .check-category{background:rgba(244,143,177,.05);border:1px solid rgba(244,143,177,.15);border-radius:16px;padding:22px}
 .check-category h4{font-size:1rem;font-weight:700;color:#f48fb1;margin-bottom:14px;display:flex;align-items:center;gap:8px}
-.check-item{display:flex;align-items:center;gap:10px;padding:6px 0;font-size:.88rem;color:#cfd8dc;border-bottom:1px solid rgba(255,255,255,.04)}
+.check-item{display:flex;align-items:center;gap:10px;padding:6px 0;font-size:.88rem;color:#cfd8dc;border-bottom:1px solid rgba(255,255,255,.04);cursor:pointer;transition:all .3s;user-select:none}
 .check-item:last-child{border-bottom:none}
-.check-item::before{content:'○';color:#f48fb1;font-size:.7rem}
+.check-item:hover{background:rgba(244,143,177,.05);border-radius:6px;padding-left:4px}
+.check-item input[type="checkbox"]{display:none}
+.check-item .checkmark{width:20px;height:20px;border:2px solid #f48fb1;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .3s;font-size:.7rem;color:transparent}
+.check-item input:checked+.checkmark{background:#f48fb1;border-color:#f48fb1;color:#0a0a1a}
+.check-item input:checked~.check-label{text-decoration:line-through;color:#78909c}
+.check-label{transition:all .3s}
+.checklist-progress{margin-bottom:20px;text-align:center}
+.checklist-progress .progress-bar{width:100%;height:8px;background:rgba(244,143,177,.15);border-radius:4px;overflow:hidden;margin-top:8px}
+.checklist-progress .progress-fill{height:100%;background:linear-gradient(90deg,#f48fb1,#c2185b);border-radius:4px;transition:width .4s ease}
+.checklist-progress .progress-text{font-size:.85rem;color:#f48fb1;font-weight:500}
 /* Baby section */
 .baby-section{background:linear-gradient(180deg,#1a0a2e 0%,#0a0a1a 100%)}
 .baby-banner{background:linear-gradient(135deg,rgba(244,143,177,.1),rgba(206,147,216,.1));border:1px solid rgba(244,143,177,.2);border-radius:20px;padding:30px;text-align:center;margin-bottom:40px}
 .baby-banner h3{font-size:1.4rem;color:#f48fb1;margin-bottom:8px}
 .baby-banner p{color:#ce93d8;font-size:.9rem;line-height:1.6}
+/* Hospital */
+.hospital-section{background:linear-gradient(180deg,#0a0a1a 0%,#1a0a0a 100%)}
+.red h2::after{background:linear-gradient(90deg,#ef5350,#b71c1c)}
+.hospital-alert{background:linear-gradient(135deg,rgba(239,83,80,.12),rgba(183,28,28,.08));border:1px solid rgba(239,83,80,.3);border-radius:16px;padding:20px 24px;margin-bottom:30px;display:flex;align-items:flex-start;gap:12px;font-size:.88rem;color:#ef9a9a;line-height:1.7}
+.hospital-alert .icon{font-size:1.4rem;flex-shrink:0;margin-top:2px}
+.hospital-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(480px,1fr));gap:20px;margin-bottom:30px}
+.hospital-card{background:rgba(239,83,80,.05);border:1px solid rgba(239,83,80,.15);border-radius:16px;padding:24px;position:relative;overflow:hidden;transition:all .3s}
+.hospital-card:hover{border-color:rgba(239,83,80,.3);transform:translateY(-2px)}
+.hospital-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#ef5350,#b71c1c)}
+.hospital-card h4{font-size:1.15rem;font-weight:700;color:#ef9a9a;margin-bottom:4px;display:flex;align-items:center;gap:8px}
+.hospital-card h4 a{color:#ef9a9a;text-decoration:none;border-bottom:1px dashed rgba(239,154,154,.4);transition:color .2s}
+.hospital-card h4 a:hover{color:#ff8a80;border-bottom-color:#ff8a80}
+.hospital-card .hospital-type{display:inline-block;padding:3px 10px;border-radius:8px;font-size:.72rem;font-weight:600;margin-bottom:12px}
+.type-emergency{background:rgba(239,83,80,.18);color:#ef5350;border:1px solid rgba(239,83,80,.3)}
+.type-clinic{background:rgba(255,183,77,.12);color:#ffb74d;border:1px solid rgba(255,183,77,.25)}
+.hospital-card .hospital-info{font-size:.85rem;color:#b0bec5;line-height:1.8}
+.hospital-card .hospital-info strong{color:#e0e0e0}
+.hospital-card .hospital-phones{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
+.hospital-card .hospital-phones a{display:inline-flex;align-items:center;gap:6px;padding:8px 16px;border-radius:10px;text-decoration:none;font-size:.85rem;font-weight:600;transition:all .3s}
+.phone-emergency{background:linear-gradient(135deg,#ef5350,#c62828);color:#fff}
+.phone-emergency:hover{box-shadow:0 6px 16px rgba(239,83,80,.4);transform:translateY(-1px)}
+.phone-general{background:rgba(255,255,255,.08);color:#e0e0e0;border:1px solid rgba(255,255,255,.15)}
+.phone-general:hover{background:rgba(255,255,255,.12)}
+.hospital-card .hospital-note{margin-top:10px;padding:10px 12px;background:rgba(255,183,77,.06);border-radius:8px;font-size:.8rem;color:#ffb74d;line-height:1.5;border-left:3px solid rgba(255,183,77,.3)}
+.clinic-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px;margin-bottom:30px}
+.clinic-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:18px 20px;display:flex;align-items:center;gap:16px;transition:all .3s}
+.clinic-card:hover{background:rgba(255,255,255,.06);border-color:rgba(255,183,77,.2);transform:translateX(4px)}
+.clinic-icon{font-size:1.6rem;flex-shrink:0}
+.clinic-info h5{font-size:.95rem;font-weight:600;color:#e3f2fd;margin-bottom:4px}
+.clinic-info h5 a{color:#e3f2fd;text-decoration:none;border-bottom:1px dashed rgba(255,255,255,.3);transition:color .2s}
+.clinic-info h5 a:hover{color:#ef9a9a;border-bottom-color:#ef9a9a}
+.clinic-info p{font-size:.82rem;color:#90a4ae;line-height:1.5}
+.clinic-info a{color:#ef9a9a;text-decoration:none;font-weight:600;font-size:.88rem}
+.clinic-info a:hover{text-decoration:underline}
+.sos-box{background:linear-gradient(135deg,rgba(239,83,80,.08),rgba(183,28,28,.05));border:1px solid rgba(239,83,80,.2);border-radius:16px;padding:24px;text-align:center}
+.sos-box h4{font-size:1.1rem;color:#ef9a9a;margin-bottom:16px}
+.sos-numbers{display:flex;justify-content:center;flex-wrap:wrap;gap:14px}
+.sos-numbers a{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border-radius:14px;text-decoration:none;font-size:1rem;font-weight:700;transition:all .3s}
+.sos-119{background:linear-gradient(135deg,#ef5350,#b71c1c);color:#fff}
+.sos-1339{background:linear-gradient(135deg,#ff8a65,#e64a19);color:#fff}
+.sos-numbers a:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,0,0,.3)}
+@media(max-width:768px){.hospital-grid{grid-template-columns:1fr}.clinic-grid{grid-template-columns:1fr}.sos-numbers{flex-direction:column;align-items:center}}
 /* Footer */
 footer{text-align:center;padding:40px 20px;color:#455a64;font-size:.82rem;border-top:1px solid rgba(255,255,255,.05)}
 @media(max-width:768px){
@@ -449,65 +500,172 @@ footer{text-align:center;padding:40px 20px;color:#455a64;font-size:.82rem;border
 </div>
 
 <!-- CHECKLIST -->
-<div class="section-title pink" style="margin-top:60px"><h2>✅ 아기 체크리스트</h2><p>생후 9개월 아기 여행 준비물</p></div>
+<div class="section-title pink" style="margin-top:60px"><h2>✅ 아기 체크리스트</h2><p>생후 9개월 아기 여행 준비물 · 클릭하여 체크하세요</p></div>
+<div class="checklist-progress fade-in">
+<span class="progress-text" id="progressText">0 / 39 완료</span>
+<div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
+</div>
 <div class="checklist-grid fade-in">
 <div class="check-category">
 <h4>🍼 수유 & 이유식</h4>
-<div class="check-item">젖꼭지</div>
-<div class="check-item">젖병</div>
-<div class="check-item">분유</div>
-<div class="check-item">보온병</div>
-<div class="check-item">쉐이커</div>
-<div class="check-item">나이아드 물</div>
-<div class="check-item">이유식 (후기 단계)</div>
-<div class="check-item">수저</div>
-<div class="check-item">물병</div>
-<div class="check-item">떡뻥</div>
+<label class="check-item"><input type="checkbox" data-key="c1"><span class="checkmark">✓</span><span class="check-label">젖꼭지</span></label>
+<label class="check-item"><input type="checkbox" data-key="c2"><span class="checkmark">✓</span><span class="check-label">젖병</span></label>
+<label class="check-item"><input type="checkbox" data-key="c3"><span class="checkmark">✓</span><span class="check-label">분유</span></label>
+<label class="check-item"><input type="checkbox" data-key="c4"><span class="checkmark">✓</span><span class="check-label">보온병</span></label>
+<label class="check-item"><input type="checkbox" data-key="c5"><span class="checkmark">✓</span><span class="check-label">쉐이커</span></label>
+<label class="check-item"><input type="checkbox" data-key="c6"><span class="checkmark">✓</span><span class="check-label">나이아드 물</span></label>
+<label class="check-item"><input type="checkbox" data-key="c7"><span class="checkmark">✓</span><span class="check-label">이유식 (후기 단계)</span></label>
+<label class="check-item"><input type="checkbox" data-key="c8"><span class="checkmark">✓</span><span class="check-label">수저</span></label>
+<label class="check-item"><input type="checkbox" data-key="c9"><span class="checkmark">✓</span><span class="check-label">물병</span></label>
+<label class="check-item"><input type="checkbox" data-key="c10"><span class="checkmark">✓</span><span class="check-label">떡뻥</span></label>
 </div>
 <div class="check-category">
 <h4>💊 건강 & 위생</h4>
-<div class="check-item">상비약 (해열제 2종 / 배탈약)</div>
-<div class="check-item">약병</div>
-<div class="check-item">칼슘 / 마그네슘</div>
-<div class="check-item">해열시트</div>
-<div class="check-item">카밀리야 (이앓이)</div>
-<div class="check-item">코칙칙</div>
-<div class="check-item">체온계</div>
-<div class="check-item">로션 (엉덩이 / 얼굴)</div>
-<div class="check-item">비판텐</div>
+<label class="check-item"><input type="checkbox" data-key="c11"><span class="checkmark">✓</span><span class="check-label">상비약 (해열제 2종 / 배탈약)</span></label>
+<label class="check-item"><input type="checkbox" data-key="c12"><span class="checkmark">✓</span><span class="check-label">약병</span></label>
+<label class="check-item"><input type="checkbox" data-key="c13"><span class="checkmark">✓</span><span class="check-label">칼슘 / 마그네슘</span></label>
+<label class="check-item"><input type="checkbox" data-key="c14"><span class="checkmark">✓</span><span class="check-label">해열시트</span></label>
+<label class="check-item"><input type="checkbox" data-key="c15"><span class="checkmark">✓</span><span class="check-label">카밀리야 (이앓이)</span></label>
+<label class="check-item"><input type="checkbox" data-key="c16"><span class="checkmark">✓</span><span class="check-label">코칙칙</span></label>
+<label class="check-item"><input type="checkbox" data-key="c17"><span class="checkmark">✓</span><span class="check-label">체온계</span></label>
+<label class="check-item"><input type="checkbox" data-key="c18"><span class="checkmark">✓</span><span class="check-label">로션 (엉덩이 / 얼굴)</span></label>
+<label class="check-item"><input type="checkbox" data-key="c19"><span class="checkmark">✓</span><span class="check-label">비판텐</span></label>
 </div>
 <div class="check-category">
 <h4>🧴 목욕 & 세정</h4>
-<div class="check-item">칫솔 / 치약</div>
-<div class="check-item">젖병솔</div>
-<div class="check-item">주방세제</div>
-<div class="check-item">아기세제</div>
-<div class="check-item">욕조</div>
-<div class="check-item">수건</div>
-<div class="check-item">물티슈</div>
-<div class="check-item">손수건</div>
+<label class="check-item"><input type="checkbox" data-key="c20"><span class="checkmark">✓</span><span class="check-label">칫솔 / 치약</span></label>
+<label class="check-item"><input type="checkbox" data-key="c21"><span class="checkmark">✓</span><span class="check-label">젖병솔</span></label>
+<label class="check-item"><input type="checkbox" data-key="c22"><span class="checkmark">✓</span><span class="check-label">주방세제</span></label>
+<label class="check-item"><input type="checkbox" data-key="c23"><span class="checkmark">✓</span><span class="check-label">아기세제</span></label>
+<label class="check-item"><input type="checkbox" data-key="c24"><span class="checkmark">✓</span><span class="check-label">욕조</span></label>
+<label class="check-item"><input type="checkbox" data-key="c25"><span class="checkmark">✓</span><span class="check-label">수건</span></label>
+<label class="check-item"><input type="checkbox" data-key="c26"><span class="checkmark">✓</span><span class="check-label">물티슈</span></label>
+<label class="check-item"><input type="checkbox" data-key="c27"><span class="checkmark">✓</span><span class="check-label">손수건</span></label>
 </div>
 <div class="check-category">
 <h4>👕 의류 & 침구</h4>
-<div class="check-item">옷 12벌 정도</div>
-<div class="check-item">턱받이 / 일회용 턱받이</div>
-<div class="check-item">기저귀</div>
-<div class="check-item">이불</div>
-<div class="check-item">블랭킷</div>
+<label class="check-item"><input type="checkbox" data-key="c28"><span class="checkmark">✓</span><span class="check-label">옷 12벌 정도</span></label>
+<label class="check-item"><input type="checkbox" data-key="c29"><span class="checkmark">✓</span><span class="check-label">턱받이 / 일회용 턱받이</span></label>
+<label class="check-item"><input type="checkbox" data-key="c30"><span class="checkmark">✓</span><span class="check-label">기저귀</span></label>
+<label class="check-item"><input type="checkbox" data-key="c31"><span class="checkmark">✓</span><span class="check-label">이불</span></label>
+<label class="check-item"><input type="checkbox" data-key="c32"><span class="checkmark">✓</span><span class="check-label">블랭킷</span></label>
+<label class="check-item"><input type="checkbox" data-key="c39"><span class="checkmark">✓</span><span class="check-label">양말</span></label>
 </div>
 <div class="check-category">
 <h4>🧸 놀이 & 수면</h4>
-<div class="check-item">쪽쪽이</div>
-<div class="check-item">치발기</div>
-<div class="check-item">튤립</div>
-<div class="check-item">스트랩</div>
-<div class="check-item">무드등</div>
+<label class="check-item"><input type="checkbox" data-key="c33"><span class="checkmark">✓</span><span class="check-label">쪽쪽이</span></label>
+<label class="check-item"><input type="checkbox" data-key="c34"><span class="checkmark">✓</span><span class="check-label">치발기</span></label>
+<label class="check-item"><input type="checkbox" data-key="c35"><span class="checkmark">✓</span><span class="check-label">튤립</span></label>
+<label class="check-item"><input type="checkbox" data-key="c36"><span class="checkmark">✓</span><span class="check-label">스트랩</span></label>
+<label class="check-item"><input type="checkbox" data-key="c37"><span class="checkmark">✓</span><span class="check-label">무드등</span></label>
 </div>
 <div class="check-category">
 <h4>🔌 기타</h4>
-<div class="check-item">충전기</div>
+<label class="check-item"><input type="checkbox" data-key="c38"><span class="checkmark">✓</span><span class="check-label">충전기</span></label>
 </div>
 </div>
+</div>
+</section>
+
+<!-- HOSPITAL -->
+<section class="hospital-section">
+<div class="container">
+<div class="section-title red"><h2>🏥 응급 병원 안내</h2><p>9개월 아기 응급 상황 대비 · 속초 지역 소아 진료 가능 병원</p></div>
+
+<div class="hospital-alert fade-in">
+<span class="icon">🚨</span>
+<div>
+<strong>여행 전 꼭 읽어주세요!</strong><br>
+속초 지역에는 소아 전문 응급센터가 없습니다. 야간/휴일 소아 응급 시 <strong>속초의료원 응급실</strong>이 사실상 유일한 선택지입니다.
+최근 전문의 부족으로 응급실 운영이 불안정한 상황이니, <strong>출발 전 1339(응급의료정보센터)에 전화</strong>하여 방문 기간 중 소아 당직의 운영 여부를 꼭 확인하세요.
+</div>
+</div>
+
+<div class="hospital-grid fade-in">
+<div class="hospital-card">
+<h4>🏥 <a href="https://map.naver.com/v5/search/속초의료원" target="_blank">강원특별자치도 속초의료원</a></h4>
+<span class="hospital-type type-emergency">지역응급의료센터</span>
+<div class="hospital-info">
+📍 속초시 영랑호반길 3 (영랑동)<br>
+🕐 <strong>일반 진료:</strong> 평일 08:30 ~ 17:30 (점심 12:30~13:30)<br>
+🌙 <strong>소아 야간진료:</strong> 평일 18:00 ~ 23:00<br>
+🚑 <strong>응급실:</strong> 24시간 운영
+</div>
+<div class="hospital-phones">
+<a href="tel:033-630-6190" class="phone-emergency">🚑 응급실 033-630-6190</a>
+<a href="tel:033-630-6000" class="phone-general">📞 대표 033-630-6000</a>
+</div>
+<div class="hospital-note">⚠️ 전문의 부족으로 응급실 운영이 불안정할 수 있습니다. 방문 전 반드시 전화 확인하세요.</div>
+</div>
+
+<div class="hospital-card">
+<h4>🏥 <a href="https://map.naver.com/v5/search/속초 온재병원" target="_blank">온재병원 (구 속초보광병원)</a></h4>
+<span class="hospital-type type-emergency">응급의료기관</span>
+<div class="hospital-info">
+📍 속초시 중앙로 11 (교동)<br>
+🚑 <strong>응급실:</strong> 24시간 운영<br>
+⚠️ 소아청소년과 전문의 상주 여부는 별도 확인 필요
+</div>
+<div class="hospital-phones">
+<a href="tel:033-639-8633" class="phone-emergency">🚑 응급실 033-639-8633</a>
+<a href="tel:033-639-8500" class="phone-general">📞 대표 033-639-8500</a>
+</div>
+<div class="hospital-note">⚠️ 소아 전문 진료 가능 여부는 당일 당직 상황에 따라 다를 수 있으니, 방문 전 전화 확인 필수!</div>
+</div>
+</div>
+
+<div class="section-title red" style="margin-bottom:30px"><h2>👶 소아청소년과 의원</h2><p>주간 진료 · 발열/감기 등 경증 시 방문</p></div>
+<div class="clinic-grid fade-in">
+<div class="clinic-card">
+<div class="clinic-icon">🩺</div>
+<div class="clinic-info">
+<h5><a href="https://map.naver.com/v5/search/속초 개성소아청소년과" target="_blank">개성소아청소년과</a></h5>
+<p>📍 속초시 동해대로 4215 (교동)</p>
+<a href="tel:033-635-3229">📞 033-635-3229</a>
+</div>
+</div>
+<div class="clinic-card">
+<div class="clinic-icon">🩺</div>
+<div class="clinic-info">
+<h5><a href="https://map.naver.com/v5/search/속초 김소아청소년과" target="_blank">김소아청소년과</a></h5>
+<p>📍 속초시 청대로 347 (교동)</p>
+<a href="tel:033-637-1800">📞 033-637-1800</a>
+</div>
+</div>
+<div class="clinic-card">
+<div class="clinic-icon">🩺</div>
+<div class="clinic-info">
+<h5><a href="https://map.naver.com/v5/search/속초 송소아청소년과" target="_blank">송소아청소년과</a></h5>
+<p>📍 속초시 동해대로 4121 (조양동)</p>
+<a href="tel:033-633-1621">📞 033-633-1621</a>
+</div>
+</div>
+<div class="clinic-card">
+<div class="clinic-icon">🩺</div>
+<div class="clinic-info">
+<h5><a href="https://map.naver.com/v5/search/속초 이현철소아청소년과" target="_blank">이현철소아청소년과</a></h5>
+<p>📍 속초시 동해대로 4147 비동3층 (조양동)</p>
+<a href="tel:033-636-0282">📞 033-636-0282</a>
+</div>
+</div>
+<div class="clinic-card">
+<div class="clinic-icon">🩺</div>
+<div class="clinic-info">
+<h5><a href="https://map.naver.com/v5/search/속초 이호영소아청소년과" target="_blank">이호영소아청소년과</a></h5>
+<p>📍 속초시 청학로 47 (청학동)</p>
+<a href="tel:033-635-6030">📞 033-635-6030</a>
+</div>
+</div>
+</div>
+
+<div class="sos-box fade-in">
+<h4>🆘 응급 전화번호</h4>
+<div class="sos-numbers">
+<a href="tel:119" class="sos-119">🚒 119 응급 신고</a>
+<a href="tel:1339" class="sos-1339">📞 1339 응급의료정보센터</a>
+</div>
+</div>
+
 </div>
 </section>
 
@@ -520,6 +678,31 @@ const snow=document.getElementById('snow');
 for(let i=0;i<50;i++){const s=document.createElement('i');s.style.left=Math.random()*100+'%';s.style.animationDuration=(3+Math.random()*5)+'s';s.style.animationDelay=Math.random()*5+'s';s.style.width=s.style.height=(1+Math.random()*3)+'px';snow.appendChild(s)}
 const obs=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')})},{threshold:.1});
 document.querySelectorAll('.fade-in').forEach(el=>obs.observe(el));
+
+// Checklist logic with localStorage
+(function(){
+const checkboxes=document.querySelectorAll('.check-item input[type="checkbox"]');
+const total=checkboxes.length;
+const saved=JSON.parse(localStorage.getItem('sokcho-checklist')||'{}');
+
+function updateProgress(){
+const checked=document.querySelectorAll('.check-item input:checked').length;
+document.getElementById('progressText').textContent=checked+' / '+total+' 완료';
+document.getElementById('progressFill').style.width=(checked/total*100)+'%';
+}
+
+checkboxes.forEach(cb=>{
+if(saved[cb.dataset.key])cb.checked=true;
+cb.addEventListener('change',function(){
+const data=JSON.parse(localStorage.getItem('sokcho-checklist')||'{}');
+if(this.checked)data[this.dataset.key]=true;
+else delete data[this.dataset.key];
+localStorage.setItem('sokcho-checklist',JSON.stringify(data));
+updateProgress();
+});
+});
+updateProgress();
+})();
 </script>
 </body>
 </html>
