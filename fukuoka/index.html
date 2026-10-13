@@ -1,0 +1,1531 @@
+<title>후쿠오카 가족여행</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans+KR:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: one reading column (max 980px), sticky chip nav, sections = Japanese eyebrow + Korean heading, cards only for places/food/shops. Hakata-ori kenjo stripe as the subject motif. */
+:root{
+  --bg:#F4F5F8; --surface:#FFFFFF; --sunk:#ECEEF3;
+  --ink:#1B2440; --muted:#5B6480; --line:#DCE0E9;
+  --accent:#C4304A; --accent-soft:#F8E4E8;
+  --baby:#23735F; --baby-soft:#E1F1EB;
+  --warn:#9A5B00; --warn-soft:#FBEFD9;
+  --preg:#6E46A8; --preg-soft:#EEE7F8;
+  --f-display:"Gowun Batang","Noto Serif KR",serif;
+  --f-body:"IBM Plex Sans KR","Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  --r:10px; --water:#DCE6F2; --subway:#E8822A;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0F131D; --surface:#171D2A; --sunk:#1E2535;
+  --ink:#E6E9F2; --muted:#9AA3BA; --line:#2A3247;
+  --accent:#F06A80; --accent-soft:#3A1C25;
+  --baby:#5CC4A8; --baby-soft:#16322B;
+  --warn:#F0B24E; --warn-soft:#352812;
+  --preg:#BFA0EC; --preg-soft:#2A2140; --water:#16243A; --subway:#F09A4C;
+  color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0F131D; --surface:#171D2A; --sunk:#1E2535;
+  --ink:#E6E9F2; --muted:#9AA3BA; --line:#2A3247;
+  --accent:#F06A80; --accent-soft:#3A1C25;
+  --baby:#5CC4A8; --baby-soft:#16322B;
+  --warn:#F0B24E; --warn-soft:#352812;
+  --preg:#BFA0EC; --preg-soft:#2A2140; --water:#16243A; --subway:#F09A4C;
+  color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:64px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.65;margin:0;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-underline-offset:3px}
+a:focus-visible,button:focus-visible,input:focus-visible+span,summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:4px}
+.wrap{max-width:980px;margin:0 auto;padding-inline:20px}
+@media (max-width:480px){.wrap{padding-inline:16px}}
+
+/* Hakata-ori kenjo stripe: tokko (vajra) + hanazara (flower dish) bands abstracted */
+.kenjo{height:14px;background:
+  repeating-linear-gradient(90deg,var(--ink) 0 3px,transparent 3px 7px,var(--ink) 7px 10px,transparent 10px 22px,var(--accent) 22px 26px,transparent 26px 38px);
+  opacity:.9}
+.kenjo.thin{height:6px;opacity:.35}
+
+/* Hero */
+.hero{padding-block:44px 28px}
+.hero .eyebrow{font-family:var(--f-mono);font-size:12px;letter-spacing:.14em;color:var(--muted);text-transform:uppercase}
+.hero h1{font-family:var(--f-display);font-weight:700;font-size:clamp(34px,7vw,56px);line-height:1.15;margin:.25em 0 .2em;text-wrap:balance;letter-spacing:-.01em}
+.hero h1 small{display:block;font-size:.42em;color:var(--accent);letter-spacing:.02em;margin-top:.35em;font-family:var(--f-body);font-weight:600}
+.hero p.lead{color:var(--muted);max-width:60ch;margin:0}
+.facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;margin-top:24px}
+.facts>div{background:var(--surface);padding:14px 16px;min-width:0}
+.facts dt{font-size:12px;color:var(--muted);letter-spacing:.04em}
+.facts dd{margin:2px 0 0;font-weight:600;font-variant-numeric:tabular-nums}
+.facts dd span{display:block;font-weight:400;font-size:13px;color:var(--muted)}
+@media (max-width:760px){.facts{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* Nav */
+nav.toc{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+nav.toc .wrap{display:flex;gap:6px;overflow-x:auto;padding-block:10px;scrollbar-width:none}
+nav.toc .wrap::-webkit-scrollbar{display:none}
+nav.toc a{flex:0 0 auto;text-decoration:none;color:var(--ink);font-size:13px;padding:6px 12px;border:1px solid var(--line);border-radius:999px;background:var(--surface);white-space:nowrap}
+nav.toc a:hover{border-color:var(--accent);color:var(--accent)}
+nav.toc a.must{border-color:var(--accent)}
+
+/* Sections */
+section{padding-block:44px 8px}
+.sec-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:18px;border-top:2px solid var(--ink);padding-top:14px}
+.sec-head .no{font-family:var(--f-mono);font-size:13px;color:var(--accent);font-variant-numeric:tabular-nums}
+.sec-head h2{font-family:var(--f-display);font-size:clamp(24px,4vw,30px);margin:0;line-height:1.25;text-wrap:balance}
+.sec-head .jp{font-size:13px;color:var(--muted);letter-spacing:.06em}
+.sec-intro{color:var(--muted);max-width:68ch;margin:-6px 0 18px}
+h3{font-size:17px;margin:26px 0 10px;line-height:1.35}
+h3 .jp{font-weight:400;color:var(--muted);font-size:13px;margin-left:6px}
+
+/* Callouts */
+.note{border-radius:var(--r);padding:12px 16px;margin:14px 0;font-size:14px;background:var(--sunk)}
+.note b:first-child{margin-right:4px}
+.note.warn{background:var(--warn-soft);color:var(--ink)} .note.warn b:first-child{color:var(--warn)}
+.note.baby{background:var(--baby-soft)} .note.baby b:first-child{color:var(--baby)}
+.note.preg{background:var(--preg-soft)} .note.preg b:first-child{color:var(--preg)}
+.note.red{background:var(--accent-soft)} .note.red b:first-child{color:var(--accent)}
+.note ul{margin:6px 0 0;padding-left:18px}
+
+/* Tags */
+.tag{display:inline-block;font-size:11.5px;line-height:1;padding:5px 8px;border-radius:999px;background:var(--sunk);color:var(--muted);white-space:nowrap;font-weight:500}
+.tag.baby{background:var(--baby-soft);color:var(--baby)}
+.tag.warn{background:var(--warn-soft);color:var(--warn)}
+.tag.preg{background:var(--preg-soft);color:var(--preg)}
+.tag.red{background:var(--accent-soft);color:var(--accent)}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+
+/* Timeline */
+.days{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+@media (max-width:860px){.days{grid-template-columns:1fr}}
+.day{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:16px 16px 8px;min-width:0}
+.day h3{margin:0 0 2px;font-family:var(--f-display);font-size:20px}
+.day .theme{font-size:13px;color:var(--muted);margin-bottom:10px}
+.tl{list-style:none;margin:0;padding:0}
+.tl li{display:grid;grid-template-columns:48px minmax(0,1fr);gap:10px;padding:8px 0;border-top:1px dashed var(--line);font-size:14px}
+.tl time{font-family:var(--f-mono);font-size:12.5px;color:var(--accent);font-variant-numeric:tabular-nums;padding-top:1px}
+.tl .sub{display:block;color:var(--muted);font-size:12.5px}
+.tl li.nap time{color:var(--baby)}
+.tl li.nap{color:var(--baby)}
+
+/* Cards */
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+@media (max-width:720px){.grid{grid-template-columns:1fr}}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:16px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.card h4{margin:0;font-size:16.5px;line-height:1.35}
+.card h4 .jp{display:block;font-weight:400;font-size:12.5px;color:var(--muted);margin-top:2px}
+.card .row{font-size:13.5px;display:grid;grid-template-columns:44px minmax(0,1fr);gap:8px}
+.card .row>b{font-weight:600;color:var(--muted);font-size:12px;padding-top:2px}
+.card .row.baby>b{color:var(--baby)}
+.card .row.preg>b{color:var(--preg)}
+.card .row.tip>b{color:var(--accent)}
+.card .links{display:flex;gap:12px;flex-wrap:wrap;font-size:13px;margin-top:auto;padding-top:4px}
+.card.star{border-color:var(--accent)}
+
+/* Tables */
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:var(--r);background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:13.5px;min-width:640px}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:12px;color:var(--muted);font-weight:600;background:var(--sunk);letter-spacing:.03em}
+tr:last-child td{border-bottom:0}
+td.num{font-family:var(--f-mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+td .jp{display:block;color:var(--muted);font-size:12px}
+
+/* Checklist */
+.progress{display:flex;align-items:center;gap:12px;margin-bottom:14px;font-size:14px}
+.bar{flex:1;height:8px;background:var(--sunk);border-radius:99px;overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:var(--baby);transition:width .25s}
+.count{font-family:var(--f-mono);font-variant-numeric:tabular-nums;min-width:64px;text-align:right}
+.checks{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
+.checks fieldset{border:1px solid var(--line);border-radius:var(--r);background:var(--surface);padding:12px 14px;margin:0;min-width:0}
+.checks legend{font-weight:700;font-size:14px;padding:0 6px}
+label.ck{display:flex;gap:10px;align-items:flex-start;padding:5px 0;font-size:14px;cursor:pointer}
+label.ck input{margin-top:4px;accent-color:var(--baby);width:16px;height:16px;flex:0 0 auto}
+label.ck input:checked+span{color:var(--muted);text-decoration:line-through}
+label.ck small{color:var(--muted);display:block;font-size:12px;text-decoration:none}
+.reset{font:inherit;font-size:12.5px;background:none;border:1px solid var(--line);color:var(--muted);border-radius:999px;padding:4px 10px;cursor:pointer}
+
+/* Emergency numbers */
+.sos{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px}
+.sos>div{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:12px 14px;min-width:0}
+.sos .lbl{font-size:12.5px;color:var(--muted)}
+.sos .num{font-family:var(--f-mono);font-size:19px;font-weight:600;user-select:all;font-variant-numeric:tabular-nums;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.sos .num button{font:500 11px var(--f-body);border:1px solid var(--line);background:var(--sunk);color:var(--muted);border-radius:6px;padding:3px 7px;cursor:pointer}
+.sos .desc{font-size:12.5px;color:var(--muted);margin-top:2px}
+.sos>div.hot{border-color:var(--accent)}
+.sos>div.hot .num{color:var(--accent)}
+
+ul.plain{margin:0;padding-left:18px} ul.plain li{margin:4px 0}
+.two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+@media (max-width:720px){.two{grid-template-columns:1fr}}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:16px;min-width:0}
+.panel h4{margin:0 0 8px;font-size:15px}
+.steps{counter-reset:s;list-style:none;padding:0;margin:0}
+.steps li{counter-increment:s;display:grid;grid-template-columns:26px minmax(0,1fr);gap:8px;padding:6px 0;font-size:14px}
+.steps li::before{content:counter(s);font-family:var(--f-mono);font-size:12px;width:22px;height:22px;border-radius:50%;background:var(--ink);color:var(--bg);display:grid;place-items:center;margin-top:1px}
+footer{padding-block:40px 60px;color:var(--muted);font-size:12.5px}
+footer ul{padding-left:18px;margin:6px 0}
+footer a{color:var(--muted);word-break:break-all}
+
+/* rhythm */
+.rhythm{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:14px 16px 12px;margin-bottom:16px}
+.rhythm-track{position:relative;height:30px;background:var(--sunk);border-radius:6px;margin-bottom:22px}
+.rhythm-track i{position:absolute;top:0;bottom:0;border-radius:4px}
+.rhythm-track em{position:absolute;top:34px;font-style:normal;font-family:var(--f-mono);font-size:11px;color:var(--muted)}
+.rhythm-track .meal,.rhythm-legend .meal::before{background:var(--accent)}
+.rhythm-track .nap,.rhythm-legend .nap::before{background:var(--baby)}
+.rhythm-track .bath,.rhythm-legend .bath::before{background:var(--warn)}
+.rhythm-track .sleep,.rhythm-legend .sleep::before{background:var(--preg)}
+.rhythm-legend{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px 14px;font-size:13px}
+.rhythm-legend li{display:flex;align-items:center;gap:6px}
+.rhythm-legend li::before{content:"";width:10px;height:10px;border-radius:3px;flex:0 0 auto}
+.rhythm-legend b{font-family:var(--f-mono);font-weight:600;font-variant-numeric:tabular-nums}
+.tl li.meal time{color:var(--accent)} .tl li.meal{background:linear-gradient(90deg,var(--accent-soft),transparent 70%)}
+.tl li.bath time{color:var(--warn)}
+/* route map */
+.routemap{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:14px;margin-bottom:8px}
+.rm-tabs{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px}
+.rm-tabs button{font:500 13px var(--f-body);padding:6px 12px;border-radius:999px;border:1px solid var(--line);background:var(--bg);color:var(--ink);cursor:pointer}
+.rm-tabs button.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.rm-body{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:16px}
+@media (max-width:820px){.rm-body{grid-template-columns:1fr}}
+.rm-svg{min-width:0;overflow-x:auto}
+.rm-svg svg{width:100%;min-width:480px;height:auto;display:block}
+.rm-note{font-size:12px;color:var(--muted);margin:6px 0 0}
+#routesvg .water{fill:var(--water)} #routesvg .land{fill:var(--bg);stroke:var(--line)}
+#routesvg .water-lbl{fill:var(--muted);font-size:12px;letter-spacing:.2em}
+#routesvg .area-lbl{fill:var(--muted);font-size:11px}
+#routesvg .subway{fill:none;stroke:var(--subway);stroke-width:6;stroke-linecap:round;stroke-linejoin:round;opacity:.85}
+#routesvg .r{fill:none;stroke-width:3.5;stroke-linecap:round;transition:opacity .2s}
+#routesvg .d1{stroke:var(--accent)} #routesvg .d2{stroke:var(--baby)} #routesvg .d3{stroke:var(--preg)}
+#routesvg .alt{stroke:var(--muted);stroke-dasharray:6 5}
+#routesvg .node circle{fill:var(--surface);stroke:var(--ink);stroke-width:2}
+#routesvg .node.hotel circle{fill:var(--accent-soft);stroke:var(--accent);stroke-width:2.5}
+#routesvg .node text{fill:var(--ink);font-size:13px;font-weight:600;font-family:var(--f-body)}
+#routesvg .node text.sub{fill:var(--muted);font-size:11px;font-weight:400}
+#routesvg .legend text{fill:var(--ink);font-size:11.5px}
+#routesvg[data-show="d1"] .r:not(.d1):not(.lg),#routesvg[data-show="d2"] .r:not(.d2):not(.lg),#routesvg[data-show="d3"] .r:not(.d3):not(.lg),#routesvg[data-show="alt"] .r:not(.alt):not(.lg){opacity:.08}
+.rm-side{display:grid;gap:10px;align-content:start;min-width:0}
+.rm-day{border-left:3px solid var(--line);padding:2px 0 2px 12px;transition:opacity .2s}
+.rm-day[data-for="d1"]{border-color:var(--accent)} .rm-day[data-for="d2"]{border-color:var(--baby)} .rm-day[data-for="d3"]{border-color:var(--preg)} .rm-day[data-for="alt"]{border-color:var(--muted);border-left-style:dashed}
+.rm-day.dim{opacity:.35}
+.rm-day h4{margin:0 0 4px;font-size:14px} .rm-day h4 span{font-weight:400;color:var(--muted);font-size:12.5px;margin-left:4px}
+.rm-day ol{margin:0 0 6px;padding-left:18px;font-size:13px} .rm-day li{margin:2px 0}
+.rm-day em{font-style:normal;color:var(--muted);font-size:12px;margin-left:4px}
+.rm-day a{font-size:13px;font-weight:600}
+/* key buy */
+.keybuy{border:2px solid var(--accent);border-radius:calc(var(--r) + 4px);padding:18px;margin:6px 0 24px;background:var(--surface)}
+@media (max-width:480px){.keybuy{padding:14px}}
+.jpq li{margin:8px 0;font-size:14px} .jpq li span{display:block;color:var(--muted);font-size:12.5px}
+tr.keyrow td{background:var(--accent-soft)}
+td a{display:block}
+.tbl input[type=checkbox]{accent-color:var(--baby);width:16px;height:16px;margin:2px 0 0;cursor:pointer}
+details summary{cursor:pointer;color:var(--ink);font-weight:600}
+.tl a{color:inherit;text-decoration-color:var(--accent)}
+</style>
+
+<div class="kenjo" aria-hidden="true"></div>
+
+<header class="wrap hero">
+  <div class="eyebrow">Fukuoka · 福岡 · 2026.10.27 — 10.29</div>
+  <h1>후쿠오카 가족여행<small>나 · 와이프 · 19개월 딸, 그리고 곧 만날 둘째</small></h1>
+  <p class="lead">유모차를 끌고 다니는 2박 3일 일정입니다. 숙소(기온역)를 중심으로 걸어서 다닐 수 있는 곳 위주로 짰습니다. 마지막 날 오후에는 공항으로 이동하고, 아기용품은 라라포트 후쿠오카에서 몰아서 삽니다.</p>
+  <dl class="facts">
+    <div><dt>가는 날</dt><dd>10.27 (화) 06:00<span>인천 출발 · 03:30 공항 도착</span></dd></div>
+    <div><dt>오는 날</dt><dd>10.29 (목) 17:00<span>후쿠오카 출발 · 14:00 공항 도착</span></dd></div>
+    <div><dt>숙소</dt><dd>9HOTEL HAKATA<span>기온역 2번 출구 도보 5분</span></dd></div>
+    <div><dt>날씨 (평년)</dt><dd>최고 21° / 최저 14°<span>긴팔 + 얇은 겉옷</span></dd></div>
+  </dl>
+</header>
+
+<nav class="toc" aria-label="섹션 바로가기">
+  <div class="wrap">
+    <a href="#plan">일정</a>
+    <a href="#spots">갈만한 곳</a>
+    <a href="#shop" class="must">쇼핑·아기용품</a>
+    <a href="#food">먹을 곳</a>
+    <a href="#baby" class="must">아기 주의사항</a>
+    <a href="#subway" class="must">지하철</a>
+    <a href="#hotel">숙소</a>
+    <a href="#airport" class="must">공항</a>
+    <a href="#hospital" class="must">병원·응급</a>
+    <a href="#pack">준비물</a>
+  </div>
+</nav>
+
+<main class="wrap">
+
+<!-- ============ 일정 ============ -->
+<section id="plan">
+  <div class="sec-head"><span class="no">01</span><h2>2박 3일 일정</h2><span class="jp">日程</span></div>
+  <p class="sec-intro">딸의 하루 리듬에 맞춰 짰습니다. 낮잠(12:00~13:30)은 유모차나 택시로 이동하는 시간에 두고, 저녁은 17:30에 가족이 함께 먹은 뒤 19시 씻기 전에 호텔로 돌아옵니다. 저녁 식당은 17시 전에 문을 열고 호텔에서 15분 안쪽인 곳으로 골랐습니다.</p>
+
+  <div class="rhythm" aria-label="아기 하루 리듬">
+    <div class="rhythm-track" aria-hidden="true">
+      <i class="meal" style="left:11.5%;width:3.8%"></i>
+      <i class="meal" style="left:26.9%;width:3.9%"></i>
+      <i class="nap" style="left:30.8%;width:11.5%"></i>
+      <i class="meal" style="left:57.7%;width:3.8%"></i>
+      <i class="meal" style="left:73.1%;width:3.8%"></i>
+      <i class="bath" style="left:84.6%;width:3.9%"></i>
+      <i class="sleep" style="left:88.5%;width:11.5%"></i>
+      <em style="left:0%">8</em><em style="left:23.1%">11</em><em style="left:46.2%">14</em><em style="left:69.2%">17</em><em style="left:92.3%">20시</em>
+    </div>
+    <ul class="rhythm-legend">
+      <li class="meal"><b>9:30</b> 아침</li>
+      <li class="meal"><b>11:30</b> 점심</li>
+      <li class="nap"><b>12:00~13:30</b> 낮잠</li>
+      <li class="meal"><b>15:30</b> 간식</li>
+      <li class="meal"><b>17:30</b> 저녁</li>
+      <li class="bath"><b>19:00</b> 씻기</li>
+      <li class="sleep"><b>19:30~20:00</b> 취침</li>
+    </ul>
+  </div>
+
+  <div class="days">
+    <article class="day">
+      <h3>Day 1 · 10.27 (화)</h3>
+      <div class="theme">도착일 · 호텔 근처 · 리듬이 깨지는 날</div>
+      <ol class="tl">
+        <li><time>02:30</time><div>기상 → 차 안에서 다시 재우기<span class="sub">03:30까지 인천공항 도착 (아래 공항 섹션)</span></div></li>
+        <li><time>06:00</time><div>인천 출발<span class="sub">이착륙 때 빨대컵·쪽쪽이. 기내에서 우유나 간단한 간식</span></div></li>
+        <li><time>07:30</time><div>후쿠오카 공항 국제선 도착 (추정)<span class="sub">Visit Japan Web QR로 입국. 택시로 호텔(약 15분)</span></div></li>
+        <li><time>09:00</time><div><a href="https://www.google.com/maps/search/?api=1&amp;query=9HOTEL%20HAKATA%20%E7%A6%8F%E5%B2%A1%E5%B8%82%E5%8D%9A%E5%A4%9A%E5%8C%BA%E5%86%B7%E6%B3%89%E7%94%BA9-16" target="_blank" rel="noopener">호텔</a>에 짐·유모차 맡기기 (무료)</div></li>
+        <li class="meal"><time>09:30</time><div>아침 · 호텔 1F 9食堂<span class="sub">라스트오더 9:30. 체크인 전에도 먹을 수 있는지 미리 문의. 안 되면 챙겨 온 이유식이나 편의점</span></div></li>
+        <li><time>10:15</time><div><a href="https://www.google.com/maps/search/?api=1&amp;query=%E7%A6%8F%E5%B2%A1%E3%82%A2%E3%83%B3%E3%83%91%E3%83%B3%E3%83%9E%E3%83%B3%E3%81%93%E3%81%A9%E3%82%82%E3%83%9F%E3%83%A5%E3%83%BC%E3%82%B8%E3%82%A2%E3%83%A0in%E3%83%A2%E3%83%BC%E3%83%AB" target="_blank" rel="noopener">앙팡맨 어린이 뮤지엄</a><span class="sub">호텔에서 걸어서 10분 내외. 19개월도 2,000엔. 유모차 반입 불가라 아기띠</span></div></li>
+        <li class="meal"><time>11:30</time><div>점심 · 리버레인 몰 안<span class="sub">뮤지엄 5층 카페 옆 전자레인지로 이유식 데우기 가능</span></div></li>
+        <li class="nap"><time>12:00</time><div>유모차 낮잠 · 캐널시티로 천천히<span class="sub">새벽에 깨서 더 일찍 졸려 할 수 있음. 부모 점심은 이때 캐널시티에서 (1인 칸막이석은 유모차 두기 어려움)</span></div></li>
+        <li><time>13:30</time><div><a href="https://www.google.com/maps/search/?api=1&amp;query=%E6%AB%9B%E7%94%B0%E7%A5%9E%E7%A4%BE%20%E7%A6%8F%E5%B2%A1%E5%B8%82%E5%8D%9A%E5%A4%9A%E5%8C%BA%E4%B8%8A%E5%B7%9D%E7%AB%AF%E7%94%BA" target="_blank" rel="noopener">쿠시다 신사</a> · <a href="https://www.google.com/maps/search/?api=1&amp;query=%E3%82%AD%E3%83%A3%E3%83%8A%E3%83%AB%E3%82%B7%E3%83%86%E3%82%A3%E5%8D%9A%E5%A4%9A" target="_blank" rel="noopener">캐널시티</a> 산책</div></li>
+        <li><time>15:00</time><div>호텔 체크인</div></li>
+        <li class="meal"><time>15:30</time><div>간식 · 1F 웰컴 바 (15~20시 과자·음료)</div></li>
+        <li class="meal"><time>17:15</time><div>저녁 · <a href="https://www.google.com/maps/search/?api=1&amp;query=%E3%82%82%E3%81%A4%E9%8D%8B%E3%81%8A%E3%81%8A%E3%82%84%E3%81%BE%20KITTE%E5%8D%9A%E5%A4%9A" target="_blank" rel="noopener">모츠나베 오오야마 KITTE</a> 개별룸<span class="sub">기온→하카타 지하철 1정거장. 17:00 예약. 가까운 대안은 캐널시티 식당가</span></div></li>
+        <li class="bath"><time>19:00</time><div>호텔 · 씻기 → 19:30 재우기<span class="sub">부모는 한 명씩 <a href="https://www.google.com/maps/search/?api=1&amp;query=%E3%83%89%E3%83%B3%E3%83%BB%E3%82%AD%E3%83%9B%E3%83%BC%E3%83%86%20%E4%B8%AD%E6%B4%B2%E5%BA%97" target="_blank" rel="noopener">돈키호테 나카스</a>(24시간)나 편의점</span></div></li>
+      </ol>
+    </article>
+
+    <article class="day">
+      <h3>Day 2 · 10.28 (수)</h3>
+      <div class="theme">큰 물건 쇼핑의 날 (추천안)</div>
+      <ol class="tl">
+        <li class="meal"><time>09:15</time><div>아침 · 호텔 조식 (9食堂)<span class="sub">아기는 9:30. 라스트오더 9:30이라 조금 일찍 내려가기</span></div></li>
+        <li><time>09:50</time><div>택시로 <a href="https://www.google.com/maps/search/?api=1&amp;query=%E3%82%89%E3%82%89%E3%81%BD%E3%83%BC%E3%81%A8%E7%A6%8F%E5%B2%A1%20%E7%A6%8F%E5%B2%A1%E5%B8%82%E5%8D%9A%E5%A4%9A%E5%8C%BA%E9%82%A3%E7%8F%826-23-1" target="_blank" rel="noopener">라라포트 후쿠오카</a><span class="sub">10시 오픈. 버스는 <a href="https://www.google.com/maps/search/?api=1&amp;query=%E5%8D%9A%E5%A4%9A%E3%83%90%E3%82%B9%E3%82%BF%E3%83%BC%E3%83%9F%E3%83%8A%E3%83%AB" target="_blank" rel="noopener">하카타 버스터미널</a> 13번 승강장 44·45번 약 20분</span></div></li>
+        <li><time>10:00</time><div>아카짱혼포(3F) · 토이저러스(2F)<span class="sub">유모차 실물 비교, 뉴본 세트, 신생아 용품. 트립트랩은 재고를 전화로 미리 확인</span></div></li>
+        <li class="meal"><time>11:30</time><div>점심 · 3F 푸드코트<span class="sub">바로 옆 키즈파크 0~2세 베이비존</span></div></li>
+        <li class="nap"><time>12:00</time><div>유모차 낮잠 · 부모는 마무리 쇼핑<span class="sub">1F 투어리스트 인포메이션에서 면세 처리. 건담은 매시 정각</span></div></li>
+        <li><time>13:45</time><div>대형 택시로 호텔 → 짐 내려놓기<span class="sub">박스가 크면 호텔 프런트에 대형 택시 요청</span></div></li>
+        <li class="meal"><time>15:30</time><div>간식 · <a href="https://www.google.com/maps/search/?api=1&amp;query=%E5%8D%9A%E5%A4%9A%E9%98%AA%E6%80%A5" target="_blank" rel="noopener">하카타 한큐</a> 4F 丸福珈琲店<span class="sub">키즈메뉴·키즈체어 있음</span></div></li>
+        <li><time>16:00</time><div>하카타 한큐 7F 베이비·키즈<span class="sub">패밀리아·미키하우스 옷. 큰 물건은 비교만 하고 Day 3 오전에 사도 됨</span></div></li>
+        <li class="meal"><time>17:30</time><div>저녁 · <a href="https://www.google.com/maps/search/?api=1&amp;query=%E5%8D%9A%E5%A4%9A%E8%8F%AF%E5%91%B3%E9%B3%A5%20%E5%8D%9A%E5%A4%9A%E9%A7%85%E5%89%8D%E5%BA%97" target="_blank" rel="noopener">하카타 하나미도리</a> 개별룸<span class="sub">하카타구치 도보 3분, 17시 오픈. 대안: 한큐 B1 푸드코트</span></div></li>
+        <li class="bath"><time>19:00</time><div>호텔 · 씻기 → 재우기</div></li>
+      </ol>
+      <div class="note warn"><b>휴무</b>요시즈카 우나기야(장어)는 수요일 휴무입니다.</div>
+    </article>
+
+    <article class="day">
+      <h3>Day 3 · 10.29 (목)</h3>
+      <div class="theme">하카타역 마무리 · 14시 공항 도착</div>
+      <ol class="tl">
+        <li class="meal"><time>09:15</time><div>아침 · 호텔 조식 (아기 9:30)</div></li>
+        <li><time>10:00</time><div>체크아웃 → 짐 맡기기 (무료)</div></li>
+        <li><time>10:15</time><div>하카타역 · <a href="https://www.google.com/maps/search/?api=1&amp;query=%E5%8D%9A%E5%A4%9A%E9%98%AA%E6%80%A5" target="_blank" rel="noopener">하카타 한큐</a><span class="sub">Day 2에 정한 큰 물건을 여기서 사면 박스는 호텔→공항으로 한 번만 옮김. <a href="https://www.google.com/maps/search/?api=1&amp;query=%E3%83%89%E3%83%A9%E3%83%83%E3%82%B0%E3%82%A4%E3%83%AC%E3%83%96%E3%83%B3%20%E5%8D%9A%E5%A4%9A%E9%A7%85%E5%89%8D2-3-7" target="_blank" rel="noopener">드럭일레븐</a>(면세)·다이소</span></div></li>
+        <li class="meal"><time>11:30</time><div>점심 · 한큐 4F 丸福珈琲店 또는 <a href="https://www.google.com/maps/search/?api=1&amp;query=%E7%89%A7%E3%81%AE%E3%81%86%E3%81%A9%E3%82%93%20%E5%8D%9A%E5%A4%9A%E3%83%90%E3%82%B9%E3%82%BF%E3%83%BC%E3%83%9F%E3%83%8A%E3%83%AB%E5%BA%97" target="_blank" rel="noopener">마키노 우동</a><span class="sub">마키노 우동은 음식이 빨리 나옴</span></div></li>
+        <li class="nap"><time>12:00</time><div>유모차 낮잠 · 하카타역 주변</div></li>
+        <li><time>13:15</time><div>호텔에서 짐 찾고 대형 택시로 공항<span class="sub">택시에서 낮잠 이어가기. 약 15분</span></div></li>
+        <li><time>14:00</time><div>공항 도착 · 체크인<span class="sub">박스 포장은 3F Wrap&amp;Box. 약국은 보안검색 전에만</span></div></li>
+        <li class="meal"><time>15:30</time><div>간식 · 3F 50번 게이트 앞 키즈코너</div></li>
+        <li><time>17:00</time><div>후쿠오카 출발</div></li>
+        <li class="meal"><time>17:30</time><div>저녁 · 기내<span class="sub">챙겨 온 도시락. 대한항공·아시아나면 유아식 사전 신청</span></div></li>
+        <li class="bath"><time>19:00</time><div>인천 도착 후 귀가 · 차에서 재우기</div></li>
+      </ol>
+    </article>
+  </div>
+
+  <h3>일정별 동선</h3>
+  <div class="routemap">
+    <div class="rm-tabs" role="tablist" aria-label="동선 선택">
+      <button type="button" class="on" data-day="all">전체</button>
+      <button type="button" data-day="d1">Day 1</button>
+      <button type="button" data-day="d2">Day 2</button>
+      <button type="button" data-day="d3">Day 3</button>
+      <button type="button" data-day="alt">방안 B · 마린월드</button>
+    </div>
+    <div class="rm-body">
+      <div class="rm-svg">
+        <svg id="routesvg" data-show="all" viewBox="0 0 640 420" role="img" aria-label="후쿠오카 동선도: 공항, 하카타역, 호텔(기온), 텐진, 오호리 공원, 라라포트, 마린월드 위치와 일차별 이동 경로">
+          <!-- bay -->
+          <path class="water" d="M0 0 H640 V96 C560 104 520 120 470 128 C420 136 380 132 330 140 C260 150 200 130 120 128 C70 127 30 120 0 116 Z"/>
+          <path class="land" d="M600 104 C540 92 470 70 400 56 C360 48 330 44 300 46 L302 58 C334 56 366 62 402 70 C470 84 540 104 600 118 Z"/>
+          <text class="water-lbl" x="190" y="78">하카타만</text>
+          <text class="area-lbl" x="430" y="40">우미노나카미치</text>
+
+          <!-- JR to Uminonakamichi (alt) -->
+          <path class="r alt" d="M432 214 C470 170 540 130 560 108 C500 90 420 66 330 52"/>
+          <!-- subway Kuko line -->
+          <polyline class="subway" points="582,232 432,214 368,204 340,198 262,204 150,222"/>
+
+          <!-- Day routes -->
+          <path class="r d1" d="M582 232 C520 170 420 170 370 192"/>
+          <path class="r d1" d="M368 200 C390 214 410 220 428 220"/>
+          <path class="r d2" d="M362 210 C370 280 410 330 446 352"/>
+          <path class="r d2" d="M446 352 C430 300 400 250 372 214"/>
+          <path class="r d2" d="M372 196 C396 190 416 198 432 206"/>
+          <path class="r d3" d="M370 212 C392 226 414 230 432 224"/>
+          <path class="r d3" d="M376 206 C450 260 530 262 582 240"/>
+
+          <!-- nodes -->
+          <g class="node"><circle cx="582" cy="232" r="7"/><text x="582" y="258" text-anchor="middle">후쿠오카 공항</text><text class="sub" x="582" y="272" text-anchor="middle">국제선은 지하철 없음</text></g>
+          <g class="node"><circle cx="432" cy="214" r="6"/><text x="440" y="240">하카타역</text><text class="sub" x="440" y="254">한큐 · KITTE</text></g>
+          <g class="node hotel"><circle cx="360" cy="202" r="16"/><text x="340" y="180" text-anchor="end">호텔 · 기온</text></g>
+          <g class="node"><circle cx="262" cy="204" r="5"/><text x="262" y="230" text-anchor="middle">텐진</text><text class="sub" x="262" y="244" text-anchor="middle">이와타야 · 다이마루</text></g>
+          <g class="node"><circle cx="150" cy="222" r="5"/><text x="150" y="248" text-anchor="middle">오호리 공원</text></g>
+          <g class="node"><circle cx="54" cy="160" r="5"/><text x="54" y="186" text-anchor="middle">후쿠오카 타워</text></g>
+          <g class="node"><circle cx="446" cy="352" r="7"/><text x="462" y="356">라라포트 후쿠오카</text><text class="sub" x="462" y="370">아카짱혼포 · 토이저러스</text></g>
+          <g class="node"><circle cx="330" cy="52" r="6"/><text x="318" y="30" text-anchor="middle">마린월드</text></g>
+
+          <!-- legend -->
+          <g class="legend" transform="translate(16 330)">
+            <line class="subway" x1="0" y1="8" x2="26" y2="8"/><text x="34" y="12">지하철 공항선</text>
+            <line class="r d1 lg" x1="0" y1="30" x2="26" y2="30"/><text x="34" y="34">Day 1</text>
+            <line class="r d2 lg" x1="0" y1="52" x2="26" y2="52"/><text x="34" y="56">Day 2</text>
+            <line class="r d3 lg" x1="0" y1="74" x2="26" y2="74"/><text x="34" y="78">Day 3</text>
+            <line class="r alt lg" x1="110" y1="8" x2="136" y2="8"/><text x="144" y="12">JR (방안 B)</text>
+          </g>
+        </svg>
+        <p class="rm-note">위치를 단순화한 그림입니다. 실제 길 안내는 아래 구글맵 링크로 보세요.</p>
+      </div>
+      <div class="rm-side">
+        <div class="rm-day" data-for="d1">
+          <h4>Day 1 <span>공항 → 호텔 권역 → 하카타역</span></h4>
+          <ol>
+            <li>공항 국제선 → 호텔 <em>택시 15분</em></li>
+            <li>호텔 → 쿠시다 신사 <em>도보 3분</em></li>
+            <li>→ 앙팡맨 뮤지엄 <em>도보 10분 내외</em></li>
+            <li>→ 캐널시티 <em>유모차 낮잠 산책 15분</em></li>
+            <li>캐널시티 → 호텔 <em>도보 5~10분</em></li>
+            <li>호텔 → 하카타역 KITTE <em>지하철 1정거장</em></li>
+          </ol>
+          <a href="https://www.google.com/maps/dir/?api=1&amp;origin=%E7%A6%8F%E5%B2%A1%E7%A9%BA%E6%B8%AF%20%E5%9B%BD%E9%9A%9B%E7%B7%9A%E3%82%BF%E3%83%BC%E3%83%9F%E3%83%8A%E3%83%AB&amp;destination=%E3%82%82%E3%81%A4%E9%8D%8B%E3%81%8A%E3%81%8A%E3%82%84%E3%81%BE%20KITTE%E5%8D%9A%E5%A4%9A&amp;waypoints=9HOTEL%20HAKATA%20%E7%A6%8F%E5%B2%A1%E5%B8%82%E5%8D%9A%E5%A4%9A%E5%8C%BA%E5%86%B7%E6%B3%89%E7%94%BA9-16%7C%E7%A6%8F%E5%B2%A1%E3%82%A2%E3%83%B3%E3%83%91%E3%83%B3%E3%83%9E%E3%83%B3%E3%81%93%E3%81%A9%E3%82%82%E3%83%9F%E3%83%A5%E3%83%BC%E3%82%B8%E3%82%A2%E3%83%A0in%E3%83%A2%E3%83%BC%E3%83%AB%7C%E3%82%AD%E3%83%A3%E3%83%8A%E3%83%AB%E3%82%B7%E3%83%86%E3%82%A3%E5%8D%9A%E5%A4%9A" target="_blank" rel="noopener">구글맵에서 Day 1 동선 열기</a>
+        </div>
+        <div class="rm-day" data-for="d2">
+          <h4>Day 2 <span>호텔 → 라라포트 → 하카타역</span></h4>
+          <ol>
+            <li>호텔 → 라라포트 <em>택시 15~20분</em></li>
+            <li>라라포트 → 호텔 <em>대형 택시 (박스)</em></li>
+            <li>호텔 → 하카타 한큐 <em>지하철 1정거장</em></li>
+            <li>한큐 → 하나미도리 <em>도보 3분</em></li>
+            <li>하카타역 → 호텔 <em>지하철 1정거장</em></li>
+          </ol>
+          <a href="https://www.google.com/maps/dir/?api=1&amp;origin=9HOTEL%20HAKATA%20%E7%A6%8F%E5%B2%A1%E5%B8%82%E5%8D%9A%E5%A4%9A%E5%8C%BA%E5%86%B7%E6%B3%89%E7%94%BA9-16&amp;destination=%E5%8D%9A%E5%A4%9A%E8%8F%AF%E5%91%B3%E9%B3%A5%20%E5%8D%9A%E5%A4%9A%E9%A7%85%E5%89%8D%E5%BA%97&amp;waypoints=%E3%82%89%E3%82%89%E3%81%BD%E3%83%BC%E3%81%A8%E7%A6%8F%E5%B2%A1%20%E7%A6%8F%E5%B2%A1%E5%B8%82%E5%8D%9A%E5%A4%9A%E5%8C%BA%E9%82%A3%E7%8F%826-23-1%7C9HOTEL%20HAKATA%20%E7%A6%8F%E5%B2%A1%E5%B8%82%E5%8D%9A%E5%A4%9A%E5%8C%BA%E5%86%B7%E6%B3%89%E7%94%BA9-16%7C%E5%8D%9A%E5%A4%9A%E9%98%AA%E6%80%A5" target="_blank" rel="noopener">구글맵에서 Day 2 동선 열기</a>
+        </div>
+        <div class="rm-day" data-for="d3">
+          <h4>Day 3 <span>호텔 → 하카타역 → 공항</span></h4>
+          <ol>
+            <li>호텔 → 하카타 한큐 <em>지하철 1정거장 또는 도보 15분</em></li>
+            <li>하카타역 → 호텔 <em>짐 찾기</em></li>
+            <li>호텔 → 공항 국제선 <em>대형 택시 15분</em></li>
+          </ol>
+          <a href="https://www.google.com/maps/dir/?api=1&amp;origin=9HOTEL%20HAKATA%20%E7%A6%8F%E5%B2%A1%E5%B8%82%E5%8D%9A%E5%A4%9A%E5%8C%BA%E5%86%B7%E6%B3%89%E7%94%BA9-16&amp;destination=%E7%A6%8F%E5%B2%A1%E7%A9%BA%E6%B8%AF%20%E5%9B%BD%E9%9A%9B%E7%B7%9A%E3%82%BF%E3%83%BC%E3%83%9F%E3%83%8A%E3%83%AB&amp;waypoints=%E5%8D%9A%E5%A4%9A%E9%98%AA%E6%80%A5%7C9HOTEL%20HAKATA%20%E7%A6%8F%E5%B2%A1%E5%B8%82%E5%8D%9A%E5%A4%9A%E5%8C%BA%E5%86%B7%E6%B3%89%E7%94%BA9-16" target="_blank" rel="noopener">구글맵에서 Day 3 동선 열기</a>
+        </div>
+        <div class="rm-day" data-for="alt">
+          <h4>방안 B <span>마린월드 (Day 2 오전)</span></h4>
+          <ol>
+            <li>호텔 → 하카타역 <em>지하철 1정거장</em></li>
+            <li>JR 하카타 → 카시이 <em>약 11분, 환승</em></li>
+            <li>카시이 → 우미노나카미치 <em>16~20분, 배차 드묾</em></li>
+            <li>역 → 마린월드 <em>도보 5분</em></li>
+          </ol>
+          <a href="https://www.google.com/maps/dir/?api=1&amp;origin=9HOTEL%20HAKATA%20%E7%A6%8F%E5%B2%A1%E5%B8%82%E5%8D%9A%E5%A4%9A%E5%8C%BA%E5%86%B7%E6%B3%89%E7%94%BA9-16&amp;destination=%E3%83%9E%E3%83%AA%E3%83%B3%E3%83%AF%E3%83%BC%E3%83%AB%E3%83%89%E6%B5%B7%E3%81%AE%E4%B8%AD%E9%81%93&amp;waypoints=%E5%8D%9A%E5%A4%9A%E9%A7%85" target="_blank" rel="noopener">구글맵에서 방안 B 동선 열기</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h3>다른 방안</h3>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>방안</th><th>Day 2</th><th>Day 3 오전</th><th>맞는 경우</th></tr></thead>
+      <tbody>
+        <tr><td><strong>A. 라라포트 + 한큐</strong> (위 추천안)</td><td>오전 라라포트 아카짱혼포, 오후 한큐 7F</td><td>한큐에서 마무리 구매</td><td>아카짱혼포에 원하는 재고가 있을 때. 유모차 실물이 가장 많음</td></tr>
+        <tr><td><strong>B. 한큐 집중</strong></td><td>오전 마린월드(09:50 출발, 점심·낮잠 현장), 15:30 간식 후 한큐 7F에서 비교</td><td>한큐에서 구매 → 호텔 → 공항</td><td>한큐가 트립트랩·유모차 재고를 확인해 줬을 때. 박스를 한 번만 옮김</td></tr>
+        <tr><td><strong>C. 텐진 백화점</strong></td><td>오전 이와타야 본관 6F·다이마루 본관 7F (기온→텐진 2정거장), 오후 오호리 공원</td><td>한큐 또는 하카타역</td><td>텐진 쪽만 재고가 있을 때. 다이마루 2~8F는 19시에 닫음</td></tr>
+        <tr><td><strong>D. 쇼핑 최소</strong></td><td>마린월드 + 해변공원 하루</td><td>오호리 공원</td><td>큰 물건을 한국에서 사기로 했을 때</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="note"><b>비 오는 날</b>라라포트와 캐널시티는 실내라 그대로 가도 됩니다. 마린월드는 실내 수족관이라 비가 와도 괜찮지만, 역에서 걷는 5분 동안 레인커버가 필요합니다.</div>
+</section>
+
+<!-- ============ 갈만한 곳 ============ -->
+<section id="spots">
+  <div class="sec-head"><span class="no">02</span><h2>갈만한 곳</h2><span class="jp">観光スポット</span></div>
+  <p class="sec-intro">요금과 시간은 2026년 10월 조사 기준입니다. '2세 미만 무료'는 대부분 연령 구분을 보고 추정했으니 현장에서 확인하세요.</p>
+
+  <div class="grid">
+    <article class="card star">
+      <h4>앙팡맨 어린이 뮤지엄 in Mall<span class="jp">福岡アンパンマンこどもミュージアム in モール</span></h4>
+      <div class="tags"><span class="tag red">Day 1</span><span class="tag">10:00~17:00</span><span class="tag warn">19개월 2,000엔</span><span class="tag">2~3시간</span></div>
+      <div class="row"><b>위치</b><span>하카타 리버레인 몰 5~6층. 나카스카와바타역 직결, 호텔에서 걸어서 10분 내외(추정)</span></div>
+      <div class="row baby"><b>아기</b><span>1세부터 유료(10/27~29는 2,000엔). <strong>유모차는 관내 반입 불가</strong>라서 5층 보관소에 두고, 5층 인포메이션에서 아기띠를 빌릴 수 있습니다. 5·6층 베이비룸에 약 80℃ 온수, 이유식 반입 가능, 5층 카페 옆 전자레인지.</span></div>
+      <div class="row tip"><b>팁</b><span>오픈 직후가 한산합니다. 날짜 지정 웹 티켓은 60일 전부터 판매. 10/31까지 할로윈 스티커 랠리. 당일 재입장 가능.</span></div>
+      <div class="links"><a href="https://www.google.com/maps/search/?api=1&amp;query=%E7%A6%8F%E5%B2%A1%E3%82%A2%E3%83%B3%E3%83%91%E3%83%B3%E3%83%9E%E3%83%B3%E3%81%93%E3%81%A9%E3%82%82%E3%83%9F%E3%83%A5%E3%83%BC%E3%82%B8%E3%82%A2%E3%83%A0in%E3%83%A2%E3%83%BC%E3%83%AB" target="_blank" rel="noopener">구글맵</a><a href="https://www.fukuoka-anpanman.jp/" target="_blank" rel="noopener">공식 사이트</a></div>
+    </article>
+
+    <article class="card star">
+      <h4>캐널시티 하카타<span class="jp">キャナルシティ博多</span></h4>
+      <div class="tags"><span class="tag red">Day 1</span><span class="tag">쇼핑 10~21시</span><span class="tag">연중무휴</span></div>
+      <div class="row"><b>위치</b><span>호텔에서 걸어서 약 5~10분. 구시다진자마에역 도보 2분</span></div>
+      <div class="row baby"><b>아기</b><span>센터워크 1층 인포메이션에서 <strong>유모차 무료 대여</strong>(1개월~3세, 20kg 이하, 신분증 없으면 보증금 1,000엔). 수유실 6곳(노스빌딩 B1F는 개인실·조유기). 어린이 화장실 있음.</span></div>
+      <div class="row tip"><b>팁</b><span>분수쇼, 5층 라멘 스타디움. 비 오는 날 피난처로 좋습니다.</span></div>
+      <div class="links"><a href="https://www.google.com/maps/search/?api=1&amp;query=%E3%82%AD%E3%83%A3%E3%83%8A%E3%83%AB%E3%82%B7%E3%83%86%E3%82%A3%E5%8D%9A%E5%A4%9A" target="_blank" rel="noopener">구글맵</a><a href="https://canalcity.co.jp/service/" target="_blank" rel="noopener">서비스 안내</a></div>
+    </article>
+
+    <article class="card">
+      <h4>쿠시다 신사<span class="jp">櫛田神社</span></h4>
+      <div class="tags"><span class="tag red">Day 1</span><span class="tag">04:00~22:00</span><span class="tag">무료</span><span class="tag">20~30분</span></div>
+      <div class="row"><b>위치</b><span>호텔에서 걸어서 약 3분. 캐널시티에서 5분</span></div>
+      <div class="row baby"><b>아기</b><span>유모차 관련 공식 정보는 없습니다. 경내가 좁지 않아 짧게 둘러보기 좋습니다.</span></div>
+      <div class="row tip"><b>팁</b><span>13m 높이 장식 야마카사를 6월 빼고 1년 내내 전시합니다.</span></div>
+      <div class="links"><a href="https://www.google.com/maps/search/?api=1&amp;query=%E6%AB%9B%E7%94%B0%E7%A5%9E%E7%A4%BE%20%E7%A6%8F%E5%B2%A1%E5%B8%82%E5%8D%9A%E5%A4%9A%E5%8C%BA%E4%B8%8A%E5%B7%9D%E7%AB%AF%E7%94%BA" target="_blank" rel="noopener">구글맵</a></div>
+    </article>
+
+    <article class="card">
+      <h4>마린월드 우미노나카미치<span class="jp">マリンワールド海の中道</span></h4>
+      <div class="tags"><span class="tag">방안 B</span><span class="tag">09:30~17:30</span><span class="tag baby">3세 미만 무료</span><span class="tag">2~3시간</span></div>
+      <div class="row"><b>이동</b><span>JR 하카타→카시이(약 11분) 환승→우미노나카미치(16~20분)→도보 5분. 또는 하카타 부두에서 배 '우미나카 라인' 약 20분(성인 1,300엔, 미취학 무료)</span></div>
+      <div class="row baby"><b>아기</b><span>유모차 무료 대여(보증금 500엔, 대수 한정). 수유실 1곳(온수 있음). 3세 미만 무료는 2차 출처 기준.</span></div>
+      <div class="row tip"><b>팁</b><span>10월은 휴관일 없음. 돌고래·바다사자 쇼 시각은 공식 캘린더 확인. 배는 10/27~28 운항 편수와 유모차 승선 여부 미확인(092-603-1565).</span></div>
+      <div class="links"><a href="https://www.google.com/maps/search/?api=1&amp;query=%E3%83%9E%E3%83%AA%E3%83%B3%E3%83%AF%E3%83%BC%E3%83%AB%E3%83%89%E6%B5%B7%E3%81%AE%E4%B8%AD%E9%81%93" target="_blank" rel="noopener">구글맵</a><a href="https://marine-world.jp/" target="_blank" rel="noopener">공식 사이트</a><a href="https://www.google.com/maps/search/?api=1&amp;query=%E3%83%99%E3%82%A4%E3%82%B5%E3%82%A4%E3%83%89%E3%83%97%E3%83%AC%E3%82%A4%E3%82%B9%E5%8D%9A%E5%A4%9A" target="_blank" rel="noopener">배 타는 곳(하카타 부두) 구글맵</a></div>
+    </article>
+
+    <article class="card">
+      <h4>라라포트 후쿠오카<span class="jp">ららぽーと福岡</span></h4>
+      <div class="tags"><span class="tag red">Day 2</span><span class="tag">10~21시</span><span class="tag">무료</span><span class="tag">2~3시간</span></div>
+      <div class="row"><b>이동</b><span>하카타 버스터미널 13번 승강장 44·45번 버스 약 20분, 또는 JR 다케시타역 도보 9분</span></div>
+      <div class="row baby"><b>아기</b><span>3F 푸드코트 옆 키즈파크에 <strong>0~2세 베이비존</strong>이 따로 있습니다. 베이비 휴게실, 키즈 화장실, 장난감 미술관. 유모차 대여는 현장 확인.</span></div>
+      <div class="row tip"><b>팁</b><span>실물 크기 ν건담: 10~18시 매시 정각 기동 연출, 19:00~21:00 30분마다 영상 연출. 아카짱혼포·토이저러스가 같은 건물.</span></div>
+      <div class="links"><a href="https://www.google.com/maps/search/?api=1&amp;query=%E3%82%89%E3%82%89%E3%81%BD%E3%83%BC%E3%81%A8%E7%A6%8F%E5%B2%A1%20%E7%A6%8F%E5%B2%A1%E5%B8%82%E5%8D%9A%E5%A4%9A%E5%8C%BA%E9%82%A3%E7%8F%826-23-1" target="_blank" rel="noopener">구글맵</a><a href="https://mitsui-shopping-park.com/lalaport/fukuoka/" target="_blank" rel="noopener">공식 사이트</a><a href="https://www.google.com/maps/search/?api=1&amp;query=%E5%8D%9A%E5%A4%9A%E3%83%90%E3%82%B9%E3%82%BF%E3%83%BC%E3%83%9F%E3%83%8A%E3%83%AB" target="_blank" rel="noopener">버스 타는 곳(하카타 버스터미널) 구글맵</a></div>
+    </article>
+
+    <article class="card">
+      <h4>오호리 공원<span class="jp">大濠公園</span></h4>
+      <div class="tags"><span class="tag">방안 C·D</span><span class="tag">무료</span><span class="tag">1~2시간</span></div>
+      <div class="row"><b>이동</b><span>기온역→오호리코엔역 지하철 약 10분. 3번 출구 앞, 6번 출입구 엘리베이터</span></div>
+      <div class="row baby"><b>아기</b><span>2025년 11월 쿠지라 공원 광장이 보조 그네 등을 갖춘 놀이터로 리뉴얼. 수유실·기저귀 교환대는 공식 정보 없음(현장 확인).</span></div>
+      <div class="row tip"><b>팁</b><span>백조 보트 30분 1,200엔(평일 11시부터). 유아 탑승 조건은 현장 확인.</span></div>
+      <div class="links"><a href="https://www.google.com/maps/search/?api=1&amp;query=%E5%A4%A7%E6%BF%A0%E5%85%AC%E5%9C%92%20%E7%A6%8F%E5%B2%A1%E5%B8%82%E4%B8%AD%E5%A4%AE%E5%8C%BA" target="_blank" rel="noopener">구글맵</a><a href="https://www.ohorikouen.jp/" target="_blank" rel="noopener">공식 사이트</a></div>
+    </article>
+
+    <article class="card">
+      <h4>국영 우미노나카미치 해변공원<span class="jp">国営海の中道海浜公園</span></h4>
+      <div class="tags"><span class="tag">대안</span><span class="tag">09:30~17:30</span><span class="tag baby">중학생 이하 무료</span><span class="tag">2~4시간</span></div>
+      <div class="row"><b>이동</b><span>마린월드와 같은 역(우미노나카미치역)</span></div>
+      <div class="row baby"><b>아기</b><span>입구마다 유모차 무료 대여(50대 선착순). 수유실 6곳. 동물의 숲, 어린이 광장, 대형 트램펄린.</span></div>
+      <div class="row tip"><b>팁</b><span>10월 화요일 휴원 없음. 코스모스·코키아 시즌. 매우 넓으니 구역을 정해서. 쇼핑을 Day 3로 미룰 수 있으면 Day 2에 마린월드와 묶기 좋습니다.</span></div>
+      <div class="links"><a href="https://www.google.com/maps/search/?api=1&amp;query=%E5%9B%BD%E5%96%B6%E6%B5%B7%E3%81%AE%E4%B8%AD%E9%81%93%E6%B5%B7%E6%B5%9C%E5%85%AC%E5%9C%92" target="_blank" rel="noopener">구글맵</a><a href="https://uminaka-park.jp/" target="_blank" rel="noopener">공식 사이트</a></div>
+    </article>
+
+    <article class="card">
+      <h4>후쿠오카 타워 · 모모치 해변<span class="jp">福岡タワー · シーサイドももち</span></h4>
+      <div class="tags"><span class="tag">대안</span><span class="tag">09:30~22:00</span><span class="tag baby">4세 미만 무료(추정)</span><span class="tag">1~2시간</span></div>
+      <div class="row"><b>이동</b><span>하카타에서 버스 약 25분</span></div>
+      <div class="row baby"><b>아기</b><span>유모차를 탄 채로 전망실 입장 가능. 수유실은 1F 엔트런스 홀 여자 화장실 안.</span></div>
+      <div class="row tip"><b>팁</b><span>바로 앞 모모치 해변은 무료. 해 질 녘이 예쁩니다.</span></div>
+      <div class="links"><a href="https://www.google.com/maps/search/?api=1&amp;query=%E7%A6%8F%E5%B2%A1%E3%82%BF%E3%83%AF%E3%83%BC" target="_blank" rel="noopener">구글맵</a><a href="https://www.fukuokatower.co.jp/" target="_blank" rel="noopener">공식 사이트</a></div>
+    </article>
+
+    <article class="card">
+      <h4>아뮤플라자 옥상 츠바메노모리 히로바<span class="jp">アミュプラザ博多 つばめの杜ひろば</span></h4>
+      <div class="tags"><span class="tag">저녁 산책</span><span class="tag">10:00~22:00</span><span class="tag">무료</span></div>
+      <div class="row"><b>위치</b><span>하카타역 빌딩 옥상</span></div>
+      <div class="row baby"><b>아기</b><span>철도 신사와 전망 테라스. <strong>어린이 미니 기차(츠바메 전차)는 화·수·목에는 운행하지 않아</strong> 이번 일정에는 탈 수 없습니다.</span></div>
+      <div class="row tip"><b>팁</b><span>날씨가 나쁘면 닫을 수 있습니다. 하카타역 근처에서 저녁 먹은 뒤 잠깐.</span></div>
+      <div class="links"><a href="https://www.google.com/maps/search/?api=1&amp;query=%E3%81%A4%E3%81%B0%E3%82%81%E3%81%AE%E6%9D%9C%E3%81%B2%E3%82%8D%E3%81%B0%20%E3%82%A2%E3%83%9F%E3%83%A5%E3%83%97%E3%83%A9%E3%82%B6%E5%8D%9A%E5%A4%9A" target="_blank" rel="noopener">구글맵</a><a href="https://www.jrhakatacity.com/tsubame/" target="_blank" rel="noopener">공식 안내</a></div>
+    </article>
+
+    <article class="card">
+      <h4>후쿠오카시 동식물원<span class="jp">福岡市動植物園</span></h4>
+      <div class="tags"><span class="tag">대안</span><span class="tag">09:00~17:00</span><span class="tag baby">중학생 이하 무료</span><span class="tag">월요일 휴원</span></div>
+      <div class="row"><b>이동</b><span>나나쿠마선 야쿠인오도리역 도보 15분. 오르막이라 택시 권장</span></div>
+      <div class="row baby"><b>아기</b><span>유모차 대여 1회 330엔(관광 사이트 정보).</span></div>
+      <div class="row tip"><b>팁</b><span>성인 600엔. 화~목은 정상 운영.</span></div>
+      <div class="links"><a href="https://www.google.com/maps/search/?api=1&amp;query=%E7%A6%8F%E5%B2%A1%E5%B8%82%E5%8B%95%E6%A4%8D%E7%89%A9%E5%9C%92" target="_blank" rel="noopener">구글맵</a><a href="https://zoo.city.fukuoka.lg.jp/" target="_blank" rel="noopener">공식 사이트</a></div>
+    </article>
+
+    <article class="card">
+      <h4>다자이후 텐만구<span class="jp">太宰府天満宮</span></h4>
+      <div class="tags"><span class="tag">대안</span><span class="tag">06:30~19:00</span><span class="tag">무료</span><span class="tag">반나절</span></div>
+      <div class="row"><b>이동</b><span>하카타 버스터미널 1F 11번 승강장 '타비토' 버스 40~45분. <strong>현금 대신 IC카드·터치 결제</strong> 준비</span></div>
+      <div class="row baby"><b>아기</b><span>참도는 평탄하지만 아치형 다리(다이코바시)는 경사가 급해 아기띠를 같이 챙기세요. 관광안내소 유모차 대여 정보 있음(시간당 100엔, jalan).</span></div>
+      <div class="row tip"><b>팁</b><span>본전 대수리를 2026년 5월에 마쳤습니다. 왕복 1.5시간 이상이라 마지막 날에는 빠듯합니다.</span></div>
+      <div class="links"><a href="https://www.google.com/maps/search/?api=1&amp;query=%E5%A4%AA%E5%AE%B0%E5%BA%9C%E5%A4%A9%E6%BA%80%E5%AE%AE" target="_blank" rel="noopener">구글맵</a><a href="https://www.dazaifutenmangu.or.jp/" target="_blank" rel="noopener">공식 사이트</a></div>
+    </article>
+
+    <article class="card">
+      <h4>나카스 포장마차 거리<span class="jp">中洲屋台</span></h4>
+      <div class="tags"><span class="tag">선택</span><span class="tag">18시~새벽</span><span class="tag warn">유아 비추천</span></div>
+      <div class="row"><b>위치</b><span>호텔에서 걸어서 10분 내외(나카스 강변)</span></div>
+      <div class="row baby"><b>아기</b><span>자리가 좁고 유모차 둘 곳이 거의 없으며 술 손님이 많습니다. 18시 오픈 직후에 잠깐 들르거나 포장을 권합니다. 비 오는 날은 쉬는 곳이 많습니다.</span></div>
+      <div class="row preg"><b>임신</b><span>회, 생 명란, 날계란은 피하고 라멘·오뎅·완전히 익힌 야키토리 위주로.</span></div>
+      <div class="links"><a href="https://www.google.com/maps/search/?api=1&amp;query=%E4%B8%AD%E6%B4%B2%E5%B1%8B%E5%8F%B0%20%E7%A6%8F%E5%B2%A1%E5%B8%82%E5%8D%9A%E5%A4%9A%E5%8C%BA%E4%B8%AD%E6%B4%B2" target="_blank" rel="noopener">구글맵</a></div>
+    </article>
+  </div>
+  <div class="note"><b>뺀 곳</b>후쿠오카시 과학관은 매주 화요일 휴관이라 뺐습니다. 이토시마는 렌터카와 카시트가 필요해서 이번 일정에는 맞지 않습니다.</div>
+</section>
+
+<!-- ============ 쇼핑 ============ -->
+<section id="shop">
+  <div class="sec-head"><span class="no">03</span><h2>쇼핑 · 아기용품</h2><span class="jp">買い物 · ベビー用品</span></div>
+  <p class="sec-intro">둘째 용품 중 가장 중요한 것은 <strong>스토케 트립트랩 + 뉴본·베이비 세트</strong>와 <strong>신생아 유모차</strong>입니다. 나머지 소모품은 라라포트 아카짱혼포와 드럭스토어에서 대부분 해결됩니다.</p>
+  <div class="keybuy">
+    <h3 style="margin-top:0">가장 중요한 2가지 · 트립트랩 세트와 유모차</h3>
+
+    <div class="note red"><b>먼저 전화로 재고 확인</b>후쿠오카에서 스토케 트립트랩·뉴본 세트를 매장에 두고 판다는 공식 정보는 한 곳도 확인하지 못했습니다. 하카타 한큐 7F 공식 페이지의 베이비용품 브랜드는 에르고베이비·칼루뿐이고, 다이마루·이와타야는 취급 여부를 알 수 없습니다. 아카짱혼포는 스토케 유모차(YOYO⁵)만 확인됐습니다. <strong>어느 매장으로 갈지는 재고를 확인해 주는 곳으로 정하세요.</strong></div>
+
+    <div class="two">
+      <div class="panel">
+        <h4>출발 전에 할 일</h4>
+        <ol class="steps">
+          <li><div><strong>아카짱혼포 온라인몰</strong>의 뉴본 세트 상품 페이지에서 매장 재고 조회 → 'ららぽーと福岡店' 선택. 매장 따로 빼두기(取り置き)는 온라인 상품에는 안 됩니다.<br><a href="https://shop.akachan.jp/shop/g/g250558600/" target="_blank" rel="noopener">뉴본 세트 페이지</a></div></li>
+          <li><div><strong>매장에 전화</strong>해 아래 질문하기. 일본은 시차가 없어 10~18시에 거세요.</div></li>
+          <li><div>재고가 있는 곳으로 Day 2·Day 3 방안 고르기 (일정 섹션의 '다른 방안')</div></li>
+        </ol>
+        <div class="sos" style="margin-top:10px">
+          <div><div class="lbl">하카타 한큐 (대표)</div><div class="num"><span>092-461-1381</span><button type="button" data-copy="092-461-1381">복사</button></div></div>
+          <div><div class="lbl">아카짱혼포 라라포트</div><div class="num"><span>092-501-0100</span><button type="button" data-copy="092-501-0100">복사</button></div></div>
+          <div><div class="lbl">이와타야 본점</div><div class="num"><span>092-721-1111</span><button type="button" data-copy="092-721-1111">복사</button></div></div>
+          <div><div class="lbl">다이마루 후쿠오카 텐진</div><div class="num"><span>092-712-8181</span><button type="button" data-copy="092-712-8181">복사</button></div></div>
+        </div>
+      </div>
+      <div class="panel">
+        <h4>전화로 물어볼 말</h4>
+        <ul class="plain jpq">
+          <li>ストッケの<strong>トリップトラップ</strong>（色：<u>ナチュラル</u>）と<strong>ニューボーンセット</strong>の在庫はありますか？<span>트립트랩(색상)과 뉴본 세트 재고 있나요?</span></li>
+          <li>店頭で<strong>ベビーカー</strong>の展示・販売はありますか？どのブランドですか？<span>매장에 유모차 전시·판매가 있나요? 어떤 브랜드인가요?</span></li>
+          <li>10月28日まで<strong>取り置き</strong>できますか？<span>10월 28일까지 따로 빼둘 수 있나요?</span></li>
+          <li>（한큐에만）<strong>5%ゲストクーポン</strong>はストッケにも使えますか？<span>5% 게스트 쿠폰을 스토케에도 쓸 수 있나요?</span></li>
+          <li>免税手続きはできますか？<span>면세 되나요?</span></li>
+        </ul>
+        <p style="font-size:12.5px;color:var(--muted);margin:8px 0 0">색상 이름은 원하는 것으로 바꾸세요. 예: ナチュラル(내추럴), ホワイト(화이트), ストームグレー(스톰 그레이), オーク(오크)</p>
+      </div>
+    </div>
+
+    <h3>매장 비교</h3>
+    <div class="tbl">
+      <table>
+        <thead><tr><th>매장</th><th>호텔에서</th><th>스토케 · 유모차</th><th>면세 수수료</th><th>할인</th><th>아기 시설</th><th>영업</th></tr></thead>
+        <tbody>
+          <tr><td><strong>아카짱혼포</strong><span class="jp">ららぽーと福岡 3F</span><a href="https://www.google.com/maps/search/?api=1&amp;query=%E3%82%A2%E3%82%AB%E3%83%81%E3%83%A3%E3%83%B3%E3%83%9B%E3%83%B3%E3%83%9D%20%E3%82%89%E3%82%89%E3%81%BD%E3%83%BC%E3%81%A8%E7%A6%8F%E5%B2%A1%E5%BA%97" target="_blank" rel="noopener" style="font-size:12px">구글맵</a></td><td>택시 15~20분</td><td>뉴본 세트 온라인 취급, 매장 재고 조회 가능. 유모차 실물 가장 많음(스토케 YOYO⁵ 확인)</td><td class="num">1.1%</td><td>-</td><td>키즈파크 0~2세존, 베이비 휴게실</td><td class="num">10~21시</td></tr>
+          <tr><td><strong>하카타 한큐</strong><span class="jp">博多阪急 7F</span><a href="https://www.google.com/maps/search/?api=1&amp;query=%E5%8D%9A%E5%A4%9A%E9%98%AA%E6%80%A5" target="_blank" rel="noopener" style="font-size:12px">구글맵</a></td><td>지하철 1정거장</td><td>공식 페이지에 스토케·유모차 판매 없음 → <strong>전화 확인</strong></td><td class="num">1.55%</td><td>외국인 5% 게스트 쿠폰(일부 브랜드 제외)</td><td>7F 베이비룸(수유·기저귀·분유 온수), 유모차 대여</td><td class="num">10~20시</td></tr>
+          <tr><td><strong>이와타야 본점</strong><span class="jp">岩田屋本店 本館 6F</span><a href="https://www.google.com/maps/search/?api=1&amp;query=%E5%B2%A9%E7%94%B0%E5%B1%8B%E6%9C%AC%E5%BA%97%20%E7%A6%8F%E5%B2%A1%E5%B8%82%E4%B8%AD%E5%A4%AE%E5%8C%BA%E5%A4%A9%E7%A5%9E2-5-35" target="_blank" rel="noopener" style="font-size:12px">구글맵</a></td><td>지하철 2정거장(텐진)</td><td>확인 필요 → 전화</td><td class="num">확인 필요</td><td>미쓰코시이세탄 앱 5%(적용 매장 확인)</td><td>6F 베이비 휴게실·수유실</td><td class="num">10~20시</td></tr>
+          <tr><td><strong>다이마루 텐진</strong><span class="jp">大丸福岡天神店 本館 7F</span><a href="https://www.google.com/maps/search/?api=1&amp;query=%E5%A4%A7%E4%B8%B8%E7%A6%8F%E5%B2%A1%E5%A4%A9%E7%A5%9E%E5%BA%97" target="_blank" rel="noopener" style="font-size:12px">구글맵</a></td><td>지하철 2정거장(텐진)</td><td>확인 필요 → 전화</td><td class="num">1.55%</td><td>외국인 5%는 명품·화장품만</td><td>본관 7F 수유실, 유모차 대여(3개월~2세)</td><td class="num">2~8F 10~19시</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>가격 · 일본에서 사면 얼마나 아끼나</h3>
+    <p style="margin:-4px 0 10px;font-size:13.5px;color:var(--muted)">스토케 일본·한국 공식몰 정가(2026-10-12). 환율 100엔 ≈ 846.5원(2026-10-9~12). 백화점 면세(수수료 1.55%)를 적용하면 세금 포함가 × 0.9232입니다. 카드 해외결제 수수료는 뺐습니다.</p>
+    <div class="tbl">
+      <table>
+        <thead><tr><th>품목</th><th>일본 정가</th><th>면세 후 (원화)</th><th>한국 정가</th><th>차액</th></tr></thead>
+        <tbody>
+          <tr><td><strong>트립트랩 비치</strong> (색상 무관)</td><td class="num">¥37,730</td><td class="num">≈ ₩294,900</td><td class="num">₩430,000</td><td class="num"><strong>₩135,200 (31%)</strong></td></tr>
+          <tr><td>트립트랩 오크</td><td class="num">¥48,730</td><td class="num">≈ ₩380,800</td><td class="num">₩510,000</td><td class="num">₩129,200</td></tr>
+          <tr><td><strong>뉴본 세트</strong></td><td class="num">¥21,340</td><td class="num">≈ ₩166,800</td><td class="num">₩230,000</td><td class="num"><strong>₩63,200 (27%)</strong></td></tr>
+          <tr><td>베이비 세트²</td><td class="num">¥10,560</td><td class="num">≈ ₩82,500</td><td class="num">₩90,000</td><td class="num">₩7,500 · 한국에서 사도 비슷</td></tr>
+          <tr><td>트레이</td><td class="num">¥9,240</td><td class="num">≈ ₩72,200</td><td class="num">₩90,000</td><td class="num">₩17,800</td></tr>
+          <tr><td>하네스²</td><td class="num">¥7,480</td><td class="num">≈ ₩58,500</td><td class="num">₩70,000</td><td class="num">₩11,500</td></tr>
+          <tr><td><strong>트립트랩 비치 + 뉴본 세트</strong></td><td class="num">¥59,070</td><td class="num">≈ ₩461,600</td><td class="num">₩660,000</td><td class="num"><strong>약 ₩198,000</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="two" style="margin-top:14px">
+      <div class="panel">
+        <h4>트립트랩 세트 체크</h4>
+        <ul class="plain">
+          <li><strong>보증</strong>: 스토케 코리아는 국내 공식 판매처 구매품만 보증합니다. <strong>일본에서 산 제품은 한국에서 보증·AS를 받을 수 없습니다.</strong> 원목 구조라 고장 위험은 낮은 편입니다.</li>
+          <li><strong>호환</strong>: 지금 파는 뉴본·베이비 세트는 2003년 5월 이후 트립트랩과 모두 맞습니다.</li>
+          <li><strong>박스</strong>: 트립트랩 약 80×51×9cm, 7.2kg / 뉴본 세트 약 58×37×15cm, 2.3kg. 기내 반입은 안 되고 위탁 수하물로 보냅니다.</li>
+          <li>뉴본 세트는 아카짱혼포에서도 스토케 정가(¥21,340)와 같습니다. 아카짱 면세 수수료가 1.1%라 0.4% 정도 더 쌉니다.</li>
+          <li>참고: 스토케 일본 공식몰은 테라코타 색상 10% 할인(체어 ¥33,957)을 하지만 온라인 한정이고 면세가 안 됩니다. 해외 카드 결제와 호텔 배송이 되는지는 확인하지 못했습니다.</li>
+        </ul>
+      </div>
+      <div class="panel">
+        <h4>유모차 체크</h4>
+        <ul class="plain">
+          <li>일본 '1ヶ月以降' 표시가 신생아부터 쓸 수 있는 모델입니다. <strong>사이벡스 리벨은 일본 기준 6개월부터</strong>라 신생아용이 아닙니다.</li>
+          <li>아래 가격은 가격.com 온라인 최저가입니다. <strong>매장 가격은 대개 정가라 더 비쌉니다.</strong></li>
+          <li>한국 가격과 국내 AS는 확인하지 못했습니다. <strong>한국 판매가가 일본 면세가보다 30% 이상 비쌀 때만</strong> 일본 구매를 권합니다.</li>
+          <li>살 때 박스의 세 변 합과 무게를 재 두세요(항공 수하물 계산용).</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="tbl" style="margin-top:14px">
+      <table>
+        <thead><tr><th>유모차 (신생아 가능)</th><th>무게</th><th>일본 온라인 최저가</th><th>특징</th></tr></thead>
+        <tbody>
+          <tr><td>콤비 스고카루 에그쇼크 LA<span class="jp">コンビ スゴカル エッグショック LA</span></td><td class="num">4.6kg</td><td class="num">¥40,999</td><td>15kg까지, 2024 모델</td></tr>
+          <tr><td>콤비 스고카루 air 에그쇼크 MN</td><td class="num">3.9kg</td><td class="num">¥37,008</td><td>초경량</td></tr>
+          <tr><td>콤비 auto N first II NC</td><td class="num">6.8kg</td><td class="num">¥64,900</td><td>2026/9 출시</td></tr>
+          <tr><td>아프리카 라쿠나 쿠션 AF<span class="jp">アップリカ ラクーナ クッション</span></td><td class="num">5.2kg</td><td class="num">¥48,719</td><td>양대면</td></tr>
+          <tr><td>아프리카 라쿠나 에어 플러스</td><td class="num">4.8kg</td><td class="num">¥42,799</td><td></td></tr>
+          <tr><td>피죤 런피 RB5</td><td class="num">5.9kg</td><td class="num">¥39,800</td><td></td></tr>
+          <tr><td>사이벡스 오르페오<span class="jp">cybex ORFEO</span></td><td class="num">6.1kg</td><td class="num">¥41,800</td><td>기내 반입형, 22kg까지</td></tr>
+          <tr><td>Joie 에어스킵 라이트</td><td class="num">4.25kg</td><td class="num">¥17,800</td><td>저가</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>한국 세관 · 짐 옮기기</h3>
+    <div class="two">
+      <div class="panel">
+        <h4>면세한도 800달러 계산</h4>
+        <ul class="plain">
+          <li>1인 800달러 ≈ <strong>¥126,000</strong> (위 환율 기준)</li>
+          <li>트립트랩 + 뉴본 세트 면세 후 약 ¥54,500. 여기에 유모차 ¥40,000~65,000을 더하면 <strong>한 사람 한도에 걸리거나 넘을 수 있습니다.</strong></li>
+          <li><strong>부부가 나눠 사기</strong>: 면세는 여권·영수증·카드 명의가 같아야 하니, 남편은 트립트랩 세트, 아내는 유모차를 <strong>각자 여권과 각자 카드</strong>로 결제하세요. 세관이 각자 한도로 인정하는지는 확인 필요(관세청 125).</li>
+          <li>넘으면 자진신고하세요. 간이세율은 '기타' 15%로 추정되고, 자진신고하면 30% 감면(한도 20만원)됩니다. 초과분이 몇만 엔이면 세금은 수천~수만 원 수준입니다.</li>
+          <li>같은 사람이 산 과자·옷·공항 면세점 물건도 모두 합산됩니다.</li>
+        </ul>
+      </div>
+      <div class="panel">
+        <h4>박스 옮기기</h4>
+        <ul class="plain">
+          <li><strong>항공 수하물</strong>: 무료 유아용품 1개(유모차 또는 카시트)는 지금 쓰는 유모차가 차지합니다. <strong>새 유모차 박스와 트립트랩 박스는 일반 위탁 수하물</strong>로 계산될 가능성이 큽니다. LCC면 추가 수하물을 미리 사 두세요(현장 구매가 더 비쌈).</li>
+          <li><strong>택시</strong>: 캐리어 2개, 유모차, 박스 2개, 가족 3명은 일반 택시에 안 들어갑니다. 호텔 프런트에 <strong>대형 택시(ジャンボタクシー)</strong>를 미리 부탁하세요.</li>
+          <li><strong>공항 포장</strong>: 후쿠오카 공항 국제선 3F 보안검색 전 Wrap&amp;Box(06:00~19:00, 080-1926-5050)에서 랩핑·박스 포장</li>
+          <li><strong>공항택배는 안 됨</strong>: 야마토 공항택배는 출발 2일 전 마감이라 10/28 이후 산 물건은 보낼 수 없습니다.</li>
+          <li><strong>EMS로 부치면</strong> 일본 면세 요건과 한국 여행자 한도를 둘 다 못 쓸 수 있어 비추천입니다.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="note red"><b>면세</b>이번 여행(10/27~29)은 <strong>지금의 매장 즉시면세</strong>가 그대로 적용됩니다. 리펀드(사후환급) 방식은 2026-11-01 판매분부터 시작됩니다(일본 관광청). 10월 말에 일부 매장이 시스템 전환 때문에 면세 접수를 일찍 끝낼 수 있으니 계산 전에 물어보세요.</div>
+
+  <div class="two">
+    <div class="panel">
+      <h4>면세 받는 법 (10/31 판매분까지)</h4>
+      <ul class="plain">
+        <li>한 매장에서 하루 <strong>세금 빼고 5,000엔 이상</strong></li>
+        <li><strong>일반물품</strong>(옷·유모차·장난감·식기)과 <strong>소모품</strong>(기저귀·로션·분유·과자·약)은 원칙적으로 합산이 안 됩니다. 각각 5,000엔을 넘겨야 합니다.</li>
+        <li>소모품은 봉인 포장되고 <strong>출국 전에 뜯으면 안 됩니다.</strong></li>
+        <li><strong>계산하는 사람 본인의 여권 원본</strong>이 필요합니다(사본 불가).</li>
+        <li>면세 수수료: 아카짱혼포 1.1%, 하카타 한큐·다이마루 1.55%</li>
+        <li>100ml 넘는 액체·크림은 위탁 수하물로 보내고 카운터에서 면세품이라고 말하세요.</li>
+      </ul>
+    </div>
+    <div class="panel">
+      <h4>한국 입국 때 (관세청)</h4>
+      <ul class="plain">
+        <li>면세한도는 <strong>1인 미화 800달러</strong></li>
+        <li>딸 몫의 한도는 그 아이가 실제로 쓸 물건에만 인정됩니다. 뱃속의 둘째는 한도가 없으니 <strong>신생아 용품은 부부 한도로 계산</strong>하세요.</li>
+        <li>유모차(약 66,000엔)와 출산준비 세트를 함께 사면 금액을 미리 계산해 두세요.</li>
+        <li>넘으면 자진신고(관세 30% 감면, 한도 20만원). 미신고는 가산세 40%.</li>
+        <li>식품(명란 등)은 총 10만원·품목당 5kg 이내 별도 제한</li>
+        <li><strong>이브(EVE) 진통제는 반입 금지</strong>(2025.4~). 성분이 한국에서 향정신성의약품입니다.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>쇼핑 장소</h3>
+  <div class="grid">
+    <article class="card star">
+      <h4>아카짱혼포 라라포트 후쿠오카점<span class="jp">アカチャンホンポ ららぽーと福岡店 · 3F</span></h4>
+      <div class="tags"><span class="tag red">Day 2</span><span class="tag">10~21시</span><span class="tag baby">면세 O</span></div>
+      <div class="row"><b>주소</b><span>福岡市博多区那珂6-23-1 · 092-501-0100</span></div>
+      <div class="row baby"><b>강점</b><span><strong>임신부터 생후 12개월 무렵까지의 상품에 집중한 매장</strong>입니다. 둘째 출산준비 세트, 내의, 젖병, 수유용품은 여기서. 19개월 딸 물건은 2F 토이저러스나 드럭스토어가 낫습니다.</span></div>
+      <div class="row tip"><b>주의</b><span>캐널시티에는 아카짱혼포가 없습니다.</span></div>
+      <div class="links"><a href="https://www.google.com/maps/search/?api=1&amp;query=%E3%82%A2%E3%82%AB%E3%83%81%E3%83%A3%E3%83%B3%E3%83%9B%E3%83%B3%E3%83%9D%20%E3%82%89%E3%82%89%E3%81%BD%E3%83%BC%E3%81%A8%E7%A6%8F%E5%B2%A1%E5%BA%97" target="_blank" rel="noopener">구글맵</a><a href="https://www.akachan.jp/topics/tax_free_guide/English/" target="_blank" rel="noopener">면세 안내</a></div>
+    </article>
+    <article class="card">
+      <h4>토이저러스 라라포트 후쿠오카점<span class="jp">トイザらス ららぽーと福岡店 · 2F</span></h4>
+      <div class="tags"><span class="tag red">Day 2</span><span class="tag">10~21시</span><span class="tag baby">면세 O</span></div>
+      <div class="row baby"><b>강점</b><span>앙팡맨 장난감, 리치엘·콤비 빨대컵, 19개월 딸 물건. 같은 층 로프트·프랑프랑, 1F 무인양품·3coins+plus·명월당(토리몬).</span></div>
+      <div class="links"><a href="https://www.google.com/maps/search/?api=1&amp;query=%E3%83%88%E3%82%A4%E3%82%B6%E3%82%89%E3%82%B9%20%E3%82%89%E3%82%89%E3%81%BD%E3%83%BC%E3%81%A8%E7%A6%8F%E5%B2%A1%E5%BA%97" target="_blank" rel="noopener">구글맵</a></div>
+    </article>
+    <article class="card star">
+      <h4>하카타 한큐 백화점<span class="jp">博多阪急 · JR 하카타역 직결</span></h4>
+      <div class="tags"><span class="tag red">Day 2·3</span><span class="tag">10~20시</span><span class="tag baby">면세 O (1.55%)</span></div>
+      <div class="row"><b>주소</b><span>福岡市博多区博多駅中央街1-1 · 092-461-1381 · 호텔에서 지하철 1정거장</span></div>
+      <div class="row baby"><b>7F</b><span>베이비·키즈 의류(패밀리아, 미키하우스, 메조피아노), 베이비용품(에르고베이비), 지육완구(보네룬드). 베이비룸(수유·기저귀·분유 온수·어린이 화장실), 유모차 대여.</span></div>
+      <div class="row tip"><b>팁</b><span>외국인 5% 게스트 쿠폰(1F 인포메이션이나 M3F 면세 카운터에서 여권 제시, 7일간). 면세 카운터 M3F. 4F 丸福珈琲店은 키즈메뉴·키즈체어 있음. B1 식품관·푸드코트.</span></div>
+      <div class="links"><a href="https://www.google.com/maps/search/?api=1&amp;query=%E5%8D%9A%E5%A4%9A%E9%98%AA%E6%80%A5" target="_blank" rel="noopener">구글맵</a><a href="https://www.hankyu-dept.co.jp/hakata/floor/7f.html" target="_blank" rel="noopener">7F 안내</a><a href="https://global.hankyu-hanshin-dept.co.jp/store/hakata/service/" target="_blank" rel="noopener">외국인 서비스</a></div>
+    </article>
+    <article class="card">
+      <h4>텐진 백화점 · 이와타야 / 다이마루<span class="jp">岩田屋本店 本館 6F · 大丸福岡天神店 本館 7F</span></h4>
+      <div class="tags"><span class="tag">방안 C</span><span class="tag">기온→텐진 2정거장</span></div>
+      <div class="row"><b>주소</b><span>이와타야: 福岡市中央区天神2-5-35 · 092-721-1111 (10~20시, 면세 신관 7F)<br>다이마루: 福岡市中央区天神1-4-1 · 092-712-8181 (2~8F 10~19시, 면세 본관 B1)</span></div>
+      <div class="row baby"><b>아기</b><span>이와타야 6F 베이비 휴게실·수유실, B2 유모차 대여. 다이마루 7F 수유실, 1F 유모차 대여(3개월~2세).</span></div>
+      <div class="row tip"><b>팁</b><span>스토케·유모차 취급은 전화로 확인. 다이마루 7F 베스트전기는 수요일 휴무.</span></div>
+      <div class="links"><a href="https://www.google.com/maps/search/?api=1&amp;query=%E5%B2%A9%E7%94%B0%E5%B1%8B%E6%9C%AC%E5%BA%97%20%E7%A6%8F%E5%B2%A1%E5%B8%82%E4%B8%AD%E5%A4%AE%E5%8C%BA%E5%A4%A9%E7%A5%9E2-5-35" target="_blank" rel="noopener">이와타야 구글맵</a><a href="https://www.google.com/maps/search/?api=1&amp;query=%E5%A4%A7%E4%B8%B8%E7%A6%8F%E5%B2%A1%E5%A4%A9%E7%A5%9E%E5%BA%97" target="_blank" rel="noopener">다이마루 구글맵</a></div>
+    </article>
+    <article class="card">
+      <h4>드럭일레븐 × 벨레짜 HAKATA<span class="jp">ドラッグイレブン × ベレッツァ HAKATA</span></h4>
+      <div class="tags"><span class="tag">Day 3</span><span class="tag">08~23시</span><span class="tag baby">면세 O</span></div>
+      <div class="row"><b>주소</b><span>福岡市博多区博多駅前2-3-7 · 하카타역 도보 2분 · 092-433-1107</span></div>
+      <div class="row baby"><b>강점</b><span>면세 대응이 확인된 드럭스토어. 피죤 로션, 기저귀, 치약, 상비약.</span></div>
+      <div class="links"><a href="https://www.google.com/maps/search/?api=1&amp;query=%E3%83%89%E3%83%A9%E3%83%83%E3%82%B0%E3%82%A4%E3%83%AC%E3%83%96%E3%83%B3%20%E5%8D%9A%E5%A4%9A%E9%A7%85%E5%89%8D2-3-7" target="_blank" rel="noopener">구글맵</a></div>
+    </article>
+    <article class="card">
+      <h4>돈키호테 나카스점<span class="jp">ドン・キホーテ 中洲店</span></h4>
+      <div class="tags"><span class="tag">밤 쇼핑</span><span class="tag">24시간</span><span class="tag">면세 확인 필요</span></div>
+      <div class="row"><b>위치</b><span>福岡市博多区中洲3-7-24 · 나카스카와바타역 4번 출구 직결, 호텔에서 가까움</span></div>
+      <div class="row baby"><b>강점</b><span>과자, 기념품, 앙팡맨 상품. 아이 재운 뒤 한 명씩 다녀오기 좋습니다.</span></div>
+      <div class="links"><a href="https://www.google.com/maps/search/?api=1&amp;query=%E3%83%89%E3%83%B3%E3%83%BB%E3%82%AD%E3%83%9B%E3%83%BC%E3%83%86%20%E4%B8%AD%E6%B4%B2%E5%BA%97" target="_blank" rel="noopener">구글맵</a></div>
+    </article>
+    <article class="card">
+      <h4>니시마츠야 브랜치 하카타점<span class="jp">西松屋 ブランチ博多パピヨンガーデン店</span></h4>
+      <div class="tags"><span class="tag">선택</span><span class="tag">10~20시</span><span class="tag">면세 확인 필요</span></div>
+      <div class="row"><b>위치</b><span>福岡市博多区千代1-2-1 · JR 요시즈카역 도보 약 7분</span></div>
+      <div class="row baby"><b>강점</b><span>저가 아기 옷·내의·가제수건. 면세는 대체로 안 되는 것으로 알려져 있습니다.</span></div>
+      <div class="links"><a href="https://www.google.com/maps/search/?api=1&amp;query=%E8%A5%BF%E6%9D%BE%E5%B1%8B%20%E3%83%96%E3%83%A9%E3%83%B3%E3%83%81%E5%8D%9A%E5%A4%9A%E3%83%91%E3%83%94%E3%83%A8%E3%83%B3%E3%82%AC%E3%83%BC%E3%83%87%E3%83%B3%E5%BA%97" target="_blank" rel="noopener">구글맵</a></div>
+    </article>
+    <article class="card">
+      <h4>하카타역 생활용품<span class="jp">無印良品 アミュプラザ博多 · ダイソー 博多バスターミナル</span></h4>
+      <div class="tags"><span class="tag">Day 3</span><span class="tag">역 직결</span></div>
+      <div class="row"><b>위치</b><span>무인양품 아뮤플라자 6F(10~20시) · 다이소 하카타 버스터미널 5F(9~21시) · 키라키라 돈키 하카타 마루이 3F</span></div>
+      <div class="row baby"><b>강점</b><span>가제수건, 이유식 용기, 수납용품, 여행 중 부족한 소모품.</span></div>
+      <div class="links"><a href="https://www.google.com/maps/search/?api=1&amp;query=%E7%84%A1%E5%8D%B0%E8%89%AF%E5%93%81%20%E3%82%A2%E3%83%9F%E3%83%A5%E3%83%97%E3%83%A9%E3%82%B6%E5%8D%9A%E5%A4%9A" target="_blank" rel="noopener">무인양품 구글맵</a><a href="https://www.google.com/maps/search/?api=1&amp;query=%E3%83%80%E3%82%A4%E3%82%BD%E3%83%BC%20%E5%8D%9A%E5%A4%9A%E3%83%90%E3%82%B9%E3%82%BF%E3%83%BC%E3%83%9F%E3%83%8A%E3%83%AB%E5%BA%97" target="_blank" rel="noopener">다이소 구글맵</a><a href="https://www.google.com/maps/search/?api=1&amp;query=%E3%82%AD%E3%83%A9%E3%82%AD%E3%83%A9%E3%83%89%E3%83%B3%E3%82%AD%20%E5%8D%9A%E5%A4%9A%E3%83%9E%E3%83%AB%E3%82%A4" target="_blank" rel="noopener">키라키라 돈키 구글맵</a></div>
+    </article>
+  </div>
+
+  <h3>둘째 신생아 용품 <span class="jp">新生児</span></h3>
+  <div class="progress" data-group="shop"><span>살 것 체크</span><div class="bar"><i></i></div><span class="count">0 / 0</span></div>
+  <div class="tbl" data-checkgroup="shop">
+    <table>
+      <thead><tr><th style="width:36px"></th><th>품목</th><th>일본어 상품명</th><th>가격(엔)</th><th>살 곳</th><th>메모</th></tr></thead>
+      <tbody>
+        <tr class="keyrow"><td><input type="checkbox" id="s-tripp" aria-label="트립트랩"></td><td><strong>트립트랩</strong> <span class="tag red">1순위</span></td><td>ストッケ トリップ トラップ<span class="jp">ビーチ ¥37,730 / オーク ¥48,730</span></td><td class="num">37,730</td><td>재고 확인한 매장</td><td>한국 정가보다 약 31% 저렴. 국내 보증 불가</td></tr>
+        <tr class="keyrow"><td><input type="checkbox" id="s-newborn" aria-label="뉴본 세트"></td><td><strong>뉴본 세트</strong> <span class="tag red">1순위</span></td><td>ストッケ トリップ トラップ ニューボーンセット</td><td class="num">21,340</td><td>아카짱혼포(온라인 재고 조회), 재고 확인한 매장</td><td>신생아부터 트립트랩에 끼워 쓰는 바운서형. 약 27% 저렴</td></tr>
+        <tr class="keyrow"><td><input type="checkbox" id="s-babyset" aria-label="베이비 세트"></td><td>베이비 세트²</td><td>ストッケ トリップ トラップ ベビーセット²</td><td class="num">10,560</td><td>위와 같음</td><td>차액 약 7,500원이라 한국에서 사도 비슷</td></tr>
+        <tr class="keyrow"><td><input type="checkbox" id="s-stroller2" aria-label="신생아 유모차"></td><td><strong>신생아 유모차</strong> <span class="tag red">1순위</span></td><td>ベビーカー（1ヶ月以降・A型）<span class="jp">コンビ スゴカル / アップリカ ラクーナ 등</span></td><td class="num">약 37,000~65,000</td><td>아카짱혼포 (실물 가장 많음)</td><td>한국 가격과 비교 후 30% 이상 쌀 때만. 부부가 나눠 결제</td></tr>
+        <tr><td><input type="checkbox" id="s-bottle" aria-label="젖병"></td><td>젖병</td><td>ピジョン 母乳実感 哺乳びん<span class="jp">160ml(신생아) / 240ml</span></td><td class="num">2,750~2,860</td><td>아카짱혼포, 드럭스토어</td><td>유리 제품은 위탁할 때 포장 주의</td></tr>
+        <tr><td><input type="checkbox" id="s-nipple" aria-label="젖꼭지"></td><td>젖꼭지</td><td>ピジョン 母乳実感 乳首<span class="jp">SS 新生児 / S 1ヵ月 / M 3ヵ月</span></td><td class="num">SS 990</td><td>위와 같음</td><td>월령별 사이즈. 한국판과 호환은 확인 필요</td></tr>
+        <tr><td><input type="checkbox" id="s-set" aria-label="출산준비 내의 세트"></td><td>출산준비 내의 세트</td><td>アカチャンホンポ はじめての出産準備セット<span class="jp">短肌着・コンビ肌着 등 8종</span></td><td class="num">5,500~11,000</td><td>아카짱혼포</td><td>일본제 세트 8,800. 옷은 일반물품</td></tr>
+        <tr><td><input type="checkbox" id="s-lotion" aria-label="베이비 로션"></td><td>베이비 로션</td><td>ピジョン 薬用ローション(ももの葉) 200ml</td><td class="num">약 600</td><td>드럭스토어</td><td>가성비 좋아 많이 사는 제품</td></tr>
+        <tr><td><input type="checkbox" id="s-minon" aria-label="저자극 보습제"></td><td>저자극 보습제</td><td>ミノン ベビー 全身保湿ミルク 150ml<span class="jp">또는 資生堂 2e ベビー</span></td><td class="num">1,430~1,650</td><td>드럭스토어</td><td>치료제는 아님. 증상 있으면 소아과 상담</td></tr>
+        <tr><td><input type="checkbox" id="s-nail" aria-label="신생아 손톱가위"></td><td>신생아 손톱가위</td><td>ピジョン 新生児おていれセット</td><td class="num">1,628</td><td>드럭스토어, 아카짱혼포</td><td>'ベビーつめきり'는 9개월부터 쓰는 다른 제품</td></tr>
+        <tr><td><input type="checkbox" id="s-diaper" aria-label="신생아 기저귀"></td><td>신생아 기저귀</td><td>メリーズ / ムーニー / パンパース 新生児用</td><td class="num">1,480~1,980</td><td>드럭스토어</td><td>몇 주 만에 작아지고 부피가 커서 1~2팩만. 2026년 가격 인상</td></tr>
+        <tr><td><input type="checkbox" id="s-gauze" aria-label="가제수건"></td><td>가제수건</td><td>ガーゼハンカチ (日本製)</td><td class="num">확인 필요</td><td>아카짱혼포, 니시마츠야, 무인양품</td><td></td></tr>
+        <tr><td><input type="checkbox" id="s-wash" aria-label="젖병 세제"></td><td>젖병 세제</td><td>ピジョン 哺乳びん洗い</td><td class="num">확인 필요</td><td>드럭스토어</td><td>액체라 위탁</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>엄마 · 수유 용품 <span class="jp">マタニティ</span></h3>
+  <div class="tbl" data-checkgroup="shop">
+    <table>
+      <thead><tr><th style="width:36px"></th><th>품목</th><th>일본어 상품명</th><th>가격(엔)</th><th>메모</th></tr></thead>
+      <tbody>
+        <tr><td><input type="checkbox" id="s-mark" aria-label="튼살크림"></td><td>튼살크림</td><td>ママ&amp;キッズ ナチュラルマーククリーム</td><td class="num">150g 2,970</td><td>무향료. 크림이라 위탁</td></tr>
+        <tr><td><input type="checkbox" id="s-pad" aria-label="모유패드"></td><td>모유패드</td><td>ピジョン 母乳パッド フィットアップ 126枚</td><td class="num">877~958</td><td>부피 주의</td></tr>
+        <tr><td><input type="checkbox" id="s-lanolin" aria-label="유두 크림"></td><td>유두 크림</td><td>ピジョン ピュアレーン 7g</td><td class="num">1,078</td><td></td></tr>
+        <tr><td><input type="checkbox" id="s-belt" aria-label="골반 벨트"></td><td>골반 벨트</td><td>トコちゃんベルト</td><td class="num">확인 필요</td><td></td></tr>
+        <tr><td><input type="checkbox" id="s-bra" aria-label="수유브라"></td><td>수유브라</td><td>アカチャンホンポ 授乳ブラ</td><td class="num">확인 필요</td><td></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>19개월 딸 <span class="jp">1歳7ヶ月</span></h3>
+  <div class="tbl" data-checkgroup="shop">
+    <table>
+      <thead><tr><th style="width:36px"></th><th>품목</th><th>일본어 상품명</th><th>가격(엔)</th><th>살 곳</th></tr></thead>
+      <tbody>
+        <tr><td><input type="checkbox" id="s-brush" aria-label="앙팡맨 칫솔"></td><td>앙팡맨 칫솔</td><td>ライオン こどもハブラシ 1才半~5才用 アンパンマン</td><td class="num">약 108</td><td>드럭스토어</td></tr>
+        <tr><td><input type="checkbox" id="s-paste" aria-label="유아 치약"></td><td>유아 치약</td><td>ピジョン ジェル状歯みがき ぷちキッズ<span class="jp">1세 6개월 무렵부터</span></td><td class="num">약 600~700</td><td>드럭스토어</td></tr>
+        <tr><td><input type="checkbox" id="s-mug" aria-label="빨대컵"></td><td>빨대컵 · 머그</td><td>リッチェル トライマグ / コンビ テテオ マグ</td><td class="num">확인 필요</td><td>아카짱혼포, 토이저러스</td></tr>
+        <tr><td><input type="checkbox" id="s-snack" aria-label="아기 과자"></td><td>아기 과자</td><td>亀田 ハイハイン · 和光堂 赤ちゃんのおやつ+Ca<span class="jp">フジパン アンパンマンのミニスナック(빵, 유통기한 짧음)</span></td><td class="num">확인 필요</td><td>드럭스토어, 슈퍼</td></tr>
+        <tr><td><input type="checkbox" id="s-jelly" aria-label="키즈 젤리"></td><td>키즈 젤리</td><td>明治 ミラフル ゼリー (1~6세)</td><td class="num">확인 필요</td><td>아카짱혼포, 드럭스토어</td></tr>
+        <tr><td><input type="checkbox" id="s-toy" aria-label="앙팡맨 장난감"></td><td>앙팡맨 장난감</td><td>アンパンマン 知育玩具</td><td class="num">확인 필요</td><td>토이저러스, 돈키호테</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>기념품 · 일반 쇼핑</h3>
+  <div class="tbl" data-checkgroup="shop">
+    <table>
+      <thead><tr><th style="width:36px"></th><th>품목</th><th>메모</th></tr></thead>
+      <tbody>
+        <tr><td><input type="checkbox" id="s-torimon" aria-label="하카타 토리몬"></td><td>하카타 토리몬 <span class="jp">博多通りもん · 明月堂</span></td><td>6개입 약 1,000엔. 라라포트 1F 명월당</td></tr>
+        <tr><td><input type="checkbox" id="s-mentai" aria-label="명란"></td><td>명란 <span class="jp">ふくや 味の明太子 · やまや</span></td><td>120g 약 1,080엔. 보냉 포장, 위탁 수하물. 임신 중이면 익혀서</td></tr>
+        <tr><td><input type="checkbox" id="s-menbei" aria-label="멘베이"></td><td>멘베이 <span class="jp">めんべい</span></td><td>명란 센베이. 가열한 과자라 임신 중에도 괜찮음</td></tr>
+        <tr><td><input type="checkbox" id="s-med" aria-label="상비약"></td><td>상비약 <span class="jp">キャベジン · 太田胃散 · 熱さまシート</span></td><td>파스·진통제는 임신 중 사용 전에 산부인과 확인. 이브(EVE)는 사지 마세요</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============ 먹을 곳 ============ -->
+<section id="food">
+  <div class="sec-head"><span class="no">04</span><h2>먹을 곳</h2><span class="jp">グルメ</span></div>
+  <p class="sec-intro">유아 설비 정보 중 공식으로 확인된 것은 이치란(어린이 라멘 무료), 토리덴(유아 의자 없음), 야마나카 아카사카점(12세 이하 불가)뿐입니다. 나머지 키즈체어·유모차 입장은 리뷰 기준이라 '현장 확인'으로 적었습니다.</p>
+
+  <div class="note preg"><b>임신 중이라면</b>생 명란(멘타이쥬 등), 회·초밥, 날계란, 레어 고기, 말고기·닭고기 회는 피하세요. 간(레바)과 장어 간국은 임신 초기에 양을 줄이세요(일본 후생노동성 리스테리아 안내). 명란은 "よく焼いてください(바싹 익혀 주세요)"라고 요청하거나 구운 명란(야키 멘타이)을 고르세요.</div>
+
+  <div class="grid">
+    <article class="card star">
+      <h4>모츠나베 오오야마 KITTE하카타<span class="jp">もつ鍋おおやま KITTE博多 9F</span></h4>
+      <div class="tags"><span class="tag baby">아이와 무난</span><span class="tag">11~23시</span><span class="tag">점심 2~3천 · 저녁 4~5천엔</span></div>
+      <div class="row"><b>위치</b><span>하카타역 도보 3분 KITTE 9F</span></div>
+      <div class="row baby"><b>아기</b><span><strong>개별룸 15실</strong>, 반개별룸 9실. 개별룸은 예약 권장. 키즈체어는 현장 확인.</span></div>
+      <div class="row preg"><b>임신</b><span>전골은 충분히 끓여서. 말고기 회 같은 날것 사이드는 피하기.</span></div>
+      <div class="links"><a href="https://www.google.com/maps/search/?api=1&amp;query=%E3%82%82%E3%81%A4%E9%8D%8B%E3%81%8A%E3%81%8A%E3%82%84%E3%81%BE%20KITTE%E5%8D%9A%E5%A4%9A" target="_blank" rel="noopener">구글맵</a><a href="https://www.motu-ooyama.com/" target="_blank" rel="noopener">공식 사이트</a></div>
+    </article>
+    <article class="card star">
+      <h4>하카타 하나미도리 하카타역앞점 (미즈타키)<span class="jp">博多華味鳥 博多駅前店</span></h4>
+      <div class="tags"><span class="tag baby">아이와 무난</span><span class="tag">점심 11:30~15 · 저녁 17시~</span><span class="tag">점심 정식 1,100엔~</span></div>
+      <div class="row"><b>위치</b><span>하카타구치 도보 3분 · 092-432-1801</span></div>
+      <div class="row baby"><b>아기</b><span><strong>완전 개별룸</strong> 있음. 순한 닭 육수라 아이도 먹기 좋습니다. 키즈 관련은 현장 확인.</span></div>
+      <div class="row preg"><b>임신</b><span>닭과 국물은 완전히 익혀서. '미즈타키 멘타이 정식'의 생 명란, 닭고기 회는 피하기. 마무리 죽 달걀도 완전히 익히기.</span></div>
+      <div class="links"><a href="https://www.google.com/maps/search/?api=1&amp;query=%E5%8D%9A%E5%A4%9A%E8%8F%AF%E5%91%B3%E9%B3%A5%20%E5%8D%9A%E5%A4%9A%E9%A7%85%E5%89%8D%E5%BA%97" target="_blank" rel="noopener">구글맵</a></div>
+    </article>
+    <article class="card">
+      <h4>이치란 캐널시티점<span class="jp">一蘭 キャナルシティ博多店</span></h4>
+      <div class="tags"><span class="tag baby">어린이 라멘 무료</span><span class="tag">1,000엔대</span><span class="tag">휴무 없음</span></div>
+      <div class="row"><b>위치</b><span>캐널시티 노스빌딩 B1. 나카스 본사총본점은 24시간</span></div>
+      <div class="row baby"><b>아기</b><span>초등생 이하 어린이 라멘 무료(면 절반, 매운 소스 없음). 1인 칸막이석이라 유모차는 현장 확인.</span></div>
+      <div class="row preg"><b>임신</b><span>대체로 괜찮음. 반숙 달걀만 빼기.</span></div>
+      <div class="links"><a href="https://www.google.com/maps/search/?api=1&amp;query=%E4%B8%80%E8%98%AD%20%E3%82%AD%E3%83%A3%E3%83%8A%E3%83%AB%E3%82%B7%E3%83%86%E3%82%A3%E5%8D%9A%E5%A4%9A%E5%BA%97" target="_blank" rel="noopener">구글맵</a></div>
+    </article>
+    <article class="card">
+      <h4>신신 라멘 KITTE하카타점<span class="jp">博多らーめん ShinShin KITTE博多店</span></h4>
+      <div class="tags"><span class="tag">보통</span><span class="tag">11~24시</span><span class="tag">1,000엔 이하</span></div>
+      <div class="row"><b>위치</b><span>하카타역 도보 1분</span></div>
+      <div class="row baby"><b>아기</b><span>카운터 위주, 회전이 빠릅니다. 키즈체어는 현장 확인.</span></div>
+      <div class="row preg"><b>임신</b><span>라멘은 괜찮음. 사이드 명란밥은 생 명란이라 피하기.</span></div>
+      <div class="links"><a href="https://www.google.com/maps/search/?api=1&amp;query=%E5%8D%9A%E5%A4%9A%E3%82%89%E3%83%BC%E3%82%81%E3%82%93%20ShinShin%20KITTE%E5%8D%9A%E5%A4%9A%E5%BA%97" target="_blank" rel="noopener">구글맵</a></div>
+    </article>
+    <article class="card">
+      <h4>하카타 잇푸도 다이묘 본점<span class="jp">博多一風堂 大名本店</span></h4>
+      <div class="tags"><span class="tag">보통</span><span class="tag">1,000엔대</span></div>
+      <div class="row"><b>위치</b><span>텐진(다이묘)</span></div>
+      <div class="row baby"><b>아기</b><span>키즈메뉴·키즈체어는 현장 확인.</span></div>
+      <div class="row preg"><b>임신</b><span>반숙 달걀만 빼기.</span></div>
+      <div class="links"><a href="https://www.google.com/maps/search/?api=1&amp;query=%E4%B8%80%E9%A2%A8%E5%A0%82%20%E5%A4%A7%E5%90%8D%E6%9C%AC%E5%BA%97" target="_blank" rel="noopener">구글맵</a></div>
+    </article>
+    <article class="card">
+      <h4>마키노 우동 하카타 버스터미널점<span class="jp">牧のうどん 博多バスターミナル店</span></h4>
+      <div class="tags"><span class="tag baby">아이와 무난</span><span class="tag">10~23시</span><span class="tag">500~700엔대</span></div>
+      <div class="row"><b>위치</b><span>하카타역 옆 버스터미널 B1</span></div>
+      <div class="row baby"><b>아기</b><span>음식이 빨리 나와 아이와 가기 좋습니다. 다른 지점은 아이용 스푼·포크와 식힌 국물을 내줍니다(이 지점은 현장 확인).</span></div>
+      <div class="row preg"><b>임신</b><span>괜찮음.</span></div>
+      <div class="links"><a href="https://www.google.com/maps/search/?api=1&amp;query=%E7%89%A7%E3%81%AE%E3%81%86%E3%81%A9%E3%82%93%20%E5%8D%9A%E5%A4%9A%E3%83%90%E3%82%B9%E3%82%BF%E3%83%BC%E3%83%9F%E3%83%8A%E3%83%AB%E5%BA%97" target="_blank" rel="noopener">구글맵</a><a href="https://www.makinoudon.jp/" target="_blank" rel="noopener">공식 사이트</a></div>
+    </article>
+    <article class="card">
+      <h4>요시즈카 우나기야 (장어)<span class="jp">吉塚うなぎ屋</span></h4>
+      <div class="tags"><span class="tag warn">수요일 휴무</span><span class="tag">10:30~21:00</span><span class="tag">장어덮밥 약 2,860엔</span></div>
+      <div class="row"><b>위치</b><span>나카스카와바타역 도보 3분, 호텔에서 가까움</span></div>
+      <div class="row baby"><b>아기</b><span>개별룸 있음(구르나비). 현금만 받는다는 리뷰가 있습니다.</span></div>
+      <div class="row preg"><b>임신</b><span>비타민A가 많아 임신 초기라면 양을 줄이고 장어 간국(키모스이)은 피하기.</span></div>
+      <div class="links"><a href="https://www.google.com/maps/search/?api=1&amp;query=%E5%90%89%E5%A1%9A%E3%81%86%E3%81%AA%E3%81%8E%E5%B1%8B%20%E7%A6%8F%E5%B2%A1%E5%B8%82%E5%8D%9A%E5%A4%9A%E5%8C%BA%E4%B8%AD%E6%B4%B2" target="_blank" rel="noopener">구글맵</a></div>
+    </article>
+    <article class="card">
+      <h4>우동 타이라<span class="jp">うどん平</span></h4>
+      <div class="tags"><span class="tag">보통</span><span class="tag">평일 11:30~16:00</span><span class="tag">650엔~</span></div>
+      <div class="row"><b>위치</b><span>스미요시, 하카타역 도보 약 10분. 일요일·공휴일 휴무라 화~목 영업</span></div>
+      <div class="row baby"><b>아기</b><span>대기가 길고 가게가 좁습니다. 유모차는 현장 확인.</span></div>
+      <div class="row preg"><b>임신</b><span>괜찮음.</span></div>
+      <div class="links"><a href="https://www.google.com/maps/search/?api=1&amp;query=%E3%81%86%E3%81%A9%E3%82%93%E5%B9%B3%20%E7%A6%8F%E5%B2%A1%E5%B8%82%E5%8D%9A%E5%A4%9A%E5%8C%BA%E4%BD%8F%E5%90%89" target="_blank" rel="noopener">구글맵</a></div>
+    </article>
+    <article class="card">
+      <h4>후쿠야 나카스 본점 (명란 판매점)<span class="jp">ふくや 中洲本店</span></h4>
+      <div class="tags"><span class="tag">기념품</span><span class="tag">호텔 근처</span></div>
+      <div class="row"><b>위치</b><span>나카스. 호텔에서 걸어서 갈 수 있는 거리</span></div>
+      <div class="row baby"><b>아기</b><span>식당이 아니라 판매점이라 짧게 들르기 좋습니다.</span></div>
+      <div class="row preg"><b>임신</b><span>생 명란 대신 <strong>구운 명란(焼き明太子)</strong> 제품이나 가열한 멘베이를 고르세요.</span></div>
+      <div class="links"><a href="https://www.google.com/maps/search/?api=1&amp;query=%E3%81%B5%E3%81%8F%E3%82%84%20%E4%B8%AD%E6%B4%B2%E6%9C%AC%E5%BA%97" target="_blank" rel="noopener">구글맵</a></div>
+    </article>
+    <article class="card">
+      <h4>쇼핑몰 식당가<span class="jp">シティダイニングくうてん · KITTE 9~10F · ラーメンスタジアム</span></h4>
+      <div class="tags"><span class="tag baby">아이와 무난</span><span class="tag">시설 기준</span></div>
+      <div class="row"><b>위치</b><span>아뮤플라자 9~10F(11~24시), KITTE 9~10F, 캐널시티 5F 라멘 스타디움(2026.4 리뉴얼)</span></div>
+      <div class="row baby"><b>아기</b><span>JR하카타시티에 유모차 대여, 수유실, 기저귀 교환대. 메뉴를 고르기 쉬워 저녁에 무난합니다.</span></div>
+      <div class="links"><a href="https://www.google.com/maps/search/?api=1&amp;query=%E3%82%B7%E3%83%86%E3%82%A3%E3%83%80%E3%82%A4%E3%83%8B%E3%83%B3%E3%82%B0%E3%81%8F%E3%81%86%E3%81%A6%E3%82%93%20%E5%8D%9A%E5%A4%9A" target="_blank" rel="noopener">쿠텐 구글맵</a><a href="https://www.google.com/maps/search/?api=1&amp;query=KITTE%E5%8D%9A%E5%A4%9A" target="_blank" rel="noopener">KITTE 구글맵</a><a href="https://www.google.com/maps/search/?api=1&amp;query=%E3%83%A9%E3%83%BC%E3%83%A1%E3%83%B3%E3%82%B9%E3%82%BF%E3%82%B8%E3%82%A2%E3%83%A0%20%E3%82%AD%E3%83%A3%E3%83%8A%E3%83%AB%E3%82%B7%E3%83%86%E3%82%A3%E5%8D%9A%E5%A4%9A" target="_blank" rel="noopener">라멘 스타디움 구글맵</a></div>
+    </article>
+    <article class="card">
+      <h4>간소 하카타 멘타이쥬<span class="jp">元祖博多めんたい重</span></h4>
+      <div class="tags"><span class="tag">보통</span><span class="tag">07:00~22:30</span><span class="tag preg">임신 중 비추천</span></div>
+      <div class="row"><b>위치</b><span>니시나카스. 멘타이쥬 약 1,848엔. 줄을 섭니다</span></div>
+      <div class="row baby"><b>아기</b><span>구르나비 '아이 동반 OK', 리뷰에 부스터 시트 언급.</span></div>
+      <div class="row preg"><b>임신</b><span>멘타이쥬는 생 명란. 살짝 구운 명란도 반쯤 날것입니다. 대안 '멘타이 니코미 츠케멘'은 토핑이 생인지 확인.</span></div>
+      <div class="links"><a href="https://www.google.com/maps/search/?api=1&amp;query=%E5%85%83%E7%A5%96%E5%8D%9A%E5%A4%9A%E3%82%81%E3%82%93%E3%81%9F%E3%81%84%E9%87%8D" target="_blank" rel="noopener">구글맵</a></div>
+    </article>
+    <article class="card">
+      <h4>미즈타키 토리덴 하카타 본점<span class="jp">水たき とり田 博多本店</span></h4>
+      <div class="tags"><span class="tag warn">유아 의자 없음</span><span class="tag">코스 7,700엔~</span></div>
+      <div class="row"><b>위치</b><span>나카스카와바타역 도보 2~5분</span></div>
+      <div class="row baby"><b>아기</b><span>공식적으로 "유아용 의자 없음". 예약 때 아이 나이를 알려야 하고 이용 시간 120분.</span></div>
+      <div class="row preg"><b>임신</b><span>하나미도리와 같음.</span></div>
+      <div class="links"><a href="https://www.google.com/maps/search/?api=1&amp;query=%E6%B0%B4%E3%81%9F%E3%81%8D%20%E3%81%A8%E3%82%8A%E7%94%B0%20%E5%8D%9A%E5%A4%9A%E6%9C%AC%E5%BA%97" target="_blank" rel="noopener">구글맵</a></div>
+    </article>
+    <article class="card">
+      <h4>효탄스시 (텐진)<span class="jp">ひょうたん寿司</span></h4>
+      <div class="tags"><span class="tag">보통</span><span class="tag preg">임신 중 비추천</span><span class="tag">1점 154엔~</span></div>
+      <div class="row baby"><b>아기</b><span>줄 서야 합니다. 같은 계열 회전초밥(솔라리아 스테이지 B2)이 들어가기 쉽습니다.</span></div>
+      <div class="row preg"><b>임신</b><span>먹는다면 구운 붕장어, 달걀말이, 익힌 새우·장어만.</span></div>
+      <div class="links"><a href="https://www.google.com/maps/search/?api=1&amp;query=%E3%81%B2%E3%82%87%E3%81%86%E3%81%9F%E3%82%93%E5%AF%BF%E5%8F%B8%20%E5%A4%A9%E7%A5%9E" target="_blank" rel="noopener">구글맵</a></div>
+    </article>
+    <article class="card">
+      <h4>텐진 호르몬 · 키와미야 함바그<span class="jp">天神ホルモン 博多駅店 · 極味や</span></h4>
+      <div class="tags"><span class="tag warn">유아와 어려움</span><span class="tag">철판 화상 주의</span></div>
+      <div class="row"><b>위치</b><span>하카타역 지하·버스터미널 주변</span></div>
+      <div class="row baby"><b>아기</b><span>둘 다 뜨거운 철판 카운터석 위주라 유아와 가기 어렵고 대기가 깁니다.</span></div>
+      <div class="row preg"><b>임신</b><span>키와미야는 속이 생인 상태로 나와 돌판에 직접 굽습니다. 속까지 완전히 익혀서. 호르몬 덮밥 날계란은 빼기.</span></div>
+      <div class="links"><a href="https://www.google.com/maps/search/?api=1&amp;query=%E5%A4%A9%E7%A5%9E%E3%83%9B%E3%83%AB%E3%83%A2%E3%83%B3%20%E5%8D%9A%E5%A4%9A%E9%A7%85%E5%BA%97" target="_blank" rel="noopener">호르몬 구글맵</a><a href="https://www.google.com/maps/search/?api=1&amp;query=%E6%A5%B5%E5%91%B3%E3%82%84%20%E5%8D%9A%E5%A4%9A%E5%BA%97%20%E5%8D%9A%E5%A4%9A%E3%83%90%E3%82%B9%E3%82%BF%E3%83%BC%E3%83%9F%E3%83%8A%E3%83%AB" target="_blank" rel="noopener">키와미야 구글맵</a></div>
+    </article>
+  </div>
+</section>
+
+<!-- ============ 아기 주의사항 ============ -->
+<section id="baby">
+  <div class="sec-head"><span class="no">05</span><h2>아기와 다닐 때 주의사항</h2><span class="jp">子連れの注意</span></div>
+
+  <div class="two">
+    <div class="panel">
+      <h4>이동</h4>
+      <ul class="plain">
+        <li><strong>지하철</strong>: 19개월은 무료(1~6세 미만은 보호자 1명당 2명까지). 유모차를 접지 않고 타도 됩니다(국토교통성 방침). 엘리베이터가 공사로 멈춘 역은 인터폰으로 역무원을 부르세요.</li>
+        <li><strong>버스</strong>: 붐비면 유모차를 접어 달라고 할 수 있고, 2인승·대형 유모차는 거절될 수 있습니다.</li>
+        <li><strong>택시</strong>: 6세 미만 카시트 의무가 면제됩니다. 면제일 뿐 안전한 건 아니니 아이를 무릎에 앉힌 채 벨트를 같이 매지 마세요. <strong>렌터카는 카시트 의무</strong>입니다.</li>
+        <li>평일 7:30~9:00, 17:30~19:00 출퇴근 시간은 피하세요.</li>
+        <li>앙팡맨 뮤지엄은 유모차 반입이 안 되니 아기띠를 함께 챙기세요.</li>
+      </ul>
+    </div>
+    <div class="panel">
+      <h4>식당 · 음식</h4>
+      <ul class="plain">
+        <li>입구에 <strong>「喫煙可」「喫煙目的室」</strong> 표지가 있으면 20세 미만은 들어갈 수 없습니다. 작은 이자카야에서 특히 주의.</li>
+        <li>철판 카운터(텐진 호르몬, 키와미야)는 화상 위험이 있습니다.</li>
+        <li>인기 식당은 오픈 시간에 맞춰 가면 대기가 짧습니다.</li>
+        <li><strong>우유</strong>: 19개월이면 편의점 일반 우유(牛乳)를 먹여도 됩니다. 분유는 1~3세용 <strong>明治ステップ らくらくキューブ</strong>(ほほえみ는 0~1세용).</li>
+        <li><strong>수돗물</strong>: 후쿠오카시 수도국이 그대로 마셔도 된다고 안내합니다. 걱정되면 생수.</li>
+      </ul>
+    </div>
+    <div class="panel">
+      <h4>기저귀 · 수유실</h4>
+      <ul class="plain">
+        <li>앱 <strong>ママパパマップ</strong>(무료, iOS·Android)로 수유실, 기저귀 교환대, 분유용 온수, 전자레인지를 찾을 수 있습니다.</li>
+        <li>캐널시티, 아뮤플라자, 하카타 한큐의 베이비룸이 쓸 만합니다.</li>
+        <li>길에 쓰레기통이 적습니다. 기저귀 쓰레기 봉투를 챙기세요.</li>
+        <li>일본 기저귀 사이즈(무니맨 팬츠): L 9~14kg, BIG 12~22kg. 水あそびパンツ는 물놀이용이니 잘못 사지 마세요.</li>
+      </ul>
+    </div>
+    <div class="panel">
+      <h4>날씨 · 매너</h4>
+      <ul class="plain">
+        <li>10월 하순 평년 최고 21.8℃, 최저 14.1℃(기상청). 최근엔 더 따뜻한 해가 많았습니다.</li>
+        <li>낮엔 긴팔 + 얇은 겉옷, 아침저녁엔 가디건이나 경량 패딩. 아이는 겹쳐 입힐 옷, 유모차 담요와 레인커버.</li>
+        <li>전철에서는 휴대폰 진동, 통화는 하지 않는 것이 관례입니다. 아이가 오래 울면 다음 역에서 잠깐 내려 달래세요.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="note preg"><b>임신 중이라면</b>
+    <ul>
+      <li><strong>항공</strong>: 대한항공, 아시아나, 진에어, 티웨이, 제주항공, 에어부산 모두 32주 미만이고 합병증이 없으면 서류가 필요 없습니다. 32~36주는 아시아나·제주항공은 소견서, 나머지는 서약서. 37주 이상은 탑승 불가.</li>
+      <li><strong>보험</strong>: 여행자보험은 임신·출산 관련을 보통 보상하지 않습니다. 가입 전에 임신 사실을 알리고 보장 여부를 서면으로 받아 두세요.</li>
+      <li><strong>음식</strong>: 생 명란, 회, 날계란, 레어 고기는 피하기.</li>
+      <li><strong>호텔</strong>: 9HOTEL HAKATA는 대욕장이 없습니다. 객실 욕조도 너무 뜨거운 물에 오래 담그지 마세요.</li>
+      <li>임신 확인서와 최근 검사 결과(영문이면 좋음)를 챙기세요.</li>
+    </ul>
+  </div>
+
+  <h3>바로 쓰는 일본어</h3>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>상황</th><th>일본어</th><th>읽기</th></tr></thead>
+      <tbody>
+        <tr><td>아기 의자 있나요?</td><td>キッズチェアはありますか？</td><td>킷즈 체아와 아리마스카</td></tr>
+        <tr><td>유모차 그대로 들어가도 되나요?</td><td>ベビーカーのまま入れますか？</td><td>베비카노 마마 하이레마스카</td></tr>
+        <tr><td>아이용 앞접시 주세요</td><td>子ども用の取り皿をください</td><td>코도모요노 토리자라오 쿠다사이</td></tr>
+        <tr><td>수유실은 어디인가요?</td><td>授乳室はどこですか？</td><td>쥬뉴시츠와 도코데스카</td></tr>
+        <tr><td>기저귀 교환대 있나요?</td><td>おむつ交換台はありますか？</td><td>오무츠 코칸다이와 아리마스카</td></tr>
+        <tr><td>바싹 익혀 주세요</td><td>よく焼いてください</td><td>요쿠 야이테 쿠다사이</td></tr>
+        <tr><td>임신 중입니다</td><td>妊娠中です</td><td>닌신츄데스</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============ 지하철 ============ -->
+<section id="subway">
+  <div class="sec-head"><span class="no">06</span><h2>지하철 타는 법</h2><span class="jp">地下鉄の乗り方</span></div>
+  <p class="sec-intro">이번 일정에서 탈 지하철은 거의 <strong>공항선(空港線, 주황색) 한 노선</strong>입니다. 호텔이 있는 기온역에서 하카타역은 1정거장, 텐진은 2정거장입니다. 처음이라도 아래만 알면 됩니다.</p>
+
+  <div class="two">
+    <div class="panel">
+      <h4>결제: 신용카드를 개찰구에 터치</h4>
+      <ul class="plain">
+        <li>후쿠오카 지하철은 <strong>36개 모든 역 개찰구에서 신용·체크카드 터치 결제</strong>가 됩니다. Visa, Mastercard, JCB, Amex, Diners, Discover, 은련 모두 됩니다(2024년 10월 공식 발표 기준).</li>
+        <li>카드에 <strong>컨택리스 마크(전파 모양)</strong>가 있어야 합니다. 트래블월렛·트래블로그 같은 해외결제 카드도 컨택리스면 됩니다. 출발 전에 카드 뒷면을 확인하세요.</li>
+        <li>타는 역과 내리는 역 모두 개찰구의 <strong>전용 리더기</strong>에 같은 카드를 터치합니다.</li>
+        <li><strong>한 사람에 카드 한 장</strong>입니다. 한 카드로 둘이 지나갈 수 없으니 부부가 각자 카드를 쓰세요.</li>
+        <li><strong>하루 최대 640엔</strong>까지만 결제되고 그 이상은 자동으로 무료입니다. 1일권을 따로 살 필요가 없습니다.</li>
+        <li><strong>매표기에서는 신용카드를 쓸 수 없습니다.</strong> 표를 산다면 현금이 필요합니다.</li>
+      </ul>
+    </div>
+    <div class="panel">
+      <h4>아이와 유모차</h4>
+      <ul class="plain">
+        <li><strong>19개월 딸은 무료</strong>입니다. 1~6세 미만은 보호자 1명당 2명까지 무료라 카드도 표도 필요 없습니다.</li>
+        <li><strong>유모차는 접지 않고 타도 됩니다</strong>(국토교통성 방침). 열차 안에서는 브레이크를 걸고 손으로 잡고 계세요.</li>
+        <li>개찰구 중 <strong>넓은 통로</strong>(휠체어·유모차용)로 지나가세요.</li>
+        <li>에스컬레이터에 유모차를 싣지 말고 <strong>엘리베이터</strong>를 쓰세요. 엘리베이터가 없는 출구로 나왔다면 역무원 인터폰을 누르면 도와줍니다.</li>
+        <li><strong>출퇴근 시간(평일 7:30~9:30, 17:30~19:00)</strong>은 공항선이 붐빕니다. 이번 일정은 대부분 이 시간을 피했습니다.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>우리 동선에서 타는 구간</h3>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>언제</th><th>타는 역 → 내리는 역</th><th>방향 표시</th><th>정거장</th><th>요금(성인)</th></tr></thead>
+      <tbody>
+        <tr><td>Day 1 저녁 · Day 2 오후 · Day 3 오전</td><td><strong>기온 祇園 (K10)</strong> → <strong>하카타 博多 (K11)</strong></td><td>福岡空港 方面 (후쿠오카공항 방면)</td><td class="num">1</td><td class="num">210엔</td></tr>
+        <tr><td>돌아올 때</td><td>하카타 (K11) → 기온 (K10)</td><td>天神·姪浜 方面 (텐진·메이노하마 방면)</td><td class="num">1</td><td class="num">210엔</td></tr>
+        <tr><td>방안 C (텐진 백화점)</td><td>기온 (K10) → <strong>텐진 天神 (K08)</strong></td><td>天神·姪浜 方面</td><td class="num">2</td><td class="num">210엔 (추정)</td></tr>
+        <tr><td>방안 C·D (오호리 공원)</td><td>기온 (K10) → <strong>오호리코엔 大濠公園 (K06)</strong></td><td>天神·姪浜 方面</td><td class="num">4</td><td class="num">260엔 안팎 (확인 필요)</td></tr>
+        <tr><td>택시 대신 공항 갈 때</td><td>기온 (K10) → <strong>후쿠오카공항 福岡空港 (K13)</strong> → 무료 셔틀로 국제선</td><td>福岡空港 方面</td><td class="num">3</td><td class="num">260엔 (추정)</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="font-size:12.5px;color:var(--muted);margin:8px 0 0">텐진→하카타 210엔은 승차 검색(ekitan)으로 확인했습니다. 다른 구간 요금은 추정이라 개찰구에서 터치하면 자동으로 정확한 요금이 나갑니다. 하루 몇 번을 타도 640엔을 넘지 않습니다.</p>
+
+  <div class="two" style="margin-top:14px">
+    <div class="panel">
+      <h4>역에서 헷갈리는 것</h4>
+      <ul class="plain">
+        <li><strong>기온역 = 博多旧市街口</strong>: 기온역에는 '하카타 구시가지 입구'라는 부역명이 붙어 있어 안내판에 같이 나옵니다.</li>
+        <li><strong>호텔 쪽 출구는 2번</strong>입니다(호텔 공식 안내, 도보 5분). 출구마다 엘리베이터가 있는지는 확인하지 못했으니 역 안 출구 안내도의 엘리베이터 표시를 보세요.</li>
+        <li><strong>하카타역은 지하철과 JR이 따로입니다.</strong> 지하철 개찰구를 나와서 JR 개찰구로 다시 들어가야 합니다. 방안 B(마린월드)의 JR은 지하철 카드 터치가 아니라 IC카드나 표가 필요할 수 있으니 JR 매표기에서 확인하세요.</li>
+        <li><strong>공항선은 국내선 터미널에만 섭니다.</strong> 국제선으로 가려면 후쿠오카공항역에서 내려 무료 셔틀버스(6~7분 간격, 10~15분)를 타야 합니다. 짐이 많으면 택시가 낫습니다.</li>
+        <li>캐널시티는 기온역에서 걸어서 약 10분입니다. 나나쿠마선 구시다진자마에역이 더 가깝지만 일부러 갈아탈 필요는 없습니다.</li>
+      </ul>
+    </div>
+    <div class="panel">
+      <h4>타는 매너</h4>
+      <ul class="plain">
+        <li>열차 안 통화는 하지 않고 휴대폰은 무음으로 둡니다. 영상은 소리를 끄거나 이어폰으로.</li>
+        <li>우선석(優先席) 근처에서는 휴대폰을 덜 쓰는 분위기입니다. 아이를 안고 있으면 자리를 양보받는 일이 많습니다.</li>
+        <li>열차 안에서 음식은 먹지 않습니다. 아이가 물이나 우유를 마시는 정도는 괜찮습니다.</li>
+        <li>내리는 사람이 다 내린 뒤에 탑니다. 승강장 바닥의 줄 표시에 맞춰 서세요.</li>
+        <li>아이가 오래 울면 다음 역에서 잠깐 내려 달래는 것이 무난합니다.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="note"><b>택시가 나은 경우</b>공항↔호텔(짐과 유모차), 라라포트↔호텔(쇼핑 박스), 동식물원(오르막)은 택시를 권합니다. 일본 택시는 뒷문이 자동으로 열리고 닫히니 손으로 열지 마세요. 6세 미만은 카시트 의무가 면제됩니다.</div>
+</section>
+
+<!-- ============ 숙소 ============ -->
+<section id="hotel">
+  <div class="sec-head"><span class="no">07</span><h2>숙소 · 9HOTEL HAKATA</h2><span class="jp">ナインホテル ハカタ</span></div>
+  <p class="sec-intro">캡슐호텔 'nine hours'나 이름이 비슷한 'Residence Hotel Hakata9'과는 다른 호텔입니다. 2019년 12월에 연 44실 규모 호텔입니다.</p>
+
+  <div class="two">
+    <div class="panel">
+      <h4>기본 정보</h4>
+      <ul class="plain">
+        <li><strong>주소</strong>: 〒812-0039 福岡県福岡市博多区冷泉町9-16</li>
+        <li><strong>전화</strong>: 092-263-5010 (예약 접수 10~18시) · 이메일 info@9hotel.jp</li>
+        <li><strong>체크인 / 아웃</strong>: 15:00 / 11:00</li>
+        <li><strong>위치</strong>: 지하철 기온역 2번 출구 도보 5분, 하카타역 도보 15분. 쿠시다 신사 3분, 캐널시티·나카스 5~15분</li>
+        <li><strong>공항에서</strong>: 택시 약 9~15분. 지하철은 국내선 후쿠오카공항역에서 기온역까지 3정거장(약 7분)</li>
+        <li>주차장 없음 · 건물 전체 금연 · 24시간 프런트</li>
+      </ul>
+      <div class="links" style="display:flex;gap:12px;flex-wrap:wrap;font-size:13px;margin-top:10px"><a href="https://www.google.com/maps/search/?api=1&amp;query=9HOTEL%20HAKATA%20%E7%A6%8F%E5%B2%A1%E5%B8%82%E5%8D%9A%E5%A4%9A%E5%8C%BA%E5%86%B7%E6%B3%89%E7%94%BA9-16" target="_blank" rel="noopener">구글맵</a><a href="https://9hotel.jp/" target="_blank" rel="noopener">공식 사이트</a></div>
+    </div>
+    <div class="panel">
+      <h4>아기 관련</h4>
+      <ul class="plain">
+        <li><strong>미취학 아동 무료</strong>(식사·이불 없이 같이 잘 때)</li>
+        <li><strong>베이비 침대·엑스트라 베드 없음</strong></li>
+        <li>모든 객실에 <strong>가습 공기청정기</strong>, 욕조·화장실·세면대 분리</li>
+        <li>아이 슬리퍼 있음 · 공용 전자레인지 있음(제3자 사이트)</li>
+        <li>침대 가드, 전기주전자, 젖병 소독 도구는 정보 없음 → 문의</li>
+        <li>리뷰: 13·15개월 아기 부모들이 <strong>다다미 공간 있는 방</strong>을 추천(Trip.com 2026)</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>객실</h3>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>객실</th><th>면적</th><th>침대</th><th>19개월과 함께</th></tr></thead>
+      <tbody>
+        <tr><td>슈페리어 퀸</td><td class="num">23.56㎡</td><td>퀸 1개 (폭 160cm)</td><td>셋이 자기엔 좁은 편. 침대 가드 문의</td></tr>
+        <tr><td>슈페리어 할리우드 트윈</td><td class="num">23.56㎡</td><td>싱글 2개 붙임</td><td>침대 사이 틈 주의</td></tr>
+        <tr><td>디럭스 트리플</td><td class="num">28.14㎡</td><td>창가 다다미 공간</td><td><strong>추천</strong>. 이불은 '어른 3명 이상일 때만' → 유아 이불 문의</td></tr>
+        <tr><td>프리미엄 포스</td><td class="num">31.80㎡</td><td>싱글 2 + 다다미 이불 2</td><td><strong>가장 넓음</strong>. 굴러떨어질 걱정 없음</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="two" style="margin-top:14px">
+    <div class="panel">
+      <h4>시설</h4>
+      <ul class="plain">
+        <li><strong>조식</strong> 9食堂(1F) 07:00~10:00(L.O. 9:30), 1인 1,500엔. 하카타 명물 일식 정식 하프 뷔페, 아기도 잘 먹었다는 리뷰</li>
+        <li><strong>웰컴 드링크</strong> 1F 15:00~20:00 소프트드링크·과자</li>
+        <li><strong>코인세탁기·자판기</strong> 4층</li>
+        <li><strong>대욕장 없음</strong></li>
+        <li><strong>짐 보관</strong>: 체크인 당일·숙박 중·체크아웃 당일 <strong>무료</strong></li>
+        <li><strong>청소</strong>: 3박 이하는 객실 청소 없음(요청 시 2,000엔). 수건은 매일 교체. 쓴 수건·쓰레기는 12시까지 문 앞에</li>
+        <li>엘리베이터 문 폭 79cm, 작다는 리뷰. 호텔 앞에 비 피할 곳이 없음(우산 대여)</li>
+        <li>근처 편의점 도보 5분, 슈퍼 MaxValu·Lopia</li>
+      </ul>
+    </div>
+    <div class="panel">
+      <h4>호텔에 미리 물어볼 것</h4>
+      <ol class="steps">
+        <li><div>유아 동반 추가 요금과 조식 유아 요금<span class="jp" style="display:block;color:var(--muted);font-size:12.5px">1歳7ヶ月の幼児を添い寝で連れて行きます。宿泊料金・朝食料金はかかりますか？</span></div></li>
+        <li><div>침대 가드 대여, 없으면 침대를 벽에 붙여 줄 수 있는지<span class="jp" style="display:block;color:var(--muted);font-size:12.5px">ベッドガードの貸出はありますか？ない場合、ベッドを壁付けにできますか？</span></div></li>
+        <li><div>다다미 방에서 어른 2 + 유아일 때 이불 1채 가능한지<span class="jp" style="display:block;color:var(--muted);font-size:12.5px">大人2名＋幼児1名で、和室スペースに布団1組を敷いていただけますか？（有料でも可）</span></div></li>
+        <li><div>객실 전기주전자·냉장고, 공용 전자레인지 위치</div></li>
+        <li><div>젖병 소독 도구나 세정 브러시 대여</div></li>
+        <li><div>10/27 오전 짐·유모차 보관과 얼리 체크인 요금<span class="jp" style="display:block;color:var(--muted);font-size:12.5px">10/27午前に到着予定です。チェックイン前に荷物とベビーカーを預けられますか？</span></div></li>
+        <li><div>10/27 체크인 전 9:30에 1F 조식(9食堂)을 먹을 수 있는지<span class="jp" style="display:block;color:var(--muted);font-size:12.5px">10/27チェックイン前の朝9時半に、朝食（9食堂）を利用できますか？</span></div></li>
+        <li><div>10/28·10/29 대형 택시(짐·박스 많음) 예약 부탁<span class="jp" style="display:block;color:var(--muted);font-size:12.5px">荷物が多いので、ジャンボタクシーを予約していただけますか？</span></div></li>
+        <li><div>기저귀 쓰레기 매일 수거 여부</div></li>
+      </ol>
+    </div>
+  </div>
+  <div class="note warn"><b>예약 경로 확인</b>호텔 공식 공지(2025.08)에 따르면 Agoda 같은 해외 사이트에서 되판 예약은 호텔이 확인·변경·취소를 해 주지 않고, 최악의 경우 숙박을 못 할 수도 있습니다. Booking.com·Agoda 예약자 대상 피싱 메일 사례도 공지됐습니다. 어디서 예약했는지 먼저 확인하고 예약 확인서를 챙기세요.</div>
+</section>
+
+<!-- ============ 공항 ============ -->
+<section id="airport">
+  <div class="sec-head"><span class="no">08</span><h2>공항 주의사항</h2><span class="jp">空港</span></div>
+
+  <h3>인천공항 · 10.27 (화) 06:00 출발</h3>
+  <div class="note red"><b>새벽 이동</b>06:00 출발이면 <strong>03:30~04:00</strong>에 공항에 도착해야 합니다. 공항철도 첫차는 서울역 05:20이라 탈 수 없고, 일반 공항리무진도 도착이 05시 이후입니다.</div>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>방법</th><th>내용</th><th>판단</th></tr></thead>
+      <tbody>
+        <tr><td>자차 + 장기주차장</td><td>하루 9,000원, 이번 일정이면 약 27,000원. 예약주차장(parking.airport.kr) 카드 결제. 2026년 장기주차장이 붐빈다는 보도가 있어 예약 권장</td><td><span class="tag baby">가장 현실적</span></td></tr>
+        <tr><td>전날 공항 근처 숙박</td><td><a href="https://www.google.com/maps/search/?api=1&amp;query=%EB%8B%A4%EB%9D%BD%ED%9C%B4%20%EC%9D%B8%EC%B2%9C%EA%B3%B5%ED%95%AD" target="_blank" rel="noopener">다락휴</a>(T1·T2 안 캡슐호텔, 가족실 여부 확인) 또는 <a href="https://www.google.com/maps/search/?api=1&amp;query=%EA%B7%B8%EB%9E%9C%EB%93%9C%20%ED%95%98%EC%96%8F%ED%8A%B8%20%EC%9D%B8%EC%B2%9C" target="_blank" rel="noopener">그랜드 하얏트 인천</a>(무료 셔틀, 새벽 첫 셔틀 시각 확인)</td><td><span class="tag baby">아이가 가장 덜 힘듦</span></td></tr>
+        <tr><td>택시·콜밴</td><td>서울 시내에서 약 7~10만 원, 약 60분. 심야할증. 카시트는 직접 챙기기</td><td><span class="tag">가능</span></td></tr>
+        <tr><td>심야버스</td><td>N6000, N6002, N6701, N6703 등. 집 근처를 지나는지와 T2 정차 여부 확인 필요</td><td><span class="tag warn">유아와 부담</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="two" style="margin-top:14px">
+    <div class="panel">
+      <h4>인천공항에서</h4>
+      <ul class="plain">
+        <li><strong>터미널</strong>: T2는 대한항공·진에어·아시아나(2026.1.14~)·에어부산·에어서울, T1은 제주항공·티웨이 등. 공동운항편은 실제 운항 항공사 터미널로.</li>
+        <li><strong>교통약자 우대출구</strong>: 만 7세 미만은 여권 제시. 임산부는 체크인 때 <strong>산모수첩</strong>을 보여주고 스티커를 받습니다. 동반자 3인까지. T1은 3층 2~5번 출국장 옆, T2는 3층 2A·1D 출국장.</li>
+        <li>임산부·유아 동반은 전신검색 대신 손 검색을 요청할 수 있습니다.</li>
+        <li><strong>유모차</strong>: 탑승구까지 쓰고 맡긴 뒤 도착 탑승구에서 받습니다. 안내데스크 무료 대여도 있음.</li>
+        <li><strong>유아휴게실</strong>(수유실·젖병소독기): T1 3층 25·29·45번 게이트 부근, T2 3층 221·231·243·257번 게이트 부근 등</li>
+        <li><strong>놀이시설</strong>: T1 3층 9·14·41·45번 게이트, T2 3층 242·246·254·257번 게이트 부근</li>
+      </ul>
+      <div class="links" style="display:flex;gap:12px;flex-wrap:wrap;font-size:13px;margin-top:10px"><a href="https://www.google.com/maps/search/?api=1&amp;query=%EC%9D%B8%EC%B2%9C%EA%B5%AD%EC%A0%9C%EA%B3%B5%ED%95%AD%20%EC%A0%9C1%EC%97%AC%EA%B0%9D%ED%84%B0%EB%AF%B8%EB%84%90" target="_blank" rel="noopener">T1 구글맵</a><a href="https://www.google.com/maps/search/?api=1&amp;query=%EC%9D%B8%EC%B2%9C%EA%B5%AD%EC%A0%9C%EA%B3%B5%ED%95%AD%20%EC%A0%9C2%EC%97%AC%EA%B0%9D%ED%84%B0%EB%AF%B8%EB%84%90" target="_blank" rel="noopener">T2 구글맵</a><a href="https://www.airport.kr/ap_ko/949/subview.do" target="_blank" rel="noopener">유아 편의시설</a></div>
+    </div>
+    <div class="panel">
+      <h4>비행기 안</h4>
+      <ul class="plain">
+        <li><strong>유아 항공권</strong>: 24개월 미만은 무릎에 앉힙니다(대형항공사 성인 운임의 10%). LCC는 정액 요금일 수 있으니 예약 화면 확인.</li>
+        <li>무릎에 앉힐 때는 보호자가 먼저 벨트를 매고 아이는 벨트 밖에서 안습니다.</li>
+        <li><strong>배시넷</strong>: 19개월이면 대부분 기준을 넘고, 후쿠오카 노선 소형기에는 없는 경우가 많습니다.</li>
+        <li><strong>유아식 액체</strong>: 우유·주스·이유식은 유아와 함께 탈 때 필요한 만큼 1L 제한 없이 가져갈 수 있습니다. 보안검색 때 따로 꺼내 보여주세요(국토부).</li>
+        <li>이착륙 때 빨대컵이나 쪽쪽이로 귀 압력을 풀어주세요.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>후쿠오카 공항 도착 · 10.27</h3>
+  <div class="two">
+    <div class="panel">
+      <h4>입국</h4>
+      <ol class="steps">
+        <li><div>출발 전 <strong>Visit Japan Web</strong> 등록. 대표자 1명이 가족을 등록할 수 있고 아이도 QR이 하나씩 나옵니다. 입국심사·세관 QR이 하나로 합쳐졌습니다.</div></li>
+        <li><div>숙소 영문 주소: 9-16 Reisenmachi, Hakata-ku, Fukuoka 812-0039 / 092-263-5010</div></li>
+        <li><div>2층 검역 → 입국심사 → 1층 수하물 → 세관 → 1층 도착로비</div></li>
+        <li><div>키 100cm 미만 아이는 가족과 함께 통과합니다.</div></li>
+      </ol>
+      <div class="links" style="display:flex;gap:12px;flex-wrap:wrap;font-size:13px;margin-top:10px"><a href="https://vjw.digital.go.jp" target="_blank" rel="noopener">Visit Japan Web</a><a href="https://www.google.com/maps/search/?api=1&amp;query=%E7%A6%8F%E5%B2%A1%E7%A9%BA%E6%B8%AF%20%E5%9B%BD%E9%9A%9B%E7%B7%9A%E3%82%BF%E3%83%BC%E3%83%9F%E3%83%8A%E3%83%AB" target="_blank" rel="noopener">국제선 터미널 구글맵</a></div>
+    </div>
+    <div class="panel">
+      <h4>국제선 → 호텔</h4>
+      <p style="margin:0 0 8px;font-size:14px"><strong>국제선 터미널에는 지하철이 없습니다.</strong></p>
+      <ul class="plain">
+        <li><strong>택시</strong>(추천): 1층 바로 앞 승차장. 하카타역까지 1,500~2,500엔, 호텔은 비슷하거나 조금 더(추정)</li>
+        <li><strong>무료 셔틀 → 국내선 → 지하철</strong>: 셔틀 6~7분 간격 10~15분, 공항선 기온역까지 3정거장 260엔(추정). 기온역 2번 출구에서 도보 5분</li>
+        <li><strong>니시테츠 버스</strong>: 6·7번 승차장, 하카타역 지쿠시구치까지 약 25분, 400엔(IC·카드 380엔). 호텔까지 다시 이동 필요</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>후쿠오카 공항 출국 · 10.29 (목) 17:00</h3>
+  <div class="two">
+    <div class="panel">
+      <h4>시간 계획</h4>
+      <ul class="plain">
+        <li>호텔에서 <strong>13:00~13:30</strong>에 출발, 공항 <strong>14:00~14:30</strong> 도착</li>
+        <li>카운터는 보통 출발 2~3시간 전에 열고 60분 전에 닫습니다(항공사 확인)</li>
+        <li>면세 소모품 봉인 포장은 뜯지 말고, 액체·크림은 위탁 수하물로</li>
+        <li><strong>새로 산 트립트랩·유모차 박스</strong>는 일반 위탁 수하물로 계산될 가능성이 큽니다. 3F 보안검색 전 Wrap&amp;Box(06~19시)에서 포장.</li>
+        <li>일본 출국세는 2026.7부터 3,000엔(항공권에 포함). 2세 미만은 면제</li>
+      </ul>
+    </div>
+    <div class="panel">
+      <h4>국제선 터미널 아기 시설</h4>
+      <ul class="plain">
+        <li><strong>수유실</strong> 1층 2곳, 3층 4곳(온수기·유아의자). 기저귀 교환대는 1~4층 모든 화장실</li>
+        <li><strong>키즈코너</strong> 3층 50번 게이트 앞. 털리스커피 안에도 키즈스페이스</li>
+        <li><strong>유모차 대여</strong> 1층·3층 안내데스크(수량 한정)</li>
+        <li><strong>약국</strong>은 3층 보안검색 <strong>전</strong>에만 있습니다</li>
+        <li>면세점 3층 출국심사 뒤, 07시~마지막 편</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 병원 ============ -->
+<section id="hospital">
+  <div class="sec-head"><span class="no">09</span><h2>병원 · 응급</h2><span class="jp">医療 · 緊急</span></div>
+  <p class="sec-intro">번호를 길게 누르거나 복사 버튼으로 복사해 두세요. 일본 국내에서는 앞의 0부터 그대로 걸면 됩니다.</p>
+
+  <div class="note red"><b>순서</b>
+    <ul>
+      <li><strong>생명이 위험하면 119</strong>: 의식 저하, 계속되는 경련, 호흡 곤란, 임산부의 많은 출혈이나 심한 복통</li>
+      <li><strong>애매하면 #7119</strong>: 24시간 간호사가 긴급도를 판단하고 진료 중인 병원을 안내합니다. 일본어라 호텔 프런트에 부탁하세요.</li>
+      <li><strong>아이가 아프면 #8000</strong>(평일 19시~다음날 7시), 그리고 <strong>급환진료센터 소아과</strong>(평일 19:30~다음날 06:30)</li>
+      <li><strong>한국어 통역</strong>: JNTO 핫라인, 후쿠오카현·시 의료통역 콜센터(모두 24시간)</li>
+    </ul>
+  </div>
+
+  <div class="sos">
+    <div class="hot"><div class="lbl">구급차 · 소방</div><div class="num"><span>119</span><button type="button" data-copy="119">복사</button></div><div class="desc">통역 3자 통화 안내(2020년 정보)</div></div>
+    <div class="hot"><div class="lbl">구급 상담 (어른·산모)</div><div class="num"><span>092-471-0099</span><button type="button" data-copy="092-471-0099">복사</button></div><div class="desc">#7119 · 24시간</div></div>
+    <div class="hot"><div class="lbl">아이 의료 상담</div><div class="num"><span>092-731-4119</span><button type="button" data-copy="092-731-4119">복사</button></div><div class="desc">#8000 · 평일 19:00~07:00 · 병원 안내는 안 함</div></div>
+    <div class="hot"><div class="lbl">후쿠오카시 급환진료센터</div><div class="num"><span>092-847-1099</span><button type="button" data-copy="092-847-1099">복사</button></div><div class="desc">평일 소아과 19:30~06:30 · 산부인과는 일·공휴일만</div></div>
+    <div><div class="lbl">JNTO Japan Visitor Hotline</div><div class="num"><span>050-3816-2787</span><button type="button" data-copy="050-3816-2787">복사</button></div><div class="desc">24시간 · 한국어 가능</div></div>
+    <div><div class="lbl">후쿠오카현 의료 외국어 콜센터</div><div class="num"><span>092-286-9595</span><button type="button" data-copy="092-286-9595">복사</button></div><div class="desc">24시간 · 한국어 가능</div></div>
+    <div><div class="lbl">후쿠오카시 의료통역 콜센터</div><div class="num"><span>092-733-5429</span><button type="button" data-copy="092-733-5429">복사</button></div><div class="desc">24시간 · 한국어 가능</div></div>
+    <div><div class="lbl">주후쿠오카 대한민국 총영사관</div><div class="num"><span>+81-92-771-0461</span><button type="button" data-copy="+81-92-771-0461">복사</button></div><div class="desc">평일 9:00~12:00, 13:30~17:30</div></div>
+    <div><div class="lbl">총영사관 사건·사고 (근무시간 외)</div><div class="num"><span>+81-80-8588-2806</span><button type="button" data-copy="+81-80-8588-2806">복사</button></div><div class="desc">여권 분실은 +81-80-2956-6736</div></div>
+    <div><div class="lbl">영사콜센터</div><div class="num"><span>+82-2-3210-0404</span><button type="button" data-copy="+82-2-3210-0404">복사</button></div><div class="desc">24시간</div></div>
+    <div><div class="lbl">9HOTEL HAKATA</div><div class="num"><span>092-263-5010</span><button type="button" data-copy="092-263-5010">복사</button></div><div class="desc">예약 접수 10~18시</div></div>
+    <div><div class="lbl">인천공항 고객센터</div><div class="num"><span>1577-2600</span><button type="button" data-copy="1577-2600">복사</button></div><div class="desc">07:00~22:00</div></div>
+  </div>
+
+  <h3>병원 목록</h3>
+  <div class="grid">
+    <article class="card star">
+      <h4>후쿠오카시 급환진료센터<span class="jp">福岡市急患診療センター</span></h4>
+      <div class="tags"><span class="tag red">야간 소아과</span><span class="tag">평일 19:30~06:30</span></div>
+      <div class="row"><b>주소</b><span>福岡市早良区百道浜1-6-9 · 092-847-1099 · 호텔에서 택시 20~25분(추정)</span></div>
+      <div class="row baby"><b>아기</b><span>중학생 이하는 소아과로 안내. 시가 영유아는 이 센터로 오라고 안내합니다. 외국어 대응은 확인 필요.</span></div>
+      <div class="row preg"><b>임신</b><span>산부인과는 일요일·공휴일만 진료해 이번 일정(화~목)에는 해당 없음.</span></div>
+      <div class="links"><a href="https://www.google.com/maps/search/?api=1&amp;query=%E7%A6%8F%E5%B2%A1%E5%B8%82%E6%80%A5%E6%82%A3%E8%A8%BA%E7%99%82%E3%82%BB%E3%83%B3%E3%82%BF%E3%83%BC%20%E6%97%A9%E8%89%AF%E5%8C%BA%E7%99%BE%E9%81%93%E6%B5%9C1-6-9" target="_blank" rel="noopener">구글맵</a><a href="https://www.city.fukuoka.lg.jp/hofuku/chiikiiryo/kyukyuiryo-syobo/6820_2.html" target="_blank" rel="noopener">시 안내</a></div>
+    </article>
+    <article class="card">
+      <h4>타니 소아과의원<span class="jp">谷小児科医院</span></h4>
+      <div class="tags"><span class="tag baby">낮 소아과</span><span class="tag">평일 9~13 · 14~18시</span></div>
+      <div class="row"><b>주소</b><span>福岡市博多区博多駅南3-4-37 · 092-431-5655</span></div>
+      <div class="row tip"><b>팁</b><span>가기 전에 전화로 확인하세요.</span></div>
+      <div class="links"><a href="https://www.google.com/maps/search/?api=1&amp;query=%E8%B0%B7%E5%B0%8F%E5%85%90%E7%A7%91%E5%8C%BB%E9%99%A2%20%E5%8D%9A%E5%A4%9A%E9%A7%85%E5%8D%973-4-37" target="_blank" rel="noopener">구글맵</a></div>
+    </article>
+    <article class="card">
+      <h4>하카타 히노키 클리닉<span class="jp">博多ひのきクリニック</span></h4>
+      <div class="tags"><span class="tag baby">낮 소아과</span><span class="tag warn">수요일 휴진</span></div>
+      <div class="row"><b>주소</b><span>福岡市博多区博多駅南1-8-34 博多駅FRビル7F · 하카타역 지쿠시구치 도보 5분 · 092-477-7215(출처 1곳, 확인 필요)</span></div>
+      <div class="row tip"><b>진료</b><span>월·화·목·금 9~13시, 15~19시. 10/28(수)는 휴진.</span></div>
+      <div class="links"><a href="https://www.google.com/maps/search/?api=1&amp;query=%E5%8D%9A%E5%A4%9A%E3%81%B2%E3%81%AE%E3%81%8D%E3%82%AF%E3%83%AA%E3%83%8B%E3%83%83%E3%82%AF%20%E5%8D%9A%E5%A4%9A%E9%A7%85%E5%8D%971-8-34" target="_blank" rel="noopener">구글맵</a></div>
+    </article>
+    <article class="card">
+      <h4>규슈의료센터<span class="jp">九州医療センター</span></h4>
+      <div class="tags"><span class="tag preg">산부인과</span><span class="tag">지역주산기모자의료센터</span></div>
+      <div class="row"><b>주소</b><span>福岡市中央区地行浜1-8-1 · 092-852-0700 · 총영사관과 같은 동네</span></div>
+      <div class="row tip"><b>팁</b><span>외래는 대부분 소개장이 필요합니다. 응급은 #7119 안내나 119 이송으로.</span></div>
+      <div class="links"><a href="https://www.google.com/maps/search/?api=1&amp;query=%E4%B9%9D%E5%B7%9E%E5%8C%BB%E7%99%82%E3%82%BB%E3%83%B3%E3%82%BF%E3%83%BC%20%E7%A6%8F%E5%B2%A1%E5%B8%82%E4%B8%AD%E5%A4%AE%E5%8C%BA%E5%9C%B0%E8%A1%8C%E6%B5%9C1-8-1" target="_blank" rel="noopener">구글맵</a></div>
+    </article>
+    <article class="card">
+      <h4>후쿠오카대학병원<span class="jp">福岡大学病院</span></h4>
+      <div class="tags"><span class="tag preg">고위험 산모·신생아</span><span class="tag">총합주산기모자의료센터</span></div>
+      <div class="row"><b>주소</b><span>福岡市城南区七隈7-45-1 · 092-801-1011</span></div>
+      <div class="links"><a href="https://www.google.com/maps/search/?api=1&amp;query=%E7%A6%8F%E5%B2%A1%E5%A4%A7%E5%AD%A6%E7%97%85%E9%99%A2" target="_blank" rel="noopener">구글맵</a></div>
+    </article>
+    <article class="card">
+      <h4>후쿠오카시립 어린이병원<span class="jp">福岡市立こども病院</span></h4>
+      <div class="tags"><span class="tag baby">소아 전문</span></div>
+      <div class="row"><b>주소</b><span>福岡市東区香椎照葉5-1-1 · 092-682-7000</span></div>
+      <div class="links"><a href="https://www.google.com/maps/search/?api=1&amp;query=%E7%A6%8F%E5%B2%A1%E5%B8%82%E7%AB%8B%E3%81%93%E3%81%A9%E3%82%82%E7%97%85%E9%99%A2" target="_blank" rel="noopener">구글맵</a><a href="https://childhp.fcho.jp/" target="_blank" rel="noopener">공식 사이트</a></div>
+    </article>
+    <article class="card">
+      <h4>규슈대학병원 · 후쿠오카적십자병원<span class="jp">九州大学病院 · 福岡赤十字病院</span></h4>
+      <div class="tags"><span class="tag">구명구급센터</span><span class="tag preg">적십자 산부인과</span></div>
+      <div class="row"><b>주소</b><span>규슈대: 福岡市東区馬出3-1-1 · 092-641-1151<br>적십자: 福岡市南区大楠3-1-1 · 092-521-1211</span></div>
+      <div class="links"><a href="https://www.google.com/maps/search/?api=1&amp;query=%E4%B9%9D%E5%B7%9E%E5%A4%A7%E5%AD%A6%E7%97%85%E9%99%A2" target="_blank" rel="noopener">규슈대 구글맵</a><a href="https://www.google.com/maps/search/?api=1&amp;query=%E7%A6%8F%E5%B2%A1%E8%B5%A4%E5%8D%81%E5%AD%97%E7%97%85%E9%99%A2" target="_blank" rel="noopener">적십자 구글맵</a></div>
+    </article>
+    <article class="card">
+      <h4>주후쿠오카 대한민국 총영사관<span class="jp">在福岡大韓民国総領事館</span></h4>
+      <div class="tags"><span class="tag">여권 분실·사건사고</span></div>
+      <div class="row"><b>주소</b><span>福岡市中央区地行浜1-1-3 · +81-92-771-0461~2</span></div>
+      <div class="links"><a href="https://www.google.com/maps/search/?api=1&amp;query=%E5%9C%A8%E7%A6%8F%E5%B2%A1%E5%A4%A7%E9%9F%93%E6%B0%91%E5%9B%BD%E7%B7%8F%E9%A0%98%E4%BA%8B%E9%A4%A8" target="_blank" rel="noopener">구글맵</a></div>
+    </article>
+  </div>
+
+  <div class="two" style="margin-top:14px">
+    <div class="panel">
+      <h4>약 · 진료비</h4>
+      <ul class="plain">
+        <li><strong>일본 약국 해열제</strong>: こどもパブロン坐薬(아세트아미노펜 좌약)는 1세부터 쓸 수 있습니다. 小児用バファリンCII는 3세 이상용이라 안 됩니다. <strong>평소 쓰던 해열제를 한국에서 챙겨 가는 게 가장 확실합니다.</strong></li>
+        <li><strong>진료비</strong>: 건강보험이 없어 전액 냅니다. 2026.4부터 외국인 자비 진료는 1점당 최대 30엔(보험 기준의 3배)까지 받을 수 있습니다. 소아 외래 1회 5천~1만 엔, 야간·검사가 붙으면 2~3만 엔 이상(추정). 현금을 넉넉히.</li>
+        <li><strong>현지 서류</strong>: 영수증(領収書), 진료비 명세서(診療明細書), 진단서(診断書, 영문이면 좋음) → 보험 청구용</li>
+      </ul>
+    </div>
+    <div class="panel">
+      <h4>산부인과 응급 (임신 중이라면)</h4>
+      <ul class="plain">
+        <li>평일 밤에는 급환진료센터 산부인과가 문을 열지 않습니다.</li>
+        <li><strong>#7119</strong>로 진료 가능한 병원을 안내받고, 심하면 <strong>119</strong>. 구급대가 후쿠오카현 주산기 이송체계에 따라 병원을 정합니다.</li>
+        <li>#8000은 아이 전용이라 산모 상담에는 쓸 수 없습니다.</li>
+        <li>다니는 산부인과의 임신 확인서와 최근 검사 결과를 챙기세요.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 준비물 ============ -->
+<section id="pack">
+  <div class="sec-head"><span class="no">10</span><h2>준비물</h2><span class="jp">持ち物</span></div>
+  <div class="progress" data-group="pack"><span>챙긴 것</span><div class="bar"><i></i></div><span class="count">0 / 0</span><button type="button" class="reset" data-reset="pack">초기화</button></div>
+  <p class="sec-intro" style="margin-top:0">체크 상태는 이 기기의 브라우저에만 저장됩니다. 부부가 각자 폰으로 보면 서로 공유되지 않습니다.</p>
+
+  <div class="checks" data-checkgroup="pack">
+    <fieldset><legend>서류 · 돈</legend>
+      <label class="ck"><input type="checkbox" id="p-passport"><span>여권 3개 (딸 포함)<small>면세 계산은 본인 여권 원본으로</small></span></label>
+      <label class="ck"><input type="checkbox" id="p-ticket"><span>항공권 e-티켓 · 터미널 확인</span></label>
+      <label class="ck"><input type="checkbox" id="p-vjw"><span>Visit Japan Web QR (3인)</span></label>
+      <label class="ck"><input type="checkbox" id="p-hotel"><span>호텔 예약 확인서<small>예약 경로(공식/OTA) 확인</small></span></label>
+      <label class="ck"><input type="checkbox" id="p-ins"><span>여행자보험 증서<small>임신 보장 여부 서면 확인</small></span></label>
+      <label class="ck"><input type="checkbox" id="p-mom"><span>산모수첩 · 영문 임신 확인서<small>인천공항 우대출구 스티커용</small></span></label>
+      <label class="ck"><input type="checkbox" id="p-card"><span>해외결제 카드 · 엔화 현금<small>병원·일부 식당은 현금</small></span></label>
+      <label class="ck"><input type="checkbox" id="p-ic"><span>부부 각자 명의 컨택리스 카드<small>지하철 터치 결제는 1인 1카드. 면세는 여권·카드 명의가 같아야 함</small></span></label>
+      <label class="ck"><input type="checkbox" id="p-parking"><span>인천공항 주차 예약 또는 전날 숙박 예약</span></label>
+    </fieldset>
+    <fieldset><legend>아기 · 외출</legend>
+      <label class="ck"><input type="checkbox" id="p-stroller"><span>유모차 + 레인커버 + 담요</span></label>
+      <label class="ck"><input type="checkbox" id="p-carrier"><span>아기띠<small>앙팡맨 뮤지엄 유모차 반입 불가</small></span></label>
+      <label class="ck"><input type="checkbox" id="p-diaper"><span>기저귀 하루 분량 + 여유<small>나머지는 현지 드럭스토어</small></span></label>
+      <label class="ck"><input type="checkbox" id="p-wipe"><span>물티슈 · 기저귀 쓰레기 봉투</span></label>
+      <label class="ck"><input type="checkbox" id="p-clothes"><span>하루 2벌 갈아입힐 옷</span></label>
+      <label class="ck"><input type="checkbox" id="p-jacket"><span>가디건 · 경량 패딩 · 모자</span></label>
+      <label class="ck"><input type="checkbox" id="p-cup"><span>빨대컵 (이착륙용)</span></label>
+      <label class="ck"><input type="checkbox" id="p-snack"><span>간식 · 우유 · 숟가락·포크 · 턱받이</span></label>
+      <label class="ck"><input type="checkbox" id="p-toy"><span>소리 안 나는 장난감 · 스티커북</span></label>
+      <label class="ck"><input type="checkbox" id="p-video"><span>태블릿 + 영상 미리 다운로드</span></label>
+      <label class="ck"><input type="checkbox" id="p-doll"><span>애착 인형 · 수면 용품</span></label>
+      <label class="ck"><input type="checkbox" id="p-sanit"><span>손소독제 · 아기 칫솔·치약</span></label>
+      <label class="ck"><input type="checkbox" id="p-lotion"><span>아기 로션 · 선크림</span></label>
+    </fieldset>
+    <fieldset><legend>상비약</legend>
+      <label class="ck"><input type="checkbox" id="p-apap"><span>아세트아미노펜 시럽<small>챔프·세토펜 등, 체중별 용량 메모</small></span></label>
+      <label class="ck"><input type="checkbox" id="p-ibu"><span>이부프로펜 계열 시럽<small>교차 복용은 소아과 확인</small></span></label>
+      <label class="ck"><input type="checkbox" id="p-supp"><span>처방 해열 좌약</span></label>
+      <label class="ck"><input type="checkbox" id="p-thermo"><span>체온계</span></label>
+      <label class="ck"><input type="checkbox" id="p-ors"><span>경구 수분보충제 · 유산균</span></label>
+      <label class="ck"><input type="checkbox" id="p-nose"><span>콧물흡입기 · 식염수 스프레이</span></label>
+      <label class="ck"><input type="checkbox" id="p-oint"><span>상처 연고 · 밴드 · 기저귀 발진 크림</span></label>
+      <label class="ck"><input type="checkbox" id="p-rx"><span>처방전 또는 영문 약 이름 메모<small>일본 반입: 일반약 2개월분, 처방약 1개월분</small></span></label>
+      <label class="ck"><input type="checkbox" id="p-mommed"><span>엄마 약 (산부인과에서 확인한 것)</span></label>
+    </fieldset>
+    <fieldset><legend>전자기기 · 기타</legend>
+      <label class="ck"><input type="checkbox" id="p-plug"><span>11자 어댑터 (일본 A타입, 100V)</span></label>
+      <label class="ck"><input type="checkbox" id="p-battery"><span>보조배터리 (기내 반입만)</span></label>
+      <label class="ck"><input type="checkbox" id="p-esim"><span>eSIM · 포켓 와이파이</span></label>
+      <label class="ck"><input type="checkbox" id="p-bag"><span>접이식 보조가방 (아기용품 쇼핑 짐)</span></label>
+      <label class="ck"><input type="checkbox" id="p-zip"><span>1L 투명 지퍼백 (기내 액체)</span></label>
+      <label class="ck"><input type="checkbox" id="p-umbrella"><span>접이식 우산</span></label>
+      <label class="ck"><input type="checkbox" id="p-app"><span>앱 설치: ママパパマップ · 구글맵 · 파파고</span></label>
+    </fieldset>
+  </div>
+</section>
+
+</main>
+
+<footer class="wrap">
+  <div class="kenjo thin" aria-hidden="true" style="margin-bottom:18px"></div>
+  <p>2026년 10월 12일 웹 조사 기준입니다. 요금, 운영시간, 면세 제도는 바뀔 수 있으니 출발 전에 공식 사이트에서 다시 확인하세요. '확인 필요'와 '추정' 표시는 공식 출처로 확인하지 못한 내용입니다.</p>
+  <details>
+    <summary>주요 출처</summary>
+    <ul>
+      <li>9HOTEL HAKATA 공식: <a href="https://9hotel.jp/" target="_blank" rel="noopener">https://9hotel.jp/</a> · 공지 <a href="https://9hotel.jp/news/" target="_blank" rel="noopener">https://9hotel.jp/news/</a></li>
+      <li>일본 관광청 면세 리펀드 방식: <a href="https://www.mlit.go.jp/kankocho/tax-free/page01_000001_00019.html" target="_blank" rel="noopener">https://www.mlit.go.jp/kankocho/tax-free/page01_000001_00019.html</a></li>
+      <li>관세청 여행자 휴대품 통관: <a href="https://customs.go.kr/kcs/cm/cntnts/cntntsView.do?mi=2837&amp;cntntsId=829" target="_blank" rel="noopener">https://customs.go.kr/kcs/cm/cntnts/cntntsView.do?mi=2837&amp;cntntsId=829</a></li>
+      <li>후쿠오카 공항 국제선 절차: <a href="https://www.fukuoka-airport.jp/en/flight/flow_int/" target="_blank" rel="noopener">https://www.fukuoka-airport.jp/en/flight/flow_int/</a> · 수유실 <a href="https://www.fukuoka-airport.jp/en/service/m-nursing-room.html" target="_blank" rel="noopener">https://www.fukuoka-airport.jp/en/service/m-nursing-room.html</a></li>
+      <li>니시테츠 공항버스: <a href="https://www.nishitetsu.jp/bus/rosen/akeito/" target="_blank" rel="noopener">https://www.nishitetsu.jp/bus/rosen/akeito/</a></li>
+      <li>인천공항 교통약자 우대·유아 시설: <a href="https://www.airport.kr/ap_ko/908/subview.do" target="_blank" rel="noopener">https://www.airport.kr/ap_ko/908/subview.do</a> · <a href="https://www.airport.kr/ap_ko/949/subview.do" target="_blank" rel="noopener">https://www.airport.kr/ap_ko/949/subview.do</a></li>
+      <li>후쿠오카시 급환진료센터: <a href="https://www.city.fukuoka.lg.jp/hofuku/chiikiiryo/kyukyuiryo-syobo/6820_2.html" target="_blank" rel="noopener">https://www.city.fukuoka.lg.jp/hofuku/chiikiiryo/kyukyuiryo-syobo/6820_2.html</a></li>
+      <li>후쿠오카 지하철 유아 요금: <a href="https://subway.city.fukuoka.lg.jp/fare/futuken/" target="_blank" rel="noopener">https://subway.city.fukuoka.lg.jp/fare/futuken/</a></li>
+      <li>앙팡맨 뮤지엄: <a href="https://www.fukuoka-anpanman.jp/guide/" target="_blank" rel="noopener">https://www.fukuoka-anpanman.jp/guide/</a> · 캐널시티 <a href="https://canalcity.co.jp/service/" target="_blank" rel="noopener">https://canalcity.co.jp/service/</a> · 마린월드 <a href="https://marine-world.jp/general-guide/regular-fees/" target="_blank" rel="noopener">https://marine-world.jp/general-guide/regular-fees/</a></li>
+      <li>라라포트 후쿠오카 면세 매장: <a href="https://mitsui-shopping-park.com/lalaport/fukuoka/info/2528303.html" target="_blank" rel="noopener">https://mitsui-shopping-park.com/lalaport/fukuoka/info/2528303.html</a></li>
+      <li>후생노동성 임산부 식품(리스테리아): <a href="https://www.mhlw.go.jp/topics/syokuchu/dl/ninpu.pdf" target="_blank" rel="noopener">https://www.mhlw.go.jp/topics/syokuchu/dl/ninpu.pdf</a></li>
+      <li>기상청 후쿠오카 평년값: <a href="https://www.data.jma.go.jp/stats/etrn/view/nml_sfc_d.php?prec_no=82&amp;block_no=47807&amp;month=10" target="_blank" rel="noopener">https://www.data.jma.go.jp/stats/etrn/view/nml_sfc_d.php?prec_no=82&amp;block_no=47807&amp;month=10</a></li>
+      <li>이브 반입 금지: <a href="https://www.wikitree.co.kr/articles/1041781" target="_blank" rel="noopener">https://www.wikitree.co.kr/articles/1041781</a></li>
+    </ul>
+  </details>
+</footer>
+
+<script>
+(function(){
+  var KEY='fukuoka2026-checks';
+  var state={};
+  try{ state=JSON.parse(localStorage.getItem(KEY)||'{}')||{}; }catch(e){ state={}; }
+  function save(){ try{ localStorage.setItem(KEY,JSON.stringify(state)); }catch(e){} }
+  function boxes(group){ return document.querySelectorAll('[data-checkgroup="'+group+'"] input[type=checkbox]'); }
+  function update(group){
+    var list=boxes(group), done=0;
+    list.forEach(function(b){ if(b.checked) done++; });
+    var p=document.querySelector('.progress[data-group="'+group+'"]');
+    if(!p) return;
+    p.querySelector('.count').textContent=done+' / '+list.length;
+    p.querySelector('.bar i').style.width=(list.length?done/list.length*100:0)+'%';
+  }
+  ['shop','pack'].forEach(function(g){
+    boxes(g).forEach(function(b){
+      if(state[b.id]) b.checked=true;
+      b.addEventListener('change',function(){ state[b.id]=b.checked; save(); update(g); });
+    });
+    update(g);
+  });
+  document.querySelectorAll('[data-reset]').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var g=btn.getAttribute('data-reset');
+      boxes(g).forEach(function(b){ b.checked=false; delete state[b.id]; });
+      save(); update(g);
+    });
+  });
+  document.querySelectorAll('[data-copy]').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var t=btn.getAttribute('data-copy');
+      function done(){ btn.textContent='복사됨'; setTimeout(function(){ btn.textContent='복사'; },1500); }
+      function fallback(){
+        var span=btn.previousElementSibling, r=document.createRange();
+        r.selectNodeContents(span); var s=window.getSelection(); s.removeAllRanges(); s.addRange(r);
+        btn.textContent='선택됨';
+      }
+      if(navigator.clipboard&&navigator.clipboard.writeText){
+        navigator.clipboard.writeText(t).then(done,fallback);
+      } else fallback();
+    });
+  });
+  document.querySelectorAll('.rm-tabs button').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var day=btn.getAttribute('data-day');
+      document.querySelectorAll('.rm-tabs button').forEach(function(b){ b.classList.toggle('on',b===btn); b.setAttribute('aria-pressed',b===btn); });
+      var svg=document.getElementById('routesvg'); if(svg) svg.setAttribute('data-show',day);
+      document.querySelectorAll('.rm-day').forEach(function(el){ el.classList.toggle('dim',day!=='all'&&el.getAttribute('data-for')!==day); });
+    });
+  });
+})();
+</script>
